@@ -1,0 +1,136 @@
+The Arabic localization is incomplete.
+
+Current issue:
+When Arabic is selected, many pages still use English/LTR layout behavior.
+
+Arabic pages must be fully RTL, not just translated text.
+
+━━━━━━━━━━━━━━━━━━━━
+GLOBAL RTL REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+When language = Arabic:
+
+Set:
+
+<html dir="rtl" lang="ar">
+
+or
+
+document.documentElement.dir = "rtl"
+
+The entire application should switch to RTL mode.
+
+━━━━━━━━━━━━━━━━━━━━
+LAYOUT REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+For Arabic:
+
+* Page content starts from the right.
+* Sidebars appear on the right side.
+* Navigation flows right-to-left.
+* Cards align from right to left.
+* Form labels align right.
+* Input text aligns right.
+* Tables align right.
+* Search placeholders align right.
+* Modals align right.
+* Dropdowns open correctly in RTL.
+
+━━━━━━━━━━━━━━━━━━━━
+TEXT ALIGNMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic pages must use:
+
+text-align: right;
+
+for:
+
+* Titles
+* Paragraphs
+* Cards
+* Widgets
+* Tables
+* Forms
+* Reports
+* AI responses
+
+No Arabic text should appear left-aligned unless explicitly required.
+
+━━━━━━━━━━━━━━━━━━━━
+GRID & FLEX FIXES
+━━━━━━━━━━━━━━━━━━━━
+
+Review all pages and components.
+
+Replace layouts that are hardcoded for LTR.
+
+Examples:
+
+flex-row
+→ flex-row-reverse in RTL
+
+margin-left
+→ margin-right in RTL
+
+padding-left
+→ padding-right in RTL
+
+left positioning
+→ right positioning in RTL
+
+━━━━━━━━━━━━━━━━━━━━
+AI ASSISTANT
+━━━━━━━━━━━━━━━━━━━━
+
+When Arabic is selected:
+
+* AI responses must be Arabic.
+* AI report templates must be RTL.
+* Executive Briefs must be RTL.
+* Protocol reports must be RTL.
+
+When English is selected:
+
+* AI responses must be English.
+* Layout switches to LTR.
+
+━━━━━━━━━━━━━━━━━━━━
+PAGES TO VERIFY
+━━━━━━━━━━━━━━━━━━━━
+
+Check ALL pages:
+
+* Dashboard
+* Events
+* Event Details
+* Invitations
+* Calendar
+* Fleet Management
+* Family Tree
+* Reports
+* Approvals
+* AI Assistant
+* Login Page
+
+━━━━━━━━━━━━━━━━━━━━
+EXPECTED RESULT
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic mode should feel like a native Arabic government platform.
+
+English mode should feel like a native English platform.
+
+Switching language must switch:
+
+* Text
+* Layout
+* Alignment
+* Direction
+* Navigation
+* AI responses
+* Reports
+
+Not translation only.

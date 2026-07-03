@@ -1,0 +1,134 @@
+The current UI colors look washed out, flat, and too pale.
+
+The interface lost the luxury UAE government aesthetic.
+
+Please rebalance and strengthen the color system to match a premium executive dashboard.
+
+IMPORTANT:
+Do NOT redesign the layout.
+ONLY improve the color grading, hierarchy, contrast, and visual richness.
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN ISSUE
+━━━━━━━━━━━━━━━━━━━━
+
+Current problems:
+- Colors are too faded
+- Beige tones are overpowering the UI
+- Green is too weak/desaturated
+- Hero section lacks cinematic depth
+- Cards blend too much into background
+- Contrast is too low
+- Interface feels empty and unfinished
+
+━━━━━━━━━━━━━━━━━━━━
+TARGET STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+The UI should feel:
+- Luxury UAE government platform
+- Premium executive dashboard
+- Calm but rich
+- Elegant and modern
+- Cinematic beige aesthetic
+- Behance-quality composition
+
+Think:
+Apple enterprise UI + Qasr Al Watan luxury tones.
+
+━━━━━━━━━━━━━━━━━━━━
+OFFICIAL COLOR SYSTEM
+━━━━━━━━━━━━━━━━━━━━
+
+Use these colors EXACTLY:
+
+Primary Background:
+#FCF7EE
+
+Warm Beige:
+#F3E7D7
+
+Sunset Beige:
+#EBCCAD
+
+Executive Green:
+#67835C
+
+Elegant Neutral:
+#95837A
+
+Soft Teal:
+#97B2B1
+
+Luxury Gold Accent:
+#AD8965
+
+Borders:
+#E8DED1
+
+Main Text:
+#4B4038
+
+━━━━━━━━━━━━━━━━━━━━
+COLOR USAGE FIX
+━━━━━━━━━━━━━━━━━━━━
+
+Hero Section:
+- Add richer cinematic gradient
+- Blend warm beige with subtle teal
+- Add elegant lighting depth
+- Increase visual richness slightly
+
+Titles:
+- Use stronger Mangrove (#67835C)
+- Increase readability and elegance
+
+Cards:
+- Use cleaner white/beige cards
+- Add subtle contrast against background
+- Add elegant soft shadow
+
+Buttons:
+- Stronger executive green
+- Better hover contrast
+- More premium appearance
+
+Icons:
+- Use #AD8965 gold accents
+- Improve visibility slightly
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL DEPTH
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+- soft layered gradients
+- elegant depth
+- subtle shadow hierarchy
+- premium contrast
+
+Avoid:
+- flat beige everywhere
+- washed-out appearance
+- weak typography contrast
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT make it dark.
+Do NOT oversaturate colors.
+Do NOT create neon contrast.
+
+Keep it:
+- warm
+- calm
+- executive
+- premium
+- minimal
+- elegant
+
+The final UI should feel:
+“Luxury UAE Presidential Digital Platform”
+not:
+“pale unfinished dashboard”.

@@ -1,0 +1,220 @@
+Enhance the weekly calendar to become a fully interactive operational protocol calendar connected to real event data.
+
+IMPORTANT:
+The current calendar is still static and shows:
+"لا توجد فعاليات"
+
+This is incorrect.
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN REQUIREMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Connect the weekly calendar to REAL event data from the system.
+
+The calendar should dynamically display:
+- official visits
+- protocol meetings
+- delegation events
+- approvals
+- important activities
+- executive schedules
+
+based on the existing dashboard/event system.
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT DISPLAY INSIDE CALENDAR
+━━━━━━━━━━━━━━━━━━━━
+
+For days containing events:
+
+Display inside the day card:
+- event title
+- event time
+- event type
+- optional location
+- colored event chip
+- event status indicator
+
+Example:
+
+استقبال وفد رسمي
+10:00 ص
+قصر الوطن
+
+or
+
+اجتماع بروتوكول
+01:30 م
+قاعة الاتحاد
+
+━━━━━━━━━━━━━━━━━━━━
+TODAY STATE
+━━━━━━━━━━━━━━━━━━━━
+
+If today contains events:
+- show highlighted event cards
+- show small gold indicator
+- add subtle active state
+- add elegant hover interaction
+
+Do NOT show:
+"لا توجد فعاليات"
+
+if actual events exist.
+
+━━━━━━━━━━━━━━━━━━━━
+CLICKABLE EVENTS
+━━━━━━━━━━━━━━━━━━━━
+
+The calendar should NOT be static anymore.
+
+When the user clicks ANY event:
+Open a dedicated detailed event page.
+
+Route example:
+"/event-details/:id"
+
+Navigation flow:
+Dashboard →
+Weekly Calendar →
+Click event →
+Open full event details page
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Create a premium executive event details page.
+
+The page should include:
+
+- Event title
+- Event type
+- Event status
+- Event priority
+- Date and time
+- Location
+- Delegation country
+- VIP level
+- Event description
+- Protocol notes
+- Readiness percentage
+- Responsible teams
+- Task checklist
+- Timeline
+- Guest list
+- Fleet assignments
+- Hospitality arrangements
+- Security coordination
+- Attached documents
+- AI recommendations
+- Diplomatic briefing
+- Suggested protocol gifts
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+The event details page must feel:
+- Premium
+- Executive
+- Operational
+- Luxury UAE government platform
+
+Use:
+- Hero section for event summary
+- Elegant status chips
+- Readiness tracker
+- Timeline component
+- Soft beige cards
+- Thin borders
+- Executive typography
+- Arabic RTL layout
+
+━━━━━━━━━━━━━━━━━━━━
+USE EXISTING DATA
+━━━━━━━━━━━━━━━━━━━━
+
+The weekly calendar should dynamically read from:
+- events database
+- protocol visits
+- readiness tasks
+- approvals
+- official schedules
+
+If backend does NOT exist yet:
+Create temporary dynamic mock event data.
+
+Example:
+[
+  {
+    id: 1,
+    title: "استقبال وفد رسمي",
+    date: "2026-05-21",
+    time: "10:00 ص",
+    location: "قصر الوطن",
+    delegationCountry: "فرنسا",
+    readiness: 92
+  },
+  {
+    id: 2,
+    title: "اجتماع بروتوكول",
+    date: "2026-05-20",
+    time: "01:30 م",
+    location: "قاعة الاتحاد",
+    delegationCountry: "اليابان",
+    readiness: 88
+  }
+]
+
+━━━━━━━━━━━━━━━━━━━━
+INTERACTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Inside the calendar:
+- Add hover effect on events
+- Cursor pointer
+- Small elevation animation
+- Elegant chip hover
+- Smooth transition on click
+
+When opening event page:
+- Preserve selected event context
+- Use smooth page transition
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+- elegant beige event chips
+- soft gold indicators
+- luxury spacing
+- thin borders
+- minimal executive UI
+
+Colors:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+The weekly calendar must feel:
+- alive
+- operational
+- interactive
+- intelligent
+- connected to real system data
+
+NOT:
+- static placeholder calendar
+- empty template
+- fake UI component
+- simple admin calendar

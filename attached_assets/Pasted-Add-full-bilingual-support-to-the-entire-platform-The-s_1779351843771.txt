@@ -1,0 +1,190 @@
+Add full bilingual support to the entire platform.
+
+The system must fully support:
+- Arabic (RTL)
+- English (LTR)
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN REQUIREMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Create a professional multilingual system with smooth language switching between Arabic and English.
+
+Add a language switcher in the top header/navbar.
+
+Example:
+🇦🇪 العربية | 🇺🇸 English
+
+━━━━━━━━━━━━━━━━━━━━
+LANGUAGE SWITCHING
+━━━━━━━━━━━━━━━━━━━━
+
+When the user switches language:
+
+- Instantly translate the entire UI
+- Change layout direction automatically
+- Preserve current page and state
+- Apply proper typography for each language
+
+Arabic:
+- RTL layout
+- Arabic typography
+
+English:
+- LTR layout
+- English typography
+
+━━━━━━━━━━━━━━━━━━━━
+TRANSLATE ALL PAGES
+━━━━━━━━━━━━━━━━━━━━
+
+Translate ALL platform pages including:
+
+- Dashboard
+- AI Assistant
+- Calendar
+- Event Details
+- Fleet Management
+- Family Tree
+- Login Page
+- Reports
+- Forms
+- Notifications
+- Settings
+- Sidebar
+- Buttons
+- Tables
+- Statuses
+- Modals
+- Tooltips
+- AI suggestions
+- Export actions
+- Empty states
+
+Everything must support both languages dynamically.
+
+━━━━━━━━━━━━━━━━━━━━
+RTL / LTR SUPPORT
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic mode:
+- Sidebar on the RIGHT
+- Proper RTL spacing
+- Right-aligned text
+- Proper Arabic layouts
+
+English mode:
+- Sidebar on the LEFT
+- LTR layout
+- Left-aligned text
+- Proper English layouts
+
+The entire interface should intelligently mirror based on language.
+
+━━━━━━━━━━━━━━━━━━━━
+TRANSLATION SYSTEM
+━━━━━━━━━━━━━━━━━━━━
+
+Use a scalable i18n system.
+
+Recommended:
+- react-i18next
+OR
+- next-intl
+OR
+- i18n library already used in the project
+
+Create translation files:
+
+/locales/ar/common.json
+/locales/en/common.json
+
+━━━━━━━━━━━━━━━━━━━━
+TRANSLATION QUALITY
+━━━━━━━━━━━━━━━━━━━━
+
+English translation must feel:
+- professional
+- executive
+- government-grade
+- natural
+- not machine-translated
+
+Example:
+"المساعد الذكي"
+→ "Executive AI Assistant"
+
+NOT:
+→ "Smart Assistant"
+
+Example:
+"جاهزية الفعالية"
+→ "Event Readiness"
+
+Use premium enterprise wording.
+
+━━━━━━━━━━━━━━━━━━━━
+AI SUPPORT
+━━━━━━━━━━━━━━━━━━━━
+
+The AI assistant must also support both languages.
+
+If user writes Arabic:
+- respond in Arabic
+
+If user writes English:
+- respond in English
+
+If dashboard language changes:
+- AI suggestions and UI language should adapt automatically.
+
+━━━━━━━━━━━━━━━━━━━━
+TYPOGRAPHY
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic:
+- Elegant Arabic font
+- Premium readability
+
+English:
+- Playfair or elegant serif for titles
+- Modern clean body font
+
+━━━━━━━━━━━━━━━━━━━━
+LANGUAGE SWITCHER DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+The language switcher should:
+- look premium
+- small elegant pill
+- minimal
+- executive style
+
+Use:
+- subtle hover
+- soft beige borders
+- elegant icons
+
+━━━━━━━━━━━━━━━━━━━━
+ANIMATIONS
+━━━━━━━━━━━━━━━━━━━━
+
+When switching language:
+- smooth transition
+- no page flashing
+- preserve layout quality
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+The platform must feel like:
+- a real international executive government platform
+- fully multilingual
+- professionally localized
+
+NOT:
+- partially translated
+- broken RTL
+- mixed layouts
+- machine-translated UI

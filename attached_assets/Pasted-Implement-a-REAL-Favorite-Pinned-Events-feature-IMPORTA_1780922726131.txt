@@ -1,0 +1,166 @@
+Implement a REAL Favorite / Pinned Events feature.
+
+IMPORTANT:
+The current implementation is missing or not working.
+
+I need a fully functional feature where users can manually pin any event and see it reflected on the Home Dashboard.
+
+━━━━━━━━━━━━━━━━━━━━
+PIN EVENT FEATURE
+━━━━━━━━━━━━━━━━━━━━
+
+Every event card must contain:
+
+⭐ Add to Favorites
+
+OR
+
+📌 Pin Event
+
+When clicked:
+
+- Save the event as a favorite.
+- Persist the selection.
+- Show visual feedback.
+- Change icon state to:
+  "Pinned" or "Favorited"
+
+Example:
+
+📌 Pinned
+
+━━━━━━━━━━━━━━━━━━━━
+EVENTS PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Inside the Events page:
+
+Add a section at the top:
+
+"الفعاليات المفضلة"
+
+English:
+"Favorite Events"
+
+Display all pinned events.
+
+Show:
+
+- Event title
+- Date
+- Time
+- Location
+- Readiness %
+- Status
+
+Allow:
+- Open event
+- Remove from favorites
+- Reorder favorites
+
+━━━━━━━━━━━━━━━━━━━━
+HOME PAGE INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+Create a dedicated Home Dashboard widget.
+
+Title:
+
+"فعالياتي المفضلة"
+
+English:
+"My Favorite Events"
+
+This widget should automatically display all pinned events.
+
+Show:
+
+- Top 5 favorite events
+- Event title
+- Date
+- Readiness %
+- Status
+- Quick Open button
+
+If there are more than 5:
+Show:
+"عرض الكل"
+
+━━━━━━━━━━━━━━━━━━━━
+REAL-TIME SYNCHRONIZATION
+━━━━━━━━━━━━━━━━━━━━
+
+When user pins an event:
+
+Immediately update:
+
+- Events page
+- Home dashboard
+- Favorite events section
+
+Without page refresh.
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+Pinned events should display:
+
+📌 icon
+
+Color:
+#AD8965
+
+Pinned card style:
+- Slight highlight
+- Premium beige background
+- Soft border
+- Elegant shadow
+
+━━━━━━━━━━━━━━━━━━━━
+PERSISTENCE
+━━━━━━━━━━━━━━━━━━━━
+
+Store favorite events using:
+- database
+OR
+- user preferences table
+
+Do NOT use temporary UI state only.
+
+Pinned events must remain visible after:
+- refresh
+- logout/login
+- language change
+
+━━━━━━━━━━━━━━━━━━━━
+OPTIONAL ADVANCED FEATURE
+━━━━━━━━━━━━━━━━━━━━
+
+Allow users to mark:
+
+⭐ Favorite Event
+📌 Pinned Event
+
+Difference:
+
+Favorite:
+- Personal bookmark
+
+Pinned:
+- High-priority event shown on Dashboard
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL RESULT
+━━━━━━━━━━━━━━━━━━━━
+
+User workflow:
+
+Events Page →
+Select Event →
+Click 📌 Pin Event →
+Event appears immediately in:
+- Favorite Events section
+- Home Dashboard widget
+
+This must be a fully functional feature, not just a visual icon.

@@ -1,0 +1,233 @@
+Enhance the Flight Booking Center inside the Event Command Center.
+
+Current issue:
+The flight module is still too basic.
+
+I want the booking experience to feel like a real airline booking system, even if the data is fake/demo.
+
+━━━━━━━━━━━━━━━━━━━━
+TRIP TYPE
+━━━━━━━━━━━━━━━━━━━━
+
+Add trip type selection:
+
+1. One-way
+2. Round-trip
+
+Arabic:
+- ذهاب فقط
+- ذهاب وعودة
+
+English:
+- One-way
+- Round-trip
+
+Behavior:
+- If One-way is selected:
+  Show only departure date.
+- If Round-trip is selected:
+  Show departure date and return date.
+  Generate outbound and return flight options.
+  Create both departure and return flight records after booking.
+
+━━━━━━━━━━━━━━━━━━━━
+SMART AIRPORT SEARCH
+━━━━━━━━━━━━━━━━━━━━
+
+Replace manual airport fields with smart airport autocomplete.
+
+The user should be able to type:
+- country name
+- city name
+- region name
+- airport name
+- airport code
+
+Examples:
+- UAE → Abu Dhabi International Airport (AUH), Dubai International Airport (DXB)
+- Abu Dhabi → Abu Dhabi International Airport (AUH), Zayed International Airport
+- France → Paris Charles de Gaulle (CDG), Paris Orly (ORY)
+- London → Heathrow (LHR), Gatwick (LGW)
+- Saudi Arabia → Riyadh King Khalid (RUH), Jeddah King Abdulaziz (JED)
+
+The system should show airport suggestions automatically.
+
+Each suggestion should display:
+- Airport name
+- City
+- Country
+- IATA code
+- Terminal if available
+
+Use realistic demo airport data.
+
+Important:
+Do NOT keep airport fields as plain text only.
+They must behave like smart searchable dropdowns.
+
+━━━━━━━━━━━━━━━━━━━━
+FLIGHT SEARCH FLOW
+━━━━━━━━━━━━━━━━━━━━
+
+User flow:
+
+Travel Center →
+Book Flight →
+Select Trip Type →
+Enter Origin Airport →
+Enter Destination Airport →
+Select Departure Date →
+Select Return Date if round-trip →
+Select Passenger →
+Select Cabin Class →
+Search Flights →
+View Results →
+Select Flight →
+Confirm Booking
+
+━━━━━━━━━━━━━━━━━━━━
+FLIGHT RESULTS
+━━━━━━━━━━━━━━━━━━━━
+
+Show realistic flight cards.
+
+Each result should include:
+
+- Airline
+- Flight Number
+- Aircraft type
+- Origin airport
+- Destination airport
+- Departure time
+- Arrival time
+- Duration
+- Terminal
+- Cabin class
+- Baggage allowance
+- Fare type
+- Estimated fare
+- Seats available
+
+For round-trip:
+Show outbound and return flight sections.
+
+━━━━━━━━━━━━━━━━━━━━
+BOOKING CONFIRMATION
+━━━━━━━━━━━━━━━━━━━━
+
+After booking:
+
+Generate:
+- Fake PNR
+- Booking reference
+- E-ticket number
+- Passenger name
+- Flight itinerary
+- QR code / barcode
+- Booking status
+
+Statuses:
+- Pending
+- Confirmed
+- Cancelled
+- Delayed
+
+━━━━━━━━━━━━━━━━━━━━
+GENERATE TICKET
+━━━━━━━━━━━━━━━━━━━━
+
+After confirming the booking, generate a professional airline-style ticket.
+
+Ticket should include:
+
+- Passenger name
+- Booking reference / PNR
+- E-ticket number
+- Airline
+- Flight number
+- Departure airport
+- Arrival airport
+- Departure date/time
+- Arrival date/time
+- Terminal
+- Cabin class
+- Seat placeholder
+- Baggage allowance
+- QR code / barcode
+- Event name
+- Linked guest/delegation member
+
+━━━━━━━━━━━━━━━━━━━━
+TICKET ACTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Allow:
+
+- Preview ticket
+- Print ticket
+- Download PDF ticket
+- Send ticket to guest by Email
+- Send ticket to guest by SMS link
+
+Important:
+Even if sending is fake/demo:
+Show a realistic confirmation message:
+
+Arabic:
+"تم إرسال التذكرة إلى الضيف بنجاح"
+
+English:
+"Ticket sent to guest successfully"
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+After booking:
+
+Automatically attach the ticket to:
+- Guest profile
+- Travel record
+- Event documents
+- Airport Meet & Greet
+- Fleet pickup planning
+
+━━━━━━━━━━━━━━━━━━━━
+PROVIDER ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━
+
+Keep provider architecture:
+
+TravelProviderService
+
+Support:
+
+1. Demo Provider - default now
+2. Duffel Sandbox - future
+3. AYAT Integration - future
+4. Amadeus - future
+5. Manual Entry
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT require payment.
+Do NOT issue real tickets.
+Do NOT require live API keys.
+
+This is a realistic sandbox/demo booking experience.
+
+But it must look and feel like a real booking system.
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+- Arabic RTL
+- English LTR
+- Luxury UAE Government Design
+- Same beige palette
+- Thin line icons
+- Executive booking experience
+- Professional airline-style ticket design

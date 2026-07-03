@@ -1,0 +1,8 @@
+- [Event Command Center](event-command-center.md) — tabbed shell over /events/:id; public RSVP outside auth; bilingual + RTL conventions for this app.
+- [Dashboard grid architecture](dashboard-grid-persistence.md) — dashboard board is deterministic CSS Grid (RIGHT_COLUMN/LEFT_COLUMN in widget-meta), NOT react-grid-layout; RGL broke in RTL. Layout = edit those arrays.
+- [API server testing](api-server-testing.md) — vitest; put logic in pure `src/lib/` helpers (no db import) so tests stay DB-free; routes call them.
+- [RTL dir-aware icons](rtl-dir-aware-icons.md) — dir-icon.tsx flips with global lang; never nest a dir-aware icon inside an explicit dir="ltr"/"rtl" override (use a fixed lucide icon there).
+- [Object storage uploads](object-storage-uploads.md) — presigned-URL flow, generic logistics "file" field type, download served at `/api/storage{objectPath}`.
+- [i18n locale nesting trap](i18n-nesting-trap.md) — inserting a key block into the huge en.ts/ar.ts objects can land it at the wrong depth; typecheck still passes but keys render raw. Verify by runtime path resolution.
+- [Frontend testing](frontend-testing.md) — presidential-protocol uses vitest+jsdom with its OWN vitest.config (vite.config throws without PORT/BASE_PATH); gate = `test:web`.
+- [Per-officer preferences](per-officer-preferences.md) — no real auth; scope server-side per-user data by `ownerKey` (localStorage UUID from getOwnerKey). user_preferences table holds these.

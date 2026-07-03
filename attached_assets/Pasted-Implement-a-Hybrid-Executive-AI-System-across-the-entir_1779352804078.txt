@@ -1,0 +1,266 @@
+Implement a Hybrid Executive AI System across the entire platform.
+
+IMPORTANT:
+Do NOT place the same large AI card on every page.
+
+The AI should feel:
+- elegant
+- contextual
+- intelligent
+- executive
+- non-intrusive
+
+The platform should behave like a real luxury government operations system.
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN AI ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━
+
+Create THREE AI layers:
+
+1. Full Executive AI Center (Dashboard only)
+2. Contextual AI Assistants (inside pages)
+3. Floating Executive AI Button (global)
+
+━━━━━━━━━━━━━━━━━━━━
+1. DASHBOARD AI CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+On the main dashboard:
+Keep the large AI assistant section.
+
+Rename it:
+"مركز الذكاء التنفيذي"
+
+This section should include:
+- operational insights
+- readiness analysis
+- protocol recommendations
+- smart risks
+- executive summaries
+- AI suggestions
+- next actions
+
+The dashboard AI acts as:
+"Central Executive Operations Intelligence"
+
+━━━━━━━━━━━━━━━━━━━━
+2. CONTEXTUAL PAGE AI
+━━━━━━━━━━━━━━━━━━━━
+
+For ALL other pages:
+Do NOT show the full AI panel.
+
+Instead:
+Add smaller contextual AI assistants based on the page type.
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+"AI Event Copilot"
+
+Capabilities:
+- generate readiness plans
+- protocol briefing
+- seating suggestions
+- delegation analysis
+- timeline generation
+- gift recommendations
+- operational risks
+- VIP recommendations
+
+The AI should automatically understand:
+- event type
+- delegation country
+- VIP level
+- readiness
+- tasks
+
+━━━━━━━━━━━━━━━━━━━━
+FLEET MANAGEMENT PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+"Fleet AI Assistant"
+
+Capabilities:
+- detect vehicle shortages
+- maintenance alerts
+- driver conflicts
+- late arrivals
+- optimization suggestions
+- transport readiness
+
+━━━━━━━━━━━━━━━━━━━━
+REPORTS PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+"AI Report Assistant"
+
+Capabilities:
+- summarize reports
+- generate executive summaries
+- identify risks
+- extract insights
+- create management recommendations
+
+━━━━━━━━━━━━━━━━━━━━
+FAMILY TREE PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT add a large AI assistant.
+
+Only add:
+- smart search
+- relationship suggestions
+- quick contextual insights
+
+Keep this page clean and elegant.
+
+━━━━━━━━━━━━━━━━━━━━
+LOGIN PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT place AI on the login page.
+
+Keep the login experience:
+- cinematic
+- minimal
+- luxury
+- official
+
+━━━━━━━━━━━━━━━━━━━━
+3. FLOATING EXECUTIVE AI
+━━━━━━━━━━━━━━━━━━━━
+
+Add a global floating AI button across the platform.
+
+Requirements:
+- small elegant floating button
+- visible on all pages
+- non-intrusive
+- luxury executive style
+
+Position:
+- bottom left in Arabic RTL
+- bottom right in English LTR
+
+Style:
+- soft beige glassmorphism
+- elegant shadow
+- subtle animation
+- executive icon
+
+When clicked:
+Open a contextual AI drawer/panel.
+
+━━━━━━━━━━━━━━━━━━━━
+CONTEXT-AWARE AI
+━━━━━━━━━━━━━━━━━━━━
+
+The floating AI must automatically understand the current page context.
+
+Examples:
+
+If user is on:
+- Event Details →
+AI understands event data
+
+- Fleet Management →
+AI understands fleet status
+
+- Reports →
+AI understands report data
+
+- Calendar →
+AI understands schedules
+
+The AI should proactively suggest relevant actions.
+
+━━━━━━━━━━━━━━━━━━━━
+SMART DYNAMIC SUGGESTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT use static AI buttons.
+
+Instead:
+Generate dynamic suggestions based on:
+- page
+- event
+- risks
+- readiness
+- country
+- approvals
+- operational status
+
+Examples:
+- جهّز إحاطة دبلوماسية
+- راجع الجاهزية
+- أنشئ خطة النقل
+- اكتشف المخاطر
+- أنشئ تقرير تنفيذي
+
+Suggestions should appear as:
+- elegant smart chips
+- contextual recommendations
+- executive action pills
+
+━━━━━━━━━━━━━━━━━━━━
+UI/UX STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+The AI experience should feel:
+- premium
+- calm
+- executive
+- intelligent
+- futuristic
+- operational
+
+NOT:
+- chatbot-heavy
+- startup AI tool
+- cluttered interface
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN SYSTEM
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+Typography:
+- elegant serif titles
+- premium Arabic UI
+
+Use:
+- soft animations
+- smooth transitions
+- subtle hover
+- glassmorphism
+- thin line icons
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The final AI system should feel like:
+
+- Presidential Executive Intelligence Platform
+- UAE Government Operations AI
+- Smart Protocol Copilot
+- Executive Digital Command Center
+
+NOT:
+- generic chatbot
+- support widget
+- repetitive AI blocks
+- static AI menu

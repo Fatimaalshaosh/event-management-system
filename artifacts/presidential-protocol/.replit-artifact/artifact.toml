@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Presidential Protocol Platform"
+version = "1.0.0"
+id = "artifacts/presidential-protocol"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18621
+
+[services.development]
+run = "pnpm --filter @workspace/presidential-protocol run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/presidential-protocol", "run", "build" ]
+publicDir = "artifacts/presidential-protocol/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18621"
+BASE_PATH = "/"

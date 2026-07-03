@@ -1,0 +1,450 @@
+Transform the current Event Details page into a complete Executive Event Command Center.
+
+IMPORTANT:
+
+The Event Details page should no longer be a simple event profile.
+
+It should become the central operational workspace for managing official events, delegations, protocol visits, VIP ceremonies, and national events.
+
+Maintain:
+
+* Arabic RTL
+* English LTR
+* Luxury UAE Government Design
+* Executive Dashboard Style
+* Premium Typography
+* Beige Executive Theme
+
+Colors:
+
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 1
+INVITATIONS & RSVP CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+Create a complete invitation management module.
+
+Invitation Types:
+
+1. Domestic Invitations
+2. International Invitations
+3. VIP Invitations
+4. Delegation Invitations
+
+Invitation Channels:
+
+* Email
+* SMS
+* Future-ready WhatsApp integration
+
+━━━━━━━━━━━━━━━━━━━━
+INDIVIDUAL INVITATION
+━━━━━━━━━━━━━━━━━━━━
+
+Allow sending invitations to a single guest.
+
+The invitation should contain a secure public link.
+
+When the guest opens the link:
+
+Allow submission of:
+
+* Full Name
+* Nationality
+* Passport Number
+* Emirates ID
+* Organization
+* Job Title
+* Mobile Number
+* Email
+* Requires Flight?
+* Requires Hotel?
+* Requires Transportation?
+* Number of Accompanying Guests
+
+Once submitted:
+
+Automatically synchronize all data back into the event system.
+
+Show inside:
+
+Guests Dashboard
+
+Even if currently using fake/demo data.
+
+━━━━━━━━━━━━━━━━━━━━
+DELEGATION INVITATION
+━━━━━━━━━━━━━━━━━━━━
+
+Allow sending one invitation link to a delegation coordinator.
+
+The coordinator can submit:
+
+* Delegation Members
+* Passport Details
+* Flight Requests
+* Hotel Requests
+* Transportation Requests
+
+All delegation members should automatically appear inside:
+
+Delegation Management
+
+━━━━━━━━━━━━━━━━━━━━
+RSVP DASHBOARD
+━━━━━━━━━━━━━━━━━━━━
+
+Track:
+
+* Invitations Sent
+* Delivered
+* Opened
+* Accepted
+* Declined
+* Pending
+
+Display live statistics.
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 2
+PARTICIPANTS MANAGEMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Create a Participants Center.
+
+Separate:
+
+Internal Participants
+
+* Protocol
+* Logistics
+* Planning
+* Media
+* Security
+
+External Participants
+
+* Delegations
+* VIP Guests
+* Speakers
+* Vendors
+* Government Entities
+
+Display:
+
+* Attendance Status
+* Role
+* Organization
+* Contact Details
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 3
+TRAVEL MANAGEMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Create a dedicated Travel Center.
+
+Integrate with AYAT travel platform.
+
+Requirements:
+
+* Flight Search
+* Flight Reservation Tracking
+* Arrival Monitoring
+* Departure Monitoring
+
+Display:
+
+* Airline
+* Flight Number
+* Arrival Date
+* Departure Date
+* Airport
+* Terminal
+* Status
+
+Dashboard:
+
+* Arrived
+* Delayed
+* Pending
+* Cancelled
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 4
+HOTEL MANAGEMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Create a Hotel Center.
+
+Per guest:
+
+* Hotel
+* Room Type
+* Check-in
+* Check-out
+* VIP Suite
+* Reservation Status
+
+Dashboard:
+
+* Reserved
+* Pending
+* Checked-in
+* Checked-out
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 5
+TASKS & READINESS CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+Create a comprehensive readiness management module.
+
+Categories:
+
+Protocol
+
+* Guest Lists
+* Seating Plans
+* Invitations
+
+Logistics
+
+* Transport
+* Equipment
+* Accommodation
+
+Security
+
+* Access Control
+* VIP Security
+
+Media
+
+* Photography
+* Press Coverage
+
+Planning
+
+* Coordination
+* Timeline
+
+Each task must contain:
+
+* Owner
+* Team
+* Due Date
+* Priority
+* Status
+* Readiness Impact %
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 6
+FLEET MANAGEMENT INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+Connect the event with Fleet Management.
+
+Allow assigning:
+
+* Vehicles
+* Drivers
+* VIP Transportation
+
+Display:
+
+* Vehicle
+* Driver
+* Pickup Time
+* Destination
+* Status
+
+Show:
+
+Fleet Readiness %
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 7
+PROTOCOL GIFTS CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+Create a dedicated gifts module.
+
+Per delegation:
+
+* Gift Name
+* Category
+* Cultural Relevance
+* VIP Level
+* Approval Status
+* Delivery Status
+
+Track:
+
+* Pending
+* Approved
+* Delivered
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 8
+BUDGET & COST CONTROL
+━━━━━━━━━━━━━━━━━━━━
+
+Track:
+
+* Flights
+* Hotels
+* Transportation
+* Gifts
+* Catering
+* External Vendors
+
+Show:
+
+* Planned Budget
+* Actual Cost
+* Remaining Budget
+
+Generate:
+
+Total Event Cost
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 9
+DOCUMENTS CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+Central repository for:
+
+* Invitations
+* Guest Lists
+* Protocol Notes
+* Briefings
+* Reports
+* Event Documents
+
+Allow:
+
+* Upload
+* Download
+* Version Control
+
+━━━━━━━━━━━━━━━━━━━━
+MODULE 10
+AI PROTOCOL COPILOT
+━━━━━━━━━━━━━━━━━━━━
+
+Create an advanced AI assistant dedicated to the event.
+
+The AI should automatically understand:
+
+* Event Type
+* Delegation Country
+* VIP Level
+* Readiness Status
+* Participants
+* Travel Data
+* Hotel Data
+
+Available AI Actions:
+
+* Raise Readiness
+* Detect Risks
+* Generate Executive Timeline
+* Generate Protocol Briefing
+* Suggest Protocol Gifts
+* Generate Transport Plan
+* Generate Reception Plan
+* Generate Contingency Plan
+* Analyze Delegation Profile
+* Generate Executive Report
+
+━━━━━━━━━━━━━━━━━━━━
+AIRPORT OPERATIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+Airport Meet & Greet Center
+
+Track:
+
+* Arrivals
+* Escorts
+* Drivers
+* Vehicles
+* Reception Teams
+
+━━━━━━━━━━━━━━━━━━━━
+QR INVITATIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Generate unique QR Codes.
+
+Allow:
+
+* Guest Check-in
+* Attendance Tracking
+* VIP Verification
+
+━━━━━━━━━━━━━━━━━━━━
+RISK REGISTER
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+Event Risk Register
+
+Each risk contains:
+
+* Description
+* Severity
+* Impact
+* Mitigation Plan
+* Owner
+* Status
+
+━━━━━━━━━━━━━━━━━━━━
+LIVE OPERATIONS ROOM
+━━━━━━━━━━━━━━━━━━━━
+
+Create a special operational dashboard for event day.
+
+Display live:
+
+* Readiness
+* Arrivals
+* Flights
+* Hotels
+* Fleet Status
+* Approvals
+* Risks
+* Alerts
+
+This should feel like a real Executive Operations Center.
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The Event page should feel comparable to:
+
+* Cvent
+* Eventogy
+* Protocol Management Systems
+* Government VIP Visit Platforms
+
+NOT:
+
+* Simple Event Form
+* Basic Event Tracker
+* Standard Calendar Event
+
+The final result should operate as a complete Presidential Protocol Event Command Center.

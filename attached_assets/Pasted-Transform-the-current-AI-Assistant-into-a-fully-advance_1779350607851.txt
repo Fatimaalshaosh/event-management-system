@@ -1,0 +1,373 @@
+Transform the current AI Assistant into a fully advanced Executive Protocol Intelligence System.
+
+IMPORTANT:
+The AI must NOT behave like a generic chatbot.
+
+The AI should behave like:
+- Presidential protocol advisor
+- Executive operations intelligence center
+- Smart protocol copilot
+- Strategic operational assistant
+
+The AI should proactively:
+- analyze
+- predict
+- recommend
+- detect risks
+- guide the user
+- suggest next actions automatically
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN GOAL
+━━━━━━━━━━━━━━━━━━━━
+
+Create an AI experience that feels:
+- intelligent
+- operational
+- context-aware
+- proactive
+- luxurious
+- executive
+- mission-critical
+
+Think:
+“AI Operations Center for Presidential Protocol”
+
+NOT:
+- simple chat widget
+- startup AI assistant
+- generic ChatGPT clone
+
+━━━━━━━━━━━━━━━━━━━━
+1. SMART NEXT ACTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+After EVERY AI response:
+Automatically generate:
+"اقتراحات تالية"
+
+Examples:
+- جهّز خطة النقل
+- أنشئ جدول الوفد
+- راجع قائمة كبار الشخصيات
+- جهّز الإحاطة الأمنية
+- جهّز قائمة الهدايا
+- أنشئ خطة الجاهزية
+- أنشئ دعوات رسمية
+
+The AI should always guide the next operational step automatically.
+
+━━━━━━━━━━━━━━━━━━━━
+2. AI RISK DETECTION
+━━━━━━━━━━━━━━━━━━━━
+
+The AI should automatically detect operational risks.
+
+Examples:
+- تأخر الموافقات
+- انخفاض الجاهزية
+- نقص المركبات
+- تضارب المواعيد
+- تأخر الدعوات
+- نقص الضيافة
+- نقص التنسيق الأمني
+- عدم اكتمال قوائم الشخصيات
+
+Generate:
+⚠️ Smart Risk Alerts
+
+Example:
+"قد يؤثر تأخر اعتماد قائمة المدعوين على ترتيبات الجلوس والاستقبال."
+
+Show:
+- severity
+- operational impact
+- recommended resolution
+
+━━━━━━━━━━━━━━━━━━━━
+3. AI PROTOCOL ADVISOR
+━━━━━━━━━━━━━━━━━━━━
+
+When a country or delegation is selected:
+The AI should automatically generate:
+
+- diplomatic etiquette
+- greeting protocol
+- seating protocol
+- dress code
+- cultural sensitivities
+- sensitive topics
+- official titles
+- meeting etiquette
+- gift etiquette
+
+Examples:
+- Japan
+- France
+- Saudi Arabia
+- USA
+- China
+- India
+- UK
+
+The AI should customize recommendations dynamically.
+
+━━━━━━━━━━━━━━━━━━━━
+4. AI OPERATIONAL COPILOT
+━━━━━━━━━━━━━━━━━━━━
+
+When user creates an official event:
+The AI should automatically help generate:
+
+- operational checklist
+- timeline
+- readiness plan
+- fleet recommendations
+- security coordination
+- hospitality planning
+- seating arrangements
+- VIP handling
+- escort planning
+- arrival/departure flow
+
+The AI should behave like:
+“Executive Protocol Project Manager”
+
+━━━━━━━━━━━━━━━━━━━━
+5. AI AUTO RECOMMENDATIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Based on:
+- VIP level
+- delegation country
+- event type
+- protocol level
+- venue
+- schedule
+
+The AI should proactively suggest:
+- appropriate hospitality
+- vehicle types
+- security level
+- protocol gifts
+- reception arrangements
+- hall setup
+- official wording
+
+WITHOUT waiting for user request.
+
+━━━━━━━━━━━━━━━━━━━━
+6. AI TIMELINE BUILDER
+━━━━━━━━━━━━━━━━━━━━
+
+Allow the AI to generate:
+minute-by-minute official visit timelines.
+
+Example:
+- Arrival
+- استقبال رسمي
+- اجتماع ثنائي
+- جلسة تصوير
+- مأدبة رسمية
+- مغادرة
+
+Add:
+- timeline visualization
+- operational dependencies
+- delay risk warnings
+
+━━━━━━━━━━━━━━━━━━━━
+7. DAILY EXECUTIVE SUMMARY
+━━━━━━━━━━━━━━━━━━━━
+
+Every day the AI should generate:
+"الملخص التنفيذي اليومي"
+
+Include:
+- important visits
+- readiness status
+- pending approvals
+- operational risks
+- VIP arrivals
+- delayed tasks
+- fleet readiness
+- critical alerts
+
+Display inside elegant executive summary card.
+
+━━━━━━━━━━━━━━━━━━━━
+8. SMART AI NOTIFICATIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Replace generic notifications with AI-driven operational insights.
+
+Examples:
+- "يفضل إرسال التذكير للمدعوين الآن."
+- "جاهزية النقل أقل من المطلوب."
+- "تم رصد تعارض محتمل في جدول الوفد."
+
+Notifications should feel intelligent and operational.
+
+━━━━━━━━━━━━━━━━━━━━
+9. AI MEETING BRIEF GENERATOR
+━━━━━━━━━━━━━━━━━━━━
+
+Before meetings:
+Generate:
+- attendees
+- backgrounds
+- sensitivities
+- protocol instructions
+- talking points
+- diplomatic considerations
+- VIP handling notes
+
+Style:
+Executive briefing document.
+
+━━━━━━━━━━━━━━━━━━━━
+10. AI DOCUMENT GENERATOR
+━━━━━━━━━━━━━━━━━━━━
+
+Add one-click AI document generation for:
+
+- تقارير بروتوكولية
+- إحاطات تنفيذية
+- دعوات رسمية
+- جدول الوفد
+- خطة الجاهزية
+- تقارير الزيارة
+- تقارير المخاطر
+- تقارير تشغيلية
+
+Allow:
+- export PDF
+- export Word
+- save to event file
+
+━━━━━━━━━━━━━━━━━━━━
+11. AI CONTEXT AWARENESS
+━━━━━━━━━━━━━━━━━━━━
+
+The AI MUST understand:
+- delegation country
+- event type
+- VIP level
+- readiness status
+- fleet status
+- hospitality readiness
+- approvals
+- guest list
+- security coordination
+- schedules
+- operational risks
+
+The AI should use real dashboard/event data dynamically.
+
+━━━━━━━━━━━━━━━━━━━━
+12. AI MEMORY
+━━━━━━━━━━━━━━━━━━━━
+
+The AI should remember:
+- recurring delegation preferences
+- VIP preferences
+- preferred protocol style
+- frequently used venues
+- preferred hospitality
+- recurring operational patterns
+
+Example:
+If a delegation repeatedly visits,
+the AI should recall previous arrangements.
+
+━━━━━━━━━━━━━━━━━━━━
+13. AI INTERFACE IMPROVEMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Upgrade the AI card UI.
+
+Add:
+- suggested prompts
+- smart chips
+- AI status indicator
+- executive insight cards
+- expandable recommendations
+- quick operational actions
+- structured AI output sections
+
+━━━━━━━━━━━━━━━━━━━━
+14. AI RESPONSE FORMAT
+━━━━━━━━━━━━━━━━━━━━
+
+AI responses should appear as:
+- executive operational reports
+- structured sections
+- timelines
+- recommendations
+- warnings
+- next actions
+
+NOT:
+- plain chat messages
+
+━━━━━━━━━━━━━━━━━━━━
+15. BACKEND AI INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+POST /api/ai-assistant
+
+Use:
+OPENAI_API_KEY
+
+Do NOT expose API keys in frontend.
+
+Use:
+- real event context
+- dashboard data
+- protocol data
+- readiness tracker
+- fleet data
+- approvals
+- schedules
+
+━━━━━━━━━━━━━━━━━━━━
+16. VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Keep:
+- Arabic RTL
+- luxury UAE government style
+- elegant beige executive aesthetic
+
+Use:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+Add:
+- subtle animations
+- executive report layouts
+- premium spacing
+- thin line icons
+- glassmorphism
+- cinematic polish
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The final AI system should feel like:
+
+- Presidential Executive Intelligence Platform
+- Smart Protocol Operations Center
+- Luxury UAE Government AI System
+- Executive Diplomatic Operations Assistant
+
+NOT:
+- generic chatbot
+- support assistant
+- startup AI widget

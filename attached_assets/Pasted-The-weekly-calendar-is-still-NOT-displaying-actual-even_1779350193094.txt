@@ -1,0 +1,124 @@
+The weekly calendar is still NOT displaying actual events.
+
+Currently every day shows:
+"لا توجد فعاليات"
+
+This is incorrect.
+
+━━━━━━━━━━━━━━━━━━━━
+REQUIRED FIX
+━━━━━━━━━━━━━━━━━━━━
+
+Connect the weekly calendar to REAL event data from the system.
+
+The calendar should automatically display:
+- official visits
+- protocol meetings
+- delegation events
+- approvals
+- important activities
+
+based on the existing dashboard/event data.
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT DISPLAY
+━━━━━━━━━━━━━━━━━━━━
+
+For days with events:
+
+Show inside the calendar card:
+- event title
+- event time
+- event type
+- optional location
+- colored event chip
+
+Example:
+
+استقبال وفد رسمي
+10:00 ص
+قصر الوطن
+
+or
+
+اجتماع بروتوكول
+01:30 م
+قاعة الاتحاد
+
+━━━━━━━━━━━━━━━━━━━━
+TODAY STATE
+━━━━━━━━━━━━━━━━━━━━
+
+If today contains events:
+- show highlighted event cards
+- show small gold indicator
+- add subtle active state
+
+Do NOT show:
+"لا توجد فعاليات"
+
+if actual events exist.
+
+━━━━━━━━━━━━━━━━━━━━
+USE EXISTING DATA
+━━━━━━━━━━━━━━━━━━━━
+
+The weekly calendar should dynamically read from:
+- events database
+- protocol visits
+- readiness tasks
+- approvals
+- official schedules
+
+If no backend exists yet:
+Create mock dynamic event data temporarily.
+
+Example mock events:
+[
+  {
+    title: "استقبال وفد رسمي",
+    date: "2026-05-21",
+    time: "10:00 ص",
+    location: "قصر الوطن"
+  },
+  {
+    title: "اجتماع بروتوكول",
+    date: "2026-05-20",
+    time: "01:30 م",
+    location: "قاعة الاتحاد"
+  }
+]
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+- elegant beige event chips
+- thin borders
+- subtle hover
+- gold indicators
+- executive spacing
+
+Colors:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+The weekly calendar must feel:
+- alive
+- operational
+- interactive
+- connected to real system data
+
+NOT:
+- static placeholder calendar
+- empty template
+- fake UI block

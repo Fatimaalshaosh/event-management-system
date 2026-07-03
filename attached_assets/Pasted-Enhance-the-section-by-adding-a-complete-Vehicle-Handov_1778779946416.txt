@@ -1,0 +1,162 @@
+Enhance the “إدارة الأسطول” section by adding a complete Vehicle Handover & Return Inspection system.
+
+Purpose:
+Track the vehicle condition before and after each assignment to ensure accountability and protect official protocol vehicles.
+
+━━━━━━━━━━━━━━━━━━━━
+NEW MODULE
+━━━━━━━━━━━━━━━━━━━━
+
+Add a new module:
+"تقرير تسليم واستلام المركبة"
+
+This module should support:
+- Vehicle inspection before delivery
+- Vehicle inspection after return
+- Driver acknowledgment
+- Damage comparison
+- Condition evaluation
+
+━━━━━━━━━━━━━━━━━━━━
+PRE-DELIVERY INSPECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Before handing over the vehicle to the driver, create a report including:
+
+- رقم المركبة
+- اسم السائق
+- تاريخ ووقت التسليم
+- مستوى الوقود
+- عدد الكيلومترات
+- حالة النظافة
+- حالة الإطارات
+- حالة الزجاج
+- حالة الهيكل الخارجي
+- وجود ضربات أو خدوش
+- صور المركبة قبل التسليم
+- ملاحظات المشرف
+
+Add:
+Vehicle body inspection map:
+- Front
+- Rear
+- Left side
+- Right side
+- Roof
+
+Allow marking:
+- Scratch
+- Dent
+- Crack
+- Missing part
+
+━━━━━━━━━━━━━━━━━━━━
+RETURN INSPECTION
+━━━━━━━━━━━━━━━━━━━━
+
+When the driver returns the vehicle:
+
+Create comparison report showing:
+- حالة المركبة عند الإرجاع
+- هل توجد أضرار جديدة؟
+- مقارنة الصور قبل وبعد
+- مستوى الوقود
+- عدد الكيلومترات
+- حالة النظافة
+- تقييم الاستخدام
+
+Statuses:
+- سليمة
+- توجد ملاحظات
+- يوجد ضرر جديد
+- بحاجة صيانة
+
+━━━━━━━━━━━━━━━━━━━━
+SMART DAMAGE DETECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Add smart visual comparison section:
+
+Show:
+- الأضرار السابقة
+- الأضرار الجديدة
+- المناطق المتأثرة
+
+Use:
+- highlighted vehicle diagram
+- color indicators
+- side-by-side photo comparison
+
+━━━━━━━━━━━━━━━━━━━━
+APPROVAL FLOW
+━━━━━━━━━━━━━━━━━━━━
+
+Workflow:
+1. تسليم المركبة
+2. توقيع السائق
+3. تنفيذ المهمة
+4. استلام المركبة
+5. مراجعة الحالة
+6. اعتماد التقرير
+
+━━━━━━━━━━━━━━━━━━━━
+DRIVER EVALUATION
+━━━━━━━━━━━━━━━━━━━━
+
+Add driver evaluation section:
+- الالتزام
+- نظافة المركبة
+- الالتزام بالمواعيد
+- المحافظة على المركبة
+
+Rating:
+1–5 stars or executive score
+
+━━━━━━━━━━━━━━━━━━━━
+REPORTS
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+- تقارير الأضرار
+- سجل استخدام المركبة
+- سجل المخالفات
+- تقارير الصيانة
+- سجل التسليم والاستلام
+
+Export:
+- PDF
+- Excel
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Style must match:
+- Luxury UAE government dashboard
+- Soft beige executive UI
+- Minimal layout
+- Thin line icons
+- Elegant vehicle diagrams
+- Clean inspection cards
+- Spacious forms
+
+Use:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+This module should feel like:
+- Official protocol fleet operations center
+- Executive transportation inspection system
+- Premium government logistics platform
+
+NOT:
+- Generic car rental app
+- Basic fleet management software

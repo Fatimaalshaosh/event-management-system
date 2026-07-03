@@ -1,0 +1,94 @@
+Create a premium advanced Arabic RTL Family Tree page for:
+"شجرة عائلة الشيخ زايد بن سلطان آل نهيان"
+
+Design it as a luxury presidential protocol relationship map, not a normal genealogy page.
+
+Style:
+- Very modern, elegant, respectful, and official
+- UAE government luxury aesthetic
+- Soft beige background
+- Gold and Mangrove green accents
+- Thin line icons
+- Subtle Emirati geometric motifs
+- Smooth connector lines
+- Spacious layout
+- Premium profile cards
+- Clean hierarchy
+- High-end interactive UI
+
+Colors:
+#FCF7EE, #AD8965, #95837A, #67835C, #97B2B1, #EBCCAD
+
+Typography:
+- Elegant serif titles like Playfair
+- Clean readable Arabic body text
+- RTL layout only
+
+Main page title:
+"شجرة عائلة الشيخ زايد بن سلطان آل نهيان"
+
+Subtitle:
+"عرض العلاقات العائلية والارتباطات الرسمية بطريقة منظمة تدعم أعمال البروتوكول"
+
+Main tree structure:
+- Top central profile card:
+  "الشيخ زايد بن سلطان آل نهيان"
+  "المؤسس، رحمه الله"
+
+Under him, create modern connected cards for his sons.
+
+Include profile image area for each person:
+- Use circular official portrait placeholder
+- If real images are available, use respectful official portrait images
+- If not available, use elegant avatar placeholders with initials
+- Do not use random or incorrect faces
+- Images must be uniform, professional, and cropped consistently
+
+Sample cards:
+- صاحب السمو الشيخ خليفة بن زايد آل نهيان
+- صاحب السمو الشيخ محمد بن زايد آل نهيان
+- سمو الشيخ سلطان بن زايد آل نهيان
+- سمو الشيخ حمدان بن زايد آل نهيان
+- سمو الشيخ هزاع بن زايد آل نهيان
+- سمو الشيخ طحنون بن زايد آل نهيان
+- سمو الشيخ منصور بن زايد آل نهيان
+- سمو الشيخ عبدالله بن زايد آل نهيان
+
+Each profile card should include:
+- Circular portrait
+- Full Arabic name
+- Official title / role
+- Relationship label
+- VIP badge
+- Expand details button
+- Protocol notes icon
+
+Advanced UI features:
+- Search by name
+- Filter by generation
+- Filter by official role
+- Expand / collapse branches
+- Relationship details side panel
+- Protocol notes section
+- Export as PDF
+- Print view
+- Zoom in / zoom out
+- Drag to navigate tree
+- Mini map overview
+- Highlight direct relationship path
+
+Visual style:
+- Use smooth curved connector lines
+- Use glass-like soft beige cards
+- Use gold accents for important figures
+- Use Mangrove green for active/selected cards
+- Keep the layout clean and not crowded
+- Make the tree horizontally scrollable
+- Add subtle animation when expanding branches
+
+Important:
+- Do not make it look like a casual family tree app.
+- It must look like a presidential protocol intelligence map.
+- Use placeholder data where information is incomplete.
+- Add this note at the bottom:
+"هذه البيانات نموذجية وقابلة للتحديث من قبل فريق البروتوكول."

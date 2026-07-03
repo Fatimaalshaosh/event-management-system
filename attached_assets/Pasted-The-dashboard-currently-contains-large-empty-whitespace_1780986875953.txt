@@ -1,0 +1,193 @@
+The dashboard currently contains large empty whitespace at the bottom of the page.
+
+Do NOT simply add random widgets.
+
+Instead redesign the dashboard layout to create a balanced executive workspace with minimal unused space.
+
+━━━━━━━━━━━━━━━━━━━━
+LAYOUT IMPROVEMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Replace the current fixed column layout with a responsive masonry-style executive dashboard.
+
+Goal:
+
+* Eliminate large empty areas.
+* Keep cards aligned naturally.
+* Make the page feel dense but elegant.
+
+━━━━━━━━━━━━━━━━━━━━
+CARD REORGANIZATION
+━━━━━━━━━━━━━━━━━━━━
+
+Current issue:
+The left column is significantly longer than the center and right columns.
+
+Rebalance all dashboard cards.
+
+Suggested order:
+
+Row 1
+
+* Readiness Tracker
+* Upcoming Tasks
+
+Row 2
+
+* Upcoming Events
+* Official Visits
+
+Row 3
+
+* Executive AI Center
+* Pending Approvals
+
+Row 4
+
+* Favorite Events
+* Quick Export
+
+Row 5
+
+* Recent Reports
+* Smart Monitoring
+
+Distribute cards evenly.
+
+━━━━━━━━━━━━━━━━━━━━
+CONVERT SIDE PANELS
+━━━━━━━━━━━━━━━━━━━━
+
+Move:
+
+* Executive AI Center
+* Pending Approvals
+* Quick Export
+
+into stacked executive widgets.
+
+Allow them to resize automatically.
+
+━━━━━━━━━━━━━━━━━━━━
+DASHBOARD DENSITY
+━━━━━━━━━━━━━━━━━━━━
+
+Increase useful information density.
+
+Add compact widgets:
+
+📌 Favorite Events
+👀 Watched Events
+📊 Weekly Summary
+⚠️ Active Risks
+📄 Recent Reports
+
+These should occupy empty areas naturally.
+
+━━━━━━━━━━━━━━━━━━━━
+RECENT REPORTS WIDGET
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+"أحدث التقارير"
+
+English:
+"Recent Reports"
+
+Show:
+
+* Report Name
+* Date
+* Export Type
+
+Allow:
+
+* Open
+* Download
+
+━━━━━━━━━━━━━━━━━━━━
+SMART MONITORING WIDGET
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+"المتابعة الذكية"
+
+English:
+"Smart Monitoring"
+
+Show:
+
+* Events with readiness drops
+* Upcoming deadlines
+* Delayed approvals
+* Fleet alerts
+
+━━━━━━━━━━━━━━━━━━━━
+FAVORITES WIDGET
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+"فعالياتي المفضلة"
+
+English:
+"My Favorite Events"
+
+Show:
+
+* Top pinned events
+* Quick open links
+
+━━━━━━━━━━━━━━━━━━━━
+WATCHED EVENTS WIDGET
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+"الفعاليات المتابعة"
+
+English:
+"Watched Events"
+
+Show:
+
+* Event name
+* Latest update
+* Alert count
+
+━━━━━━━━━━━━━━━━━━━━
+RESPONSIVE BEHAVIOR
+━━━━━━━━━━━━━━━━━━━━
+
+Cards should automatically rearrange.
+
+Never leave large empty blocks.
+
+The dashboard should always appear visually balanced.
+
+Use:
+
+* CSS Grid
+* Masonry Layout
+* Auto Height Cards
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL GOAL
+━━━━━━━━━━━━━━━━━━━━
+
+The dashboard should feel similar to:
+
+* Notion Executive Dashboard
+* Microsoft Viva Dashboard
+* Apple Executive Workspace
+
+while preserving:
+
+* UAE Government style
+* Beige luxury palette
+* Large whitespace between sections
+* Elegant typography
+
+The final dashboard must have no obvious empty zones or dead space.

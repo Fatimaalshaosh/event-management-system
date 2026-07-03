@@ -1,0 +1,166 @@
+Enhance the Favorites / Pinned Events feature.
+
+IMPORTANT:
+Users should be able to add or remove an event from Favorites directly from the Event Details page.
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT DETAILS PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Inside every Event Details page add:
+
+⭐ Add to Favorites
+
+OR
+
+📌 Pin Event
+
+Position:
+- Near the event title
+OR
+- Top-right corner of the event header
+
+Example:
+
+استقبال وفد رسمي
+📌 Pinned
+
+━━━━━━━━━━━━━━━━━━━━
+TOGGLE BEHAVIOR
+━━━━━━━━━━━━━━━━━━━━
+
+When the user clicks:
+
+📌 Pin Event
+
+The event should immediately:
+
+- Be added to Favorites
+- Be added to Pinned Events
+- Appear on Home Dashboard
+- Appear in Favorite Events section
+- Update the icon state
+
+New state:
+
+📌 Pinned
+
+━━━━━━━━━━━━━━━━━━━━
+REMOVE FAVORITE
+━━━━━━━━━━━━━━━━━━━━
+
+If the event is already pinned:
+
+Show:
+
+📌 Pinned
+
+When clicked again:
+
+- Remove from Favorites
+- Remove from Home Dashboard widget
+- Remove from Favorite Events section
+- Update immediately
+
+New state:
+
+⭐ Add to Favorites
+
+━━━━━━━━━━━━━━━━━━━━
+REAL-TIME UPDATE
+━━━━━━━━━━━━━━━━━━━━
+
+Changes must be reflected instantly.
+
+No page refresh required.
+
+Update:
+- Event Details page
+- Events page
+- Favorite Events section
+- Home Dashboard widget
+
+Immediately after the click.
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL FEEDBACK
+━━━━━━━━━━━━━━━━━━━━
+
+When pinned:
+
+- Animate the pin icon
+- Show success message:
+
+"تمت إضافة الفعالية إلى المفضلة"
+
+English:
+"Event added to favorites"
+
+When removed:
+
+"تمت إزالة الفعالية من المفضلة"
+
+English:
+"Event removed from favorites"
+
+━━━━━━━━━━━━━━━━━━━━
+HOME DASHBOARD
+━━━━━━━━━━━━━━━━━━━━
+
+The Dashboard widget:
+
+"فعالياتي المفضلة"
+
+must update automatically whenever:
+
+- Event added
+- Event removed
+
+Without reloading the page.
+
+━━━━━━━━━━━━━━━━━━━━
+PERSISTENCE
+━━━━━━━━━━━━━━━━━━━━
+
+Save favorites per user.
+
+Favorites must remain after:
+- Refresh
+- Logout/Login
+- Language switch
+
+Use:
+- database
+- user profile preferences
+
+Do NOT use temporary frontend state only.
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+Pinned state:
+📌 Gold Accent (#AD8965)
+
+Favorite state:
+⭐ Soft luxury highlight
+
+Use:
+- elegant animation
+- premium hover effects
+- luxury government UI style
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+User Flow:
+
+Open Event →
+Click 📌 Pin Event →
+Event instantly appears on Home Page Favorites Widget
+
+Click again →
+Event instantly disappears from Home Page Favorites Widget
+
+Everything should stay synchronized automatically.

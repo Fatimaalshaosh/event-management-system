@@ -1,0 +1,315 @@
+Add a new official event creation flow and enhance the AI Assistant with advanced protocol intelligence actions.
+
+This update includes TWO parts:
+1. Add a new quick action and page for creating an official event for an international delegation visit.
+2. Enhance the AI Assistant with real interactive protocol intelligence actions.
+
+━━━━━━━━━━━━━━━━━━━━
+PART 1: OFFICIAL EVENT CREATION PAGE
+━━━━━━━━━━━━━━━━━━━━
+
+Add a new quick action and page for:
+
+"أنشئ فعالية رسمية لزيارة وفد دولي"
+
+Use the existing HTML file:
+create_official_event_form_ar.html
+
+Requirements:
+- Add this option under the smart actions section.
+- Button text:
+"أنشئ فعالية رسمية لزيارة وفد دولي"
+
+When clicked:
+- Open the existing page/form:
+create_official_event_form_ar.html
+
+Make sure:
+- The page follows Arabic RTL layout.
+- The form is integrated into the platform, not opened as a random external page.
+- Use the same luxury UAE government design.
+- Use the same sidebar and topbar style.
+- Use the same official color palette:
+  #FCF7EE
+  #AD8965
+  #95837A
+  #67835C
+  #97B2B1
+  #EBCCAD
+
+If the file is not inside the project:
+- Create a new route/page with the same form content.
+- Name the route:
+"/create-official-event"
+
+Navigation behavior:
+Dashboard → Click “أنشئ فعالية رسمية لزيارة وفد دولي” → Open the official event form page.
+
+Important:
+Do NOT use local Windows path like:
+file:///C:/Users/...
+
+Instead:
+Import or move the HTML/form into the project files and connect it properly inside the app routing.
+
+━━━━━━━━━━━━━━━━━━━━
+PART 2: ADVANCED AI PROTOCOL INTELLIGENCE
+━━━━━━━━━━━━━━━━━━━━
+
+Enhance the “المساعد الذكي” section by adding advanced AI-powered protocol intelligence actions.
+
+IMPORTANT:
+These features must be REAL interactive AI actions — not static buttons.
+
+Keep the AI assistant integrated inside the dashboard card.
+
+Do NOT create:
+- Floating chatbot
+- Separate AI page
+- Generic AI popup
+
+The AI assistant should remain part of the dashboard experience.
+
+━━━━━━━━━━━━━━━━━━━━
+NEW AI ACTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Add the following smart AI buttons:
+
+1.
+"أعطني خطة عمل مفصلة لرفع الجاهزية"
+
+2.
+"جهّز إحاطة بروتوكولية عن الأعراف الدبلوماسية"
+
+3.
+"جهّز قائمة هدايا بروتوكولية مناسبة للوفد"
+
+━━━━━━━━━━━━━━━━━━━━
+1. READINESS ACTION PLAN
+━━━━━━━━━━━━━━━━━━━━
+
+When the user clicks:
+"أعطني خطة عمل مفصلة لرفع الجاهزية"
+
+The AI should:
+- Analyze current event readiness.
+- Detect incomplete areas.
+- Generate an operational action plan.
+- Prioritize urgent tasks.
+- Suggest responsible teams.
+- Suggest deadlines.
+- Recommend next actions.
+
+Example output:
+- استكمال ترتيبات النقل خلال 24 ساعة.
+- اعتماد قائمة كبار الشخصيات.
+- مراجعة ترتيبات الاستقبال الرسمي.
+- تأكيد الجداول الأمنية.
+- مراجعة خطة الضيافة.
+
+Output style:
+- Executive operational report.
+- Structured sections.
+- Priority indicators.
+- Timeline format.
+- Clear action owners.
+
+━━━━━━━━━━━━━━━━━━━━
+2. DIPLOMATIC PROTOCOL BRIEFING
+━━━━━━━━━━━━━━━━━━━━
+
+When the user clicks:
+"جهّز إحاطة بروتوكولية عن الأعراف الدبلوماسية"
+
+The AI should:
+- Generate a diplomatic protocol briefing.
+- Adapt the briefing based on the delegation country.
+- Include:
+  - Greeting etiquette.
+  - Cultural sensitivities.
+  - Protocol considerations.
+  - Seating etiquette.
+  - Gift etiquette.
+  - Formal titles.
+  - Dress protocol.
+  - Meeting etiquette.
+  - Topics to avoid.
+  - Recommended communication tone.
+
+Example:
+If the delegation is from:
+- Japan
+- France
+- Saudi Arabia
+- USA
+- China
+- India
+- Germany
+
+The AI should customize the briefing accordingly.
+
+━━━━━━━━━━━━━━━━━━━━
+3. PROTOCOL GIFTS RECOMMENDATION
+━━━━━━━━━━━━━━━━━━━━
+
+When the user clicks:
+"جهّز قائمة هدايا بروتوكولية مناسبة للوفد"
+
+The AI should:
+- Detect or ask for delegation country if missing.
+- Generate luxury protocol gift recommendations.
+- Respect diplomatic and cultural considerations.
+- Avoid inappropriate gifts.
+- Suggest UAE luxury/heritage gifts.
+
+Include for each gift:
+- Gift name.
+- Cultural relevance.
+- Protocol suitability.
+- VIP level suitability.
+- Luxury level.
+- Estimated category.
+- Notes about appropriateness.
+
+Example recommendations:
+- عطور إماراتية فاخرة.
+- مجسم قصر الوطن.
+- صندوق تمر فاخر.
+- أعمال فنية إماراتية.
+- كتاب عن تاريخ الإمارات.
+- قطعة تراثية إماراتية راقية.
+
+Important:
+Avoid recommending culturally sensitive or inappropriate gifts for each country.
+
+━━━━━━━━━━━━━━━━━━━━
+AI CONTEXT AWARENESS
+━━━━━━━━━━━━━━━━━━━━
+
+The AI should use available system context including:
+- Delegation country.
+- Event type.
+- VIP level.
+- Protocol importance.
+- Visit purpose.
+- Readiness tracker.
+- Event schedule.
+- Pending approvals.
+- Tasks.
+- Guest list.
+- Fleet/transport status if available.
+- Hospitality requirements.
+
+If important context is missing:
+The AI should ask a short follow-up question in Arabic before generating the final answer.
+
+━━━━━━━━━━━━━━━━━━━━
+BACKEND AI INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+Use API:
+POST /api/ai-assistant
+
+Request example:
+{
+  "message": userPrompt,
+  "eventData": currentEvent,
+  "delegationCountry": selectedCountry,
+  "vipLevel": vipLevel,
+  "readinessData": readinessTracker,
+  "tasks": tasks,
+  "approvals": approvals,
+  "schedule": eventSchedule
+}
+
+Use:
+OPENAI_API_KEY
+
+Do NOT expose API keys in the frontend.
+
+If using Replit Managed AI:
+- Use Replit’s AI provider integration if available.
+- If Replit requires verification, support the Replit-managed AI setup.
+- If no AI provider is configured, show a clear Arabic message:
+"المساعد الذكي غير مفعل حالياً. يرجى تفعيل مزود الذكاء الاصطناعي أو إضافة مفتاح API."
+
+━━━━━━━━━━━━━━━━━━━━
+UX REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+The generated AI results should appear:
+- Inside an elegant modal
+OR
+- Inside an expandable AI insight panel within the same dashboard card.
+
+The result view should include:
+- Title
+- Summary
+- Detailed sections
+- Priority level
+- Recommended actions
+- Export button
+- Copy button
+
+Add actions:
+- Copy result
+- Export as PDF
+- Save to event file
+- Add tasks from AI recommendations
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+Style:
+- Arabic RTL
+- Luxury beige UI
+- Executive report style
+- Premium typography
+- Structured formatting
+- Soft sections/cards
+- Thin line icons
+- Rounded corners
+- Elegant spacing
+- Minimal and official
+
+The AI experience should feel like:
+- Executive intelligence assistant.
+- Presidential protocol advisor.
+- Smart diplomatic operations center.
+
+NOT:
+- Generic chatbot.
+- Casual AI assistant.
+- Startup AI widget.
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL RESULT
+━━━━━━━━━━━━━━━━━━━━
+
+The dashboard should now include:
+1. A new quick action:
+"أنشئ فعالية رسمية لزيارة وفد دولي"
+
+2. A connected event creation page:
+"/create-official-event"
+
+3. An enhanced AI assistant with real interactive buttons:
+- "أعطني خطة عمل مفصلة لرفع الجاهزية"
+- "جهّز إحاطة بروتوكولية عن الأعراف الدبلوماسية"
+- "جهّز قائمة هدايا بروتوكولية مناسبة للوفد"
+
+Everything must remain:
+- Arabic RTL
+- Luxury UAE government style
+- Integrated within the existing dashboard
+- Professional, elegant, and production-ready

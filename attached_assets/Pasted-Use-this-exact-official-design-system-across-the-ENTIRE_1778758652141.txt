@@ -1,0 +1,124 @@
+Use this exact official design system across the ENTIRE platform.
+
+━━━━━━━━━━━━━━━━━━━━
+OFFICIAL COLOR PALETTE
+━━━━━━━━━━━━━━━━━━━━
+
+Primary Background:
+- Floral White → #FCF7EE
+
+Warm Hero / Beige Sections:
+- Soft Beige → #F3E7D7
+- Sunset → #EBCCAD
+
+Primary Executive Green:
+- Mangrove → #67835C
+
+Secondary Text / Elegant Neutral:
+- Castle Hill → #95837A
+
+Soft Accent / Gradient Tone:
+- Calm Teal → #97B2B1
+
+Luxury Accent / Icons:
+- Medium Wood → #AD8965
+
+Borders:
+- Soft Border → #E8DED1
+
+Main Text:
+- Deep Warm Brown → #4B4038
+
+━━━━━━━━━━━━━━━━━━━━
+COLOR USAGE RULES
+━━━━━━━━━━━━━━━━━━━━
+
+Backgrounds:
+- Use #FCF7EE as the main application background
+- Use #F3E7D7 and #EBCCAD for hero sections and warm gradients
+
+Titles:
+- Use #67835C for primary headings and executive titles
+
+Secondary Text:
+- Use #95837A for descriptions and supporting text
+
+Icons:
+- Use #AD8965 for elegant thin-line icons
+
+Borders:
+- Use #E8DED1 with very low contrast
+
+Buttons:
+- Primary buttons → #67835C
+- Hover state → darker version of Mangrove
+- Secondary buttons → soft beige tones
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+The platform must feel:
+- Luxury UAE government software
+- Elegant executive dashboard
+- Calm and minimal
+- Spacious and premium
+- Human-centered
+- Presidential-level interface
+
+Use:
+- Warm cinematic gradients
+- Soft overlays
+- Thin borders
+- Rounded corners
+- Subtle shadows
+- Large whitespace
+
+Avoid:
+- Harsh colors
+- Neon colors
+- Heavy shadows
+- Generic admin template styles
+- ERP-style dark dashboards
+
+━━━━━━━━━━━━━━━━━━━━
+TYPOGRAPHY
+━━━━━━━━━━━━━━━━━━━━
+
+Titles:
+- Elegant serif style similar to Playfair Display
+
+Body:
+- Soft modern Arabic typography
+- Light font weights
+- Spacious line-height
+
+Subtitles:
+- Slightly italic elegant style
+
+━━━━━━━━━━━━━━━━━━━━
+PATTERNS & ICONS
+━━━━━━━━━━━━━━━━━━━━
+
+Patterns:
+- Very subtle Emirati geometric motifs
+- Diamond/chess textile-inspired overlays
+- Extremely minimal usage
+
+Icons:
+- Thin line icons ONLY
+- Elegant minimal appearance
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The final UI should feel:
+- Presidential
+- Elegant
+- Calm
+- Modern
+- Premium
+- Behance-quality
+- Apple enterprise spacing
+- UAE executive government aesthetic

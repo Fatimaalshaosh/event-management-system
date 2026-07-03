@@ -1,0 +1,167 @@
+━━━━━━━━━━━━━━━━━━━━
+FAVORITE / PINNED EVENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Add the ability to pin important events.
+
+Each event card should have:
+
+⭐ Pin / Unpin
+
+When pinned:
+- Event appears at the top of the Events page.
+- Event appears in a dedicated section:
+"الفعاليات المثبتة"
+
+English:
+"Pinned Events"
+
+Pinned events should remain visible regardless of filters.
+
+Show:
+- Event title
+- Date
+- Readiness
+- Status
+- VIP level
+
+Users can:
+- Pin multiple events
+- Remove pin
+- Sort pinned events manually
+
+Optional:
+Allow color coding:
+- High Priority
+- VIP Visit
+- National Event
+- Internal Event
+
+━━━━━━━━━━━━━━━━━━━━
+PINNED EVENTS DASHBOARD INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+If an event is pinned:
+
+Show it also on Dashboard:
+"أهم الفعاليات"
+
+This section should display:
+- Top 3–5 pinned events
+- Quick access links
+- Readiness indicator
+
+━━━━━━━━━━━━━━━━━━━━
+REPORT EXPORT CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+At the bottom of the Events page add:
+
+"مركز تصدير التقارير"
+
+English:
+"Report Export Center"
+
+Allow exporting event reports by:
+
+- اليوم
+- الأسبوع
+- الشهر
+- السنة
+- فترة مخصصة
+
+English:
+- Day
+- Week
+- Month
+- Year
+- Custom Range
+
+━━━━━━━━━━━━━━━━━━━━
+REPORT TYPES
+━━━━━━━━━━━━━━━━━━━━
+
+Allow generation of:
+
+1. Events Summary Report
+2. Readiness Report
+3. Delegation Visits Report
+4. Protocol Activities Report
+5. Approvals Report
+6. Executive Management Report
+
+━━━━━━━━━━━━━━━━━━━━
+REPORT CONTENT
+━━━━━━━━━━━━━━━━━━━━
+
+Include:
+
+- Event statistics
+- Readiness averages
+- Completed events
+- Upcoming events
+- Delayed activities
+- Pending approvals
+- Delegation visits
+- VIP visits
+- Key risks
+- AI-generated insights
+
+━━━━━━━━━━━━━━━━━━━━
+EXPORT FORMATS
+━━━━━━━━━━━━━━━━━━━━
+
+Support:
+
+- PDF
+- Excel
+- Word
+
+Add:
+- Print Report
+- Email Report
+- Save to Archive
+
+━━━━━━━━━━━━━━━━━━━━
+AI REPORT GENERATION
+━━━━━━━━━━━━━━━━━━━━
+
+Add button:
+
+"إنشاء تقرير تنفيذي بواسطة الذكاء الاصطناعي"
+
+English:
+"Generate Executive AI Report"
+
+The AI should automatically generate:
+
+- Executive Summary
+- Key Findings
+- Risks
+- Recommendations
+- Next Actions
+
+Use the same luxury executive report template already implemented in the platform.
+
+━━━━━━━━━━━━━━━━━━━━
+UX REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Pinned Events section should appear directly below filters and above the main events list.
+
+Report Export Center should appear at the bottom of the page as a dedicated elegant section.
+
+Maintain:
+- Arabic RTL
+- English LTR
+- Luxury UAE Government Design
+- Executive layout
+- Beige design system
+
+Colors:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD

@@ -1,0 +1,222 @@
+Add a complete Hotel Booking Center inside each Event Command Center.
+
+Goal:
+Provide a realistic hotel reservation experience directly from the event system, similar to premium hospitality booking platforms.
+
+IMPORTANT:
+
+At this stage, build the full reservation workflow using realistic demo/sandbox data.
+
+Do NOT block development waiting for a live hotel provider integration.
+
+Create the system so that real providers can be connected later.
+
+━━━━━━━━━━━━━━━━━━━━
+HOTEL BOOKING CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+Users should be able to:
+
+* Search hotels
+* View hotel availability
+* Compare hotels
+* Select hotel
+* Select room type
+* Assign reservation to guest
+* Confirm reservation
+* Generate booking confirmation number
+* Track reservation status
+
+━━━━━━━━━━━━━━━━━━━━
+SEARCH CRITERIA
+━━━━━━━━━━━━━━━━━━━━
+
+Allow searching by:
+
+* City
+* Check-in Date
+* Check-out Date
+* Number of Guests
+* Number of Rooms
+* VIP Level
+* Hotel Category
+
+Categories:
+
+* 5 Star Luxury
+* 5 Star
+* 4 Star
+* Boutique Hotel
+* Resort
+* Presidential Accommodation
+
+━━━━━━━━━━━━━━━━━━━━
+HOTEL RESULTS
+━━━━━━━━━━━━━━━━━━━━
+
+Display:
+
+* Hotel Name
+* Hotel Image
+* Hotel Rating
+* Location
+* Distance from Event Venue
+* Available Room Types
+* Room Capacity
+* Amenities
+* VIP Services
+* Cancellation Policy
+* Estimated Cost
+* Availability Status
+
+Use realistic luxury hotel data.
+
+Examples:
+
+* Emirates Palace Mandarin Oriental
+* St. Regis Abu Dhabi
+* Conrad Abu Dhabi Etihad Towers
+* Ritz-Carlton Abu Dhabi
+* Qasr Al Sarab Desert Resort
+
+━━━━━━━━━━━━━━━━━━━━
+ROOM TYPES
+━━━━━━━━━━━━━━━━━━━━
+
+Support:
+
+* Standard Room
+* Deluxe Room
+* Executive Room
+* Club Room
+* Junior Suite
+* Executive Suite
+* Royal Suite
+* Presidential Suite
+
+━━━━━━━━━━━━━━━━━━━━
+BOOKING FLOW
+━━━━━━━━━━━━━━━━━━━━
+
+Event Details
+→ Hotel Center
+→ Search Hotels
+→ Select Hotel
+→ Select Room
+→ Assign Guest
+→ Confirm Reservation
+
+After confirmation:
+
+Generate:
+
+* Reservation Number
+* Confirmation Status
+* Accommodation Record
+
+Automatically save everything under the event.
+
+━━━━━━━━━━━━━━━━━━━━
+GUEST ACCOMMODATION PROFILE
+━━━━━━━━━━━━━━━━━━━━
+
+Each guest should have:
+
+* Hotel Name
+* Room Type
+* Check-in Date
+* Check-out Date
+* Number of Nights
+* Confirmation Number
+* VIP Status
+* Assigned Vehicle
+* Assigned Driver
+* Airport Pickup Status
+
+━━━━━━━━━━━━━━━━━━━━
+HOTEL OPERATIONS DASHBOARD
+━━━━━━━━━━━━━━━━━━━━
+
+Show:
+
+* Checked In
+* Checked Out
+* Pending Reservations
+* Confirmed Reservations
+* VIP Guests
+* Presidential Suites
+* Arrival Today
+* Departure Today
+
+━━━━━━━━━━━━━━━━━━━━
+PROTOCOL ACCOMMODATION CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+For VIP delegations display:
+
+* Head of Delegation
+* Assigned Hotel
+* Assigned Suite
+* Security Requirements
+* Special Requests
+* Dietary Requirements
+* Protocol Notes
+
+━━━━━━━━━━━━━━━━━━━━
+HOTEL PROVIDER ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+HotelProviderService
+
+Support:
+
+1. Demo Provider (Default)
+2. HotelBeds (Future)
+3. Amadeus Hotels API (Future)
+4. Booking.com Integration (Future)
+5. Manual Entry
+
+Keep architecture provider-agnostic.
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT require payment.
+
+Do NOT make real hotel reservations.
+
+Do NOT require API keys.
+
+Build a complete executive hotel booking experience using realistic demo data.
+
+The system should look and behave exactly like a real luxury hotel reservation platform.
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+Hotel reservations must be linked to:
+
+* Guests
+* Delegation Members
+* Travel Records
+* Airport Reception
+* Fleet Assignments
+* Protocol Operations
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+* Arabic RTL
+* English LTR
+* Luxury UAE Government Design
+* Presidential Protocol Operations Style
+* Executive Hospitality Experience
+* Same Beige Design System
+* Same Platform Navigation
+
+The experience should feel like a premium diplomatic hospitality management platform, not a simple booking form.

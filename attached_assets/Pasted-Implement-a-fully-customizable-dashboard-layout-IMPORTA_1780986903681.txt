@@ -1,0 +1,169 @@
+Implement a fully customizable dashboard layout.
+
+IMPORTANT:
+
+Users must be able to organize dashboard widgets according to their own priorities.
+
+The dashboard should NOT have a fixed layout.
+
+━━━━━━━━━━━━━━━━━━━━
+DRAG & DROP
+━━━━━━━━━━━━━━━━━━━━
+
+Enable drag-and-drop functionality for all dashboard widgets.
+
+Examples:
+
+* Event Readiness
+* Upcoming Tasks
+* Official Visits
+* Executive AI Center
+* Favorite Events
+* Watched Events
+* Quick Export
+* Pending Approvals
+* Reports
+* Smart Monitoring
+
+Users should be able to:
+
+* Drag widgets
+* Reorder widgets
+* Move widgets between columns
+* Rearrange sections freely
+
+━━━━━━━━━━━━━━━━━━━━
+RESIZE WIDGETS
+━━━━━━━━━━━━━━━━━━━━
+
+Allow users to resize widgets.
+
+Sizes:
+
+* Small
+* Medium
+* Large
+* Full Width
+
+Examples:
+
+Event Readiness
+→ Large
+
+Quick Export
+→ Small
+
+Executive AI Center
+→ Large
+
+━━━━━━━━━━━━━━━━━━━━
+SHOW / HIDE WIDGETS
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+
+⚙️ Customize Dashboard
+
+When clicked:
+
+Show dashboard settings panel.
+
+Allow users to:
+
+* Hide widgets
+* Show widgets
+* Restore default layout
+
+━━━━━━━━━━━━━━━━━━━━
+SAVE PERSONAL LAYOUT
+━━━━━━━━━━━━━━━━━━━━
+
+Save layout per user.
+
+After refresh:
+
+* Widget order remains
+* Widget size remains
+* Hidden widgets remain hidden
+
+Store:
+
+* Widget positions
+* Widget sizes
+* User preferences
+
+━━━━━━━━━━━━━━━━━━━━
+MULTIPLE DASHBOARD PROFILES
+━━━━━━━━━━━━━━━━━━━━
+
+Allow users to create layouts.
+
+Examples:
+
+* Executive View
+* Protocol View
+* Operations View
+* Fleet View
+
+Users can switch between layouts instantly.
+
+━━━━━━━━━━━━━━━━━━━━
+QUICK ACTIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+
+Reset Layout
+
+Restore Default
+
+Save Layout
+
+Duplicate Layout
+
+━━━━━━━━━━━━━━━━━━━━
+UX REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Use smooth drag animations.
+
+Provide visual feedback when dragging.
+
+Show drop zones.
+
+Do not reload the page.
+
+Changes should happen instantly.
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Keep:
+
+* Luxury UAE Government Design
+* Arabic RTL
+* English LTR
+* Executive Dashboard Style
+
+Use:
+
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The dashboard should feel like:
+
+* Notion Dashboard
+* Microsoft Viva
+* Monday.com
+* Executive Command Center
+
+Users should have complete control over how information is displayed according to their role and priorities.

@@ -1,0 +1,193 @@
+Redesign the attached dashboard image completely while keeping the same core functionality.
+
+IMPORTANT:
+Do NOT keep the current generic dashboard appearance.
+
+Transform it into a:
+- Luxury UAE government platform
+- Presidential protocol operations center
+- Modern executive experience
+- Behance/Dribbble quality UI
+
+━━━━━━━━━━━━━━━━━━━━
+MAIN GOAL
+━━━━━━━━━━━━━━━━━━━━
+
+Take the attached UI screenshot and redesign it into a premium Arabic RTL dashboard for:
+
+“Presidential Protocol & Events Management Platform”
+
+The result must feel:
+- Elegant
+- Minimal
+- Calm
+- Executive-level
+- Modern
+- Intelligent
+- Human-centered
+- Government-grade
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Use this exact design language:
+
+Colors:
+- Medium Wood #AD8965
+- Castle Hill #95837A
+- Mangrove #67835C
+- Calm Teal #97B2B1
+- Floral White #FCF7EE
+- Sunset #EBCCAD
+
+Typography:
+- Elegant serif titles like Playfair Display
+- Soft luxury Arabic typography
+- Light italic subtitles
+
+Icons:
+- Thin line icons only
+
+Patterns:
+- Very subtle Emirati geometric motifs
+- Minimal background patterns only
+
+Style:
+- Lots of white space
+- Rounded corners
+- Thin borders
+- Soft shadows
+- Warm beige tones
+- Elegant hierarchy
+
+━━━━━━━━━━━━━━━━━━━━
+LAYOUT REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic RTL layout ONLY.
+
+IMPORTANT:
+Everything Arabic must start from the RIGHT side.
+
+- Sidebar on the RIGHT
+- Text aligned RIGHT
+- Cards aligned naturally for Arabic users
+- Proper RTL spacing and hierarchy
+
+The experience should feel:
+Native Arabic executive platform.
+
+━━━━━━━━━━━━━━━━━━━━
+HERO SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Replace the current hero/banner with a luxurious protocol-themed image.
+
+Use:
+- Beige ceremonial palace atmosphere
+- Qasr Al Watan inspired architecture
+- Warm presidential aesthetic
+- Soft lighting
+- Elegant composition
+
+Avoid:
+- Dark tech backgrounds
+- Generic abstract patterns
+- ERP-style banners
+
+Inside hero:
+- “مرحباً فاطمة”
+- “نظرة عامة على فعالياتك اليوم”
+
+Add elegant mini info cards:
+- Date
+- Abu Dhabi weather
+- Next prayer time
+
+Prayer card:
+- Elegant mosque icon
+- Text:
+  “الصلاة القادمة”
+  “المغرب 05:02 م”
+
+━━━━━━━━━━━━━━━━━━━━
+SMART DASHBOARD
+━━━━━━━━━━━━━━━━━━━━
+
+Create modern premium sections:
+
+- Upcoming events
+- Official visits
+- Smart approvals
+- Executive tasks
+- AI assistant card
+- Event readiness tracker
+- Quick export center
+
+━━━━━━━━━━━━━━━━━━━━
+AI ASSISTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT create chatbot popup.
+
+Instead:
+Integrate AI as an elegant dashboard card.
+
+Title:
+“المساعد الذكي”
+
+Show:
+- Smart recommendations
+- Delayed tasks
+- Protocol alerts
+- Report suggestions
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT READINESS TRACKER
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+“جاهزية الفعالية”
+
+Use:
+- Elegant readiness rings
+- Minimal progress visualization
+- Executive monitoring style
+
+Show:
+- البروتوكول
+- الضيافة
+- النقل
+- الأمن
+- الدعوات
+- الإعلام
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT DESIGN RULES
+━━━━━━━━━━━━━━━━━━━━
+
+DO NOT:
+- Make it crowded
+- Use generic admin template style
+- Add too many analytics
+- Use harsh shadows
+- Use saturated colors
+
+INSTEAD:
+- Focus on elegance
+- Focus on whitespace
+- Focus on calm hierarchy
+- Focus on executive usability
+- Focus on luxury government aesthetics
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL RESULT
+━━━━━━━━━━━━━━━━━━━━
+
+The redesigned UI should feel like:
+- UAE presidential digital platform
+- Luxury enterprise software
+- Modern executive workspace
+- Calm protocol management system
+- Production-grade government application

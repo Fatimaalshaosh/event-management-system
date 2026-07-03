@@ -1,0 +1,158 @@
+The masonry layout made the dashboard worse.
+
+Remove the masonry dashboard completely.
+
+Do NOT use Pinterest-style layouts.
+Do NOT use uneven card stacking.
+Do NOT use floating widgets.
+
+━━━━━━━━━━━━━━━━━━━━
+NEW LAYOUT REQUIREMENT
+━━━━━━━━━━━━━━━━━━━━
+
+Use a structured Executive Command Center dashboard.
+
+The dashboard should be organized into clean balanced rows.
+
+All widgets in the same row must have equal height.
+
+The page must look like a government executive operations center.
+
+━━━━━━━━━━━━━━━━━━━━
+GRID RULES
+━━━━━━━━━━━━━━━━━━━━
+
+Use a fixed 12-column CSS Grid.
+
+Examples:
+
+* Half Width = col-span-6
+* One Third = col-span-4
+* Quarter = col-span-3
+* Full Width = col-span-12
+
+Widgets must snap into predefined grid positions.
+
+No free-floating cards.
+
+No empty gaps.
+
+No broken layouts.
+
+━━━━━━━━━━━━━━━━━━━━
+DEFAULT DASHBOARD LAYOUT
+━━━━━━━━━━━━━━━━━━━━
+
+Row 1
+
+* Event Readiness
+* Active Risks
+
+Row 2
+
+* Upcoming Tasks
+* Official Visits
+
+Row 3
+
+* Executive Brief
+* Pending Approvals
+
+Row 4
+
+* Favorite Events
+* Watched Events
+
+Row 5
+
+* Recent Reports
+* Quick Export
+
+━━━━━━━━━━━━━━━━━━━━
+DASHBOARD CUSTOMIZATION
+━━━━━━━━━━━━━━━━━━━━
+
+Keep drag-and-drop.
+
+However:
+
+* Dragging should happen inside the grid only.
+* Widgets must snap into grid positions.
+* Users cannot place widgets in arbitrary locations.
+* Users cannot create large empty spaces.
+
+Users should be able to:
+
+* Reorder widgets
+* Hide widgets
+* Show widgets
+* Resize widgets within allowed sizes
+* Save personal layouts
+
+━━━━━━━━━━━━━━━━━━━━
+DASHBOARD PROFILES
+━━━━━━━━━━━━━━━━━━━━
+
+Add predefined dashboard templates:
+
+1. Executive View
+
+* Readiness
+* Risks
+* Approvals
+* Executive Brief
+
+2. Protocol View
+
+* Delegations
+* Invitations
+* VIPs
+* Protocol Activities
+
+3. Logistics View
+
+* Flights
+* Hotels
+* Fleet
+* Transportation
+
+4. Event Day View
+
+* Arrivals
+* Attendance
+* Fleet Status
+* Live Alerts
+
+Users can switch between profiles instantly.
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL CONSISTENCY
+━━━━━━━━━━━━━━━━━━━━
+
+Requirements:
+
+* Same card heights per row
+* Same spacing everywhere
+* No floating widgets
+* No isolated cards
+* No large empty spaces
+* No Pinterest style
+
+━━━━━━━━━━━━━━━━━━━━
+EXECUTIVE STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+The page should feel like:
+
+* Microsoft Viva
+* ServiceNow Executive Workspace
+* Dynamics 365 Executive Dashboard
+* Power BI Executive Dashboard
+
+NOT:
+
+* Pinterest
+* Notion masonry board
+* Random widget wall
+
+The dashboard must look structured, executive, balanced, and suitable for a Presidential Protocol Platform.

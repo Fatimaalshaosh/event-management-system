@@ -1,0 +1,136 @@
+The Arabic localization is still broken.
+
+This is NOT a translation issue only.
+
+This is a full RTL layout issue.
+
+Current behavior:
+
+- Some widgets are translated.
+- Some widgets remain in English.
+- Some titles are aligned right.
+- Some titles are aligned left.
+- Icons appear on the wrong side.
+- Lists are inconsistent.
+- Card headers are inconsistent.
+- Dashboard widgets mix RTL and LTR layouts.
+
+━━━━━━━━━━━━━━━━━━━━
+REQUIRED FIX
+━━━━━━━━━━━━━━━━━━━━
+
+Implement FULL RTL/LTR support.
+
+When Arabic is selected:
+
+<html dir="rtl" lang="ar">
+
+When English is selected:
+
+<html dir="ltr" lang="en">
+
+━━━━━━━━━━━━━━━━━━━━
+RTL REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic mode must automatically:
+
+- Right align all text
+- Reverse flex layouts
+- Reverse card headers
+- Reverse widget headers
+- Reverse list items
+- Reverse badges
+- Reverse icons
+- Reverse navigation items
+- Reverse filters
+- Reverse search bars
+- Reverse dropdowns
+- Reverse modals
+- Reverse forms
+- Reverse tables
+- Reverse calendar controls
+
+━━━━━━━━━━━━━━━━━━━━
+NO MIXED LAYOUTS
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic pages must NEVER contain:
+
+- English alignment
+- Left aligned Arabic titles
+- English card layouts
+- Mixed RTL/LTR widgets
+
+All dashboard widgets must follow the same RTL rules.
+
+━━━━━━━━━━━━━━━━━━━━
+I18N AUDIT
+━━━━━━━━━━━━━━━━━━━━
+
+Perform a full translation audit.
+
+Find every remaining hardcoded English label.
+
+Examples already visible:
+
+- Event Readiness
+- Upcoming Tasks
+- Official Visits
+- Pending Approvals
+- Daily Executive Brief
+
+Replace ALL hardcoded strings with i18n keys.
+
+Nothing should remain hardcoded.
+
+━━━━━━━━━━━━━━━━━━━━
+CARD HEADER RULES
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic:
+
+Title → right side
+Actions/Icons → left side
+
+English:
+
+Title → left side
+Actions/Icons → right side
+
+━━━━━━━━━━━━━━━━━━━━
+LIST RULES
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic:
+
+Text aligned right
+Metadata aligned right
+Icons on the left
+
+English:
+
+Text aligned left
+Metadata aligned left
+Icons on the right
+
+━━━━━━━━━━━━━━━━━━━━
+VERIFICATION
+━━━━━━━━━━━━━━━━━━━━
+
+Review every page manually:
+
+- Dashboard
+- Events
+- Event Details
+- Invitations
+- Participants
+- Travel
+- Hotels
+- Fleet
+- Reports
+- AI Assistant
+
+Ensure 100% RTL consistency.
+
+No mixed Arabic/English layouts should remain.

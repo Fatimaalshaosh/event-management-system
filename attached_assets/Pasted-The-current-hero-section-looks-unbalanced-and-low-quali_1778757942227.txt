@@ -1,0 +1,122 @@
+The current hero section looks unbalanced and low-quality.
+
+Please redesign the HERO SECTION from scratch professionally instead of rearranging the existing elements.
+
+IMPORTANT:
+Do NOT simply stack cards vertically.
+Do NOT enlarge the text excessively.
+Do NOT place everything in separate floating boxes.
+Do NOT make the section feel empty or template-based.
+
+The goal is:
+Create a luxury UAE presidential-style hero section with elegant composition and proper visual hierarchy.
+
+━━━━━━━━━━━━━━━━━━━━
+NEW LAYOUT REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+Use a modern cinematic composition:
+
+LEFT SIDE:
+- Large soft Qasr Al Watan inspired image blended into background
+- Palace image should fade naturally into the layout
+- Image must feel atmospheric and elegant
+- No strong opacity
+- No visible sharp edges
+
+RIGHT SIDE:
+Main welcome content:
+- منصة البروتوكول الرئاسي
+- مرحباً فاطمة
+- نظرة عامة على فعالياتك اليوم
+
+The typography must feel:
+- Elegant
+- Spacious
+- Premium
+- Calm
+- Executive-level
+
+━━━━━━━━━━━━━━━━━━━━
+INFO CARDS
+━━━━━━━━━━━━━━━━━━━━
+
+DO NOT stack the info cards vertically.
+
+Instead:
+Create 3 SMALL elegant horizontal floating glass-style cards aligned in ONE ROW.
+
+Cards:
+- التاريخ
+- أبوظبي
+- الصلاة القادمة
+
+Style:
+- Compact
+- Minimal
+- Soft blur/glass effect
+- Rounded corners
+- Thin borders
+- Subtle shadow
+- Thin line icons
+- Elegant spacing
+
+The cards should feel integrated into the hero — not pasted on top.
+
+━━━━━━━━━━━━━━━━━━━━
+BACKGROUND STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+- Warm beige tones
+- Soft gold lighting
+- Calm teal gradient blending
+- Elegant Emirati geometric pattern overlay
+
+Avoid:
+- Busy image
+- Strong contrast
+- Oversized text
+- Empty whitespace
+- Hard overlays
+- Flat layout
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL DIRECTION
+━━━━━━━━━━━━━━━━━━━━
+
+The hero section should feel like:
+- Apple enterprise design
+- Luxury UAE government platform
+- Presidential protocol system
+- Behance-quality composition
+
+NOT:
+- ERP software
+- Generic dashboard
+- Basic admin template
+
+━━━━━━━━━━━━━━━━━━━━
+COLORS
+━━━━━━━━━━━━━━━━━━━━
+
+Use ONLY:
+- Medium Wood #AD8965
+- Castle Hill #95837A
+- Mangrove #67835C
+- Calm Teal #97B2B1
+- Floral White #FCF7EE
+- Sunset #EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Focus on:
+- composition
+- spacing
+- layering
+- hierarchy
+- elegance
+
+The result should look custom-designed by a premium UI/UX studio, not auto-generated.

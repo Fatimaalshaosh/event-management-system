@@ -1,0 +1,144 @@
+Expand the “شجرة عائلة الشيخ زايد بن سلطان آل نهيان” module to include:
+
+- زوجات الشيخ زايد بن سلطان آل نهيان
+- زوجات أبناء الشيخ زايد
+- العلاقات العائلية المرتبطة بشكل كامل
+
+IMPORTANT:
+This must remain:
+- Elegant
+- Respectful
+- Official
+- Suitable for a presidential protocol platform
+
+Do NOT make it look like a public genealogy website or a crowded ancestry chart.
+
+━━━━━━━━━━━━━━━━━━━━
+TREE STRUCTURE
+━━━━━━━━━━━━━━━━━━━━
+
+The family tree should now support:
+
+1. الشيخ زايد بن سلطان آل نهيان
+2. الزوجات
+3. الأبناء
+4. زوجات الأبناء
+5. الأبناء المرتبطون بكل فرع
+
+Create a modern layered hierarchy with:
+- Main lineage
+- Spouse branches
+- Children branches
+- Expandable relationship groups
+
+━━━━━━━━━━━━━━━━━━━━
+CARD TYPES
+━━━━━━━━━━━━━━━━━━━━
+
+Use 3 visual card levels:
+
+1. Main Leadership Cards
+Example:
+- الشيخ زايد
+- الشيخ محمد بن زايد
+- الشيخ منصور بن زايد
+
+Style:
+- Larger cards
+- Gold accent border
+- VIP indicator
+- Richer shadows
+
+2. Family Member Cards
+Style:
+- Standard beige cards
+- Elegant rounded layout
+- Soft border
+
+3. Spouse Cards
+Style:
+- Smaller elegant cards
+- Softer beige tone
+- Thin border
+- Delicate connector line
+- Slightly softer hierarchy
+
+━━━━━━━━━━━━━━━━━━━━
+PROFILE CONTENT
+━━━━━━━━━━━━━━━━━━━━
+
+Each profile card should support:
+- صورة رسمية / placeholder
+- الاسم الكامل
+- اللقب الرسمي
+- صلة القرابة
+- ملاحظات البروتوكول
+- الحالة (VIP / رسمي / عائلي)
+
+━━━━━━━━━━━━━━━━━━━━
+INTERACTIVE FEATURES
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+- Expand/collapse family branches
+- Highlight relationship path
+- Search by name
+- Filter by branch
+- Zoom in/out
+- Drag to navigate
+- Side details panel
+- Export as PDF
+- Print mode
+
+━━━━━━━━━━━━━━━━━━━━
+SIDE DETAILS PANEL
+━━━━━━━━━━━━━━━━━━━━
+
+When clicking any profile:
+Open elegant side panel showing:
+- الصورة
+- الاسم الكامل
+- المنصب
+- الزوج / الزوجات
+- الأبناء
+- الارتباطات الرسمية
+- الملاحظات
+- مستوى الأهمية البروتوكولية
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Use:
+- Arabic RTL only
+- Luxury UAE government style
+- Soft beige luxury background
+- Elegant curved connectors
+- Thin line icons
+- Emirati geometric motifs
+- Spacious layout
+- Smooth animations
+- Minimal executive UI
+
+Colors:
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The final result should feel like:
+- Presidential relationship intelligence system
+- Executive protocol visualization platform
+- Luxury interactive royal family map
+- Modern UAE government digital experience
+
+NOT:
+- Generic family tree website
+- Crowded genealogy software
+- Traditional ancestry chart

@@ -1,0 +1,4829 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: Presidential Protocol & Events Management API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: events
+    description: Events management
+  - name: visits
+    description: Official visits
+  - name: tasks
+    description: Tasks and approvals
+  - name: risks
+  - name: logistics
+    description: Risk register
+  - name: vips
+    description: VIP guests management
+  - name: dashboard
+    description: Dashboard summary data
+  - name: calendar
+    description: Calendar entries
+  - name: invitations
+    description: Invitations and registrations
+  - name: participants
+    description: Event participants management
+  - name: rsvp
+    description: Public RSVP submission
+  - name: Storage
+    description: Object storage upload and serving endpoints.
+
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /dashboard/summary:
+    get:
+      operationId: getDashboardSummary
+      tags: [dashboard]
+      summary: Dashboard KPI summary
+      parameters:
+        - name: budgetThreshold
+          in: query
+          description: >-
+            Percentage of an event's estimated budget at which it begins to show
+            a budget warning (50-100). Defaults to 90.
+          schema:
+            type: integer
+            minimum: 50
+            maximum: 100
+      responses:
+        "200":
+          description: Summary data
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+
+  /events:
+    get:
+      operationId: listEvents
+      tags: [events]
+      summary: List all events
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of events
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Event"
+    post:
+      operationId: createEvent
+      tags: [events]
+      summary: Create event
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventInput"
+      responses:
+        "201":
+          description: Created event
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+
+  /events/{id}:
+    get:
+      operationId: getEvent
+      tags: [events]
+      summary: Get event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Event
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+    patch:
+      operationId: updateEvent
+      tags: [events]
+      summary: Update event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/EventUpdate"
+      responses:
+        "200":
+          description: Updated event
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Event"
+    delete:
+      operationId: deleteEvent
+      tags: [events]
+      summary: Delete event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /events/{id}/readiness:
+    get:
+      operationId: getEventReadiness
+      tags: [events]
+      summary: Get event readiness breakdown
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Event readiness categories
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EventReadiness"
+
+  /visits:
+    get:
+      operationId: listVisits
+      tags: [visits]
+      summary: List official visits
+      responses:
+        "200":
+          description: List of visits
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Visit"
+    post:
+      operationId: createVisit
+      tags: [visits]
+      summary: Request official visit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VisitInput"
+      responses:
+        "201":
+          description: Created visit
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Visit"
+
+  /tasks:
+    get:
+      operationId: listTasks
+      tags: [tasks]
+      summary: List tasks
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: eventId
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Task"
+    post:
+      operationId: createTask
+      tags: [tasks]
+      summary: Create task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaskInput"
+      responses:
+        "201":
+          description: Created task
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+
+  /tasks/{id}:
+    patch:
+      operationId: updateTask
+      tags: [tasks]
+      summary: Update task status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaskUpdate"
+      responses:
+        "200":
+          description: Updated task
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Task"
+    delete:
+      operationId: deleteTask
+      tags: [tasks]
+      summary: Delete task
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /approvals:
+    get:
+      operationId: listApprovals
+      tags: [tasks]
+      summary: List pending approvals
+      responses:
+        "200":
+          description: List of approvals
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Approval"
+
+  /approvals/{id}:
+    patch:
+      operationId: updateApproval
+      tags: [tasks]
+      summary: Approve or reject
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ApprovalUpdate"
+      responses:
+        "200":
+          description: Updated approval
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Approval"
+
+  /vips:
+    get:
+      operationId: listVips
+      tags: [vips]
+      summary: List VIP guests
+      responses:
+        "200":
+          description: List of VIPs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Vip"
+    post:
+      operationId: createVip
+      tags: [vips]
+      summary: Add VIP guest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VipInput"
+      responses:
+        "201":
+          description: Created VIP
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vip"
+
+  /calendar:
+    get:
+      operationId: listCalendarEntries
+      tags: [calendar]
+      summary: List calendar entries
+      parameters:
+        - name: date
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Calendar entries
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CalendarEntry"
+
+  /invitations:
+    get:
+      operationId: listInvitations
+      tags: [invitations]
+      summary: List invitations
+      parameters:
+        - name: eventId
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of invitations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Invitation"
+    post:
+      operationId: createInvitation
+      tags: [invitations]
+      summary: Send invitation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvitationInput"
+      responses:
+        "201":
+          description: Created invitation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invitation"
+
+  /invitations/{id}:
+    patch:
+      operationId: updateInvitation
+      tags: [invitations]
+      summary: Update an invitation (status, check-in, verification)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/InvitationUpdate"
+      responses:
+        "200":
+          description: Updated invitation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Invitation"
+
+  /events/{id}/guests:
+    get:
+      operationId: listEventGuests
+      tags: [invitations]
+      summary: List delegation guests for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of guests
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Guest"
+
+  /guests/{id}:
+    patch:
+      operationId: updateGuest
+      tags: [invitations]
+      summary: Update a guest (check-in, verification)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GuestUpdate"
+      responses:
+        "200":
+          description: Updated guest
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Guest"
+
+  /events/{id}/participants:
+    get:
+      operationId: listEventParticipants
+      tags: [participants]
+      summary: List participants for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of participants
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Participant"
+
+  /participants:
+    post:
+      operationId: createParticipant
+      tags: [participants]
+      summary: Add a participant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParticipantInput"
+      responses:
+        "201":
+          description: Created participant
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Participant"
+
+  /participants/{id}:
+    patch:
+      operationId: updateParticipant
+      tags: [participants]
+      summary: Update a participant
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParticipantUpdate"
+      responses:
+        "200":
+          description: Updated participant
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Participant"
+    delete:
+      operationId: deleteParticipant
+      tags: [participants]
+      summary: Remove a participant
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /rsvp/{token}:
+    get:
+      operationId: getRsvp
+      tags: [rsvp]
+      summary: Public — fetch an invitation by secure token
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: RSVP view
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RsvpView"
+        "404":
+          description: Not found
+    post:
+      operationId: submitRsvp
+      tags: [rsvp]
+      summary: Public — submit an RSVP response
+      parameters:
+        - name: token
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RsvpSubmit"
+      responses:
+        "200":
+          description: Updated RSVP view
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RsvpView"
+
+  /reports:
+    get:
+      operationId: listReports
+      tags: [reports]
+      summary: List generated reports (most recent first)
+      responses:
+        "200":
+          description: List of reports
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Report"
+    post:
+      operationId: createReport
+      tags: [reports]
+      summary: Record a generated report
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ReportInput"
+      responses:
+        "201":
+          description: Created report
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Report"
+
+  /reports/logistics:
+    get:
+      operationId: getReportsLogistics
+      tags: [reports]
+      summary: Aggregated trip logistics totals scoped to a set of events
+      parameters:
+        - name: eventIds
+          in: query
+          required: false
+          description: Comma-separated event ids to scope totals to. When omitted, totals cover all events.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Logistics totals for the requested scope
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LogisticsTotals"
+
+  /dashboard/profiles:
+    get:
+      operationId: listDashboardProfiles
+      tags: [dashboard]
+      summary: List dashboard profiles for an owner
+      parameters:
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of dashboard profiles
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/DashboardProfile"
+    post:
+      operationId: createDashboardProfile
+      tags: [dashboard]
+      summary: Create a dashboard profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DashboardProfileInput"
+      responses:
+        "201":
+          description: Created dashboard profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardProfile"
+
+  /dashboard/profiles/{id}:
+    patch:
+      operationId: updateDashboardProfile
+      tags: [dashboard]
+      summary: Update a dashboard profile
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DashboardProfileUpdate"
+      responses:
+        "200":
+          description: Updated dashboard profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardProfile"
+    delete:
+      operationId: deleteDashboardProfile
+      tags: [dashboard]
+      summary: Delete a dashboard profile
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+
+  /dashboard/preferences:
+    get:
+      operationId: getUserPreferences
+      tags: [dashboard]
+      summary: Get an officer's saved preferences
+      parameters:
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The officer's preferences (defaults applied when unset)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPreferences"
+    put:
+      operationId: updateUserPreferences
+      tags: [dashboard]
+      summary: Create or update an officer's preferences
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserPreferencesInput"
+      responses:
+        "200":
+          description: Saved preferences
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserPreferences"
+
+  /dashboard/notifications:
+    get:
+      operationId: listNotifications
+      tags: [dashboard]
+      summary: Sync budget transitions and list notifications for an owner
+      description: >-
+        Evaluates the current per-event budget state, creates notifications for
+        any events that have escalated into an "approaching" or "over" budget
+        state since the last evaluation (deduplicated), then returns the
+        notification feed for the owner.
+      parameters:
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: budgetThreshold
+          in: query
+          description: >-
+            Percentage of an event's estimated budget at which it begins to show
+            a budget warning (50-100). Defaults to 90.
+          schema:
+            type: integer
+            minimum: 50
+            maximum: 100
+      responses:
+        "200":
+          description: Notification feed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationsResponse"
+    post:
+      operationId: markAllNotificationsRead
+      tags: [dashboard]
+      summary: Mark all of an owner's notifications as read
+      parameters:
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Updated notification feed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NotificationsResponse"
+
+  /dashboard/notifications/{id}/read:
+    patch:
+      operationId: markNotificationRead
+      tags: [dashboard]
+      summary: Mark a single notification as read
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: ownerKey
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Updated notification
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Notification"
+
+  /events/{id}/risks:
+    get:
+      operationId: listEventRisks
+      tags: [risks]
+      summary: List risks for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of risks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Risk"
+
+  /risks:
+    post:
+      operationId: createRisk
+      tags: [risks]
+      summary: Create a risk
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskInput"
+      responses:
+        "201":
+          description: Created risk
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Risk"
+
+  /risks/{id}:
+    patch:
+      operationId: updateRisk
+      tags: [risks]
+      summary: Update a risk
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RiskUpdate"
+      responses:
+        "200":
+          description: Updated risk
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Risk"
+    delete:
+      operationId: deleteRisk
+      tags: [risks]
+      summary: Delete a risk
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /events/{id}/ops-room:
+    get:
+      operationId: getEventOpsRoom
+      tags: [events]
+      summary: Aggregated live operations snapshot for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Live operations snapshot
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/OpsRoom"
+
+  /events/{id}/travel:
+    get:
+      operationId: listEventTravel
+      tags: [logistics]
+      summary: List Travel for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of Travel
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Travel"
+
+  /travel:
+    post:
+      operationId: createTravel
+      tags: [logistics]
+      summary: Create a Travel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TravelInput"
+      responses:
+        "201":
+          description: Created Travel
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Travel"
+
+  /travel/{id}:
+    patch:
+      operationId: updateTravel
+      tags: [logistics]
+      summary: Update a Travel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TravelUpdate"
+      responses:
+        "200":
+          description: Updated Travel
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Travel"
+    delete:
+      operationId: deleteTravel
+      tags: [logistics]
+      summary: Delete a Travel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /travel-providers:
+    get:
+      operationId: listTravelProviders
+      tags: [logistics]
+      summary: List available travel booking providers
+      responses:
+        "200":
+          description: List of providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TravelProvider"
+
+  /flights/search:
+    post:
+      operationId: searchFlights
+      tags: [logistics]
+      summary: Search flight offers from a travel provider
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FlightSearchRequest"
+      responses:
+        "200":
+          description: Flight search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlightSearchResult"
+
+  /flights/book:
+    post:
+      operationId: bookFlight
+      tags: [logistics]
+      summary: Book a selected flight offer and persist it as a Travel record
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FlightBookingRequest"
+      responses:
+        "201":
+          description: Created flight booking (one or two travel legs)
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FlightBookingResult"
+
+  /events/{id}/travel-dashboard:
+    get:
+      operationId: getEventTravelDashboard
+      tags: [logistics]
+      summary: Travel dashboard summary for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Travel dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TravelDashboard"
+
+  /events/{id}/hotel-bookings:
+    get:
+      operationId: listEventHotelBookings
+      tags: [logistics]
+      summary: List HotelBooking for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of HotelBooking
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HotelBooking"
+
+  /hotel-providers:
+    get:
+      operationId: listHotelProviders
+      tags: [logistics]
+      summary: List available hotel booking providers
+      responses:
+        "200":
+          description: List of providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HotelProvider"
+
+  /hotels/search:
+    post:
+      operationId: searchHotels
+      tags: [logistics]
+      summary: Search hotel offers from a hotel provider
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HotelSearchRequest"
+      responses:
+        "200":
+          description: Hotel search results
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HotelSearchResult"
+
+  /hotels/book:
+    post:
+      operationId: bookHotel
+      tags: [logistics]
+      summary: Confirm a hotel reservation and persist it as a HotelBooking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HotelBookingRequest"
+      responses:
+        "201":
+          description: Created HotelBooking
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HotelBooking"
+        "400":
+          description: Bad request or unknown provider
+        "422":
+          description: Booking provider not configured
+
+  /events/{id}/hotel-dashboard:
+    get:
+      operationId: getEventHotelDashboard
+      tags: [logistics]
+      summary: Hotel operations dashboard summary for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Hotel dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HotelDashboard"
+
+  /hotel-bookings:
+    post:
+      operationId: createHotelBooking
+      tags: [logistics]
+      summary: Create a HotelBooking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HotelBookingInput"
+      responses:
+        "201":
+          description: Created HotelBooking
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HotelBooking"
+
+  /hotel-bookings/{id}:
+    patch:
+      operationId: updateHotelBooking
+      tags: [logistics]
+      summary: Update a HotelBooking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/HotelBookingUpdate"
+      responses:
+        "200":
+          description: Updated HotelBooking
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HotelBooking"
+    delete:
+      operationId: deleteHotelBooking
+      tags: [logistics]
+      summary: Delete a HotelBooking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /events/{id}/fleet:
+    get:
+      operationId: listEventFleet
+      tags: [logistics]
+      summary: List FleetAssignment for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of FleetAssignment
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/FleetAssignment"
+
+  /fleet:
+    post:
+      operationId: createFleetAssignment
+      tags: [logistics]
+      summary: Create a FleetAssignment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FleetAssignmentInput"
+      responses:
+        "201":
+          description: Created FleetAssignment
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FleetAssignment"
+
+  /fleet/{id}:
+    patch:
+      operationId: updateFleetAssignment
+      tags: [logistics]
+      summary: Update a FleetAssignment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FleetAssignmentUpdate"
+      responses:
+        "200":
+          description: Updated FleetAssignment
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FleetAssignment"
+    delete:
+      operationId: deleteFleetAssignment
+      tags: [logistics]
+      summary: Delete a FleetAssignment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /events/{id}/gifts:
+    get:
+      operationId: listEventGifts
+      tags: [logistics]
+      summary: List Gift for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of Gift
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Gift"
+
+  /gifts:
+    post:
+      operationId: createGift
+      tags: [logistics]
+      summary: Create a Gift
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GiftInput"
+      responses:
+        "201":
+          description: Created Gift
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Gift"
+
+  /gifts/{id}:
+    patch:
+      operationId: updateGift
+      tags: [logistics]
+      summary: Update a Gift
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/GiftUpdate"
+      responses:
+        "200":
+          description: Updated Gift
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Gift"
+    delete:
+      operationId: deleteGift
+      tags: [logistics]
+      summary: Delete a Gift
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /events/{id}/budget:
+    get:
+      operationId: listEventBudget
+      tags: [logistics]
+      summary: List BudgetItem for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of BudgetItem
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BudgetItem"
+
+  /budget:
+    post:
+      operationId: createBudgetItem
+      tags: [logistics]
+      summary: Create a BudgetItem
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BudgetItemInput"
+      responses:
+        "201":
+          description: Created BudgetItem
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BudgetItem"
+
+  /budget/{id}:
+    patch:
+      operationId: updateBudgetItem
+      tags: [logistics]
+      summary: Update a BudgetItem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BudgetItemUpdate"
+      responses:
+        "200":
+          description: Updated BudgetItem
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BudgetItem"
+    delete:
+      operationId: deleteBudgetItem
+      tags: [logistics]
+      summary: Delete a BudgetItem
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /events/{id}/documents:
+    get:
+      operationId: listEventDocuments
+      tags: [logistics]
+      summary: List Document for an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of Document
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Document"
+
+  /storage/uploads/request-url:
+    post:
+      tags: [Storage]
+      operationId: requestUploadUrl
+      summary: Request a presigned URL for file upload
+      description: |
+        Returns a presigned GCS URL for direct upload. The client sends JSON
+        metadata here, then uploads the file directly to the returned URL.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadUrlRequest'
+      responses:
+        '200':
+          description: Presigned upload URL generated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadUrlResponse'
+        '400':
+          description: Missing or invalid required fields.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '500':
+          description: Failed to generate upload URL.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+  /storage/public-objects/{filePath}:
+    get:
+      tags: [Storage]
+      operationId: getPublicObject
+      summary: Serve a public asset from PUBLIC_OBJECT_SEARCH_PATHS
+      description: |
+        Unconditionally public — no authentication or ACL checks.
+        Searches PUBLIC_OBJECT_SEARCH_PATHS for the given file path.
+      parameters:
+        - name: filePath
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Relative file path within the public search paths.
+      responses:
+        '200':
+          description: Object content streamed with correct Content-Type.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: File not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '500':
+          description: Failed to serve public object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+  /events/{eventId}/documents/{docId}/file:
+    get:
+      tags: [logistics]
+      operationId: downloadDocumentFile
+      summary: Download an uploaded document file (event-scoped)
+      description: |
+        Streams the file attached to a logistics document. Retrieval is verified
+        against the owning event and document, so private uploads are not globally
+        reachable by their object key.
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the event that owns the document.
+        - name: docId
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID of the document whose file should be served.
+      responses:
+        '200':
+          description: File content streamed with correct Content-Type.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Document, event, or file not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '500':
+          description: Failed to serve document file.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+
+  /documents:
+    post:
+      operationId: createDocument
+      tags: [logistics]
+      summary: Create a Document
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentInput"
+      responses:
+        "201":
+          description: Created Document
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+
+  /documents/{id}:
+    patch:
+      operationId: updateDocument
+      tags: [logistics]
+      summary: Update a Document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentUpdate"
+      responses:
+        "200":
+          description: Updated Document
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Document"
+    delete:
+      operationId: deleteDocument
+      tags: [logistics]
+      summary: Delete a Document
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /contacts:
+    get:
+      operationId: listContacts
+      tags: [contacts]
+      summary: List contacts
+      parameters:
+        - name: type
+          in: query
+          schema:
+            type: string
+        - name: country
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: List of contacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contact"
+    post:
+      operationId: createContact
+      tags: [contacts]
+      summary: Create contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactInput"
+      responses:
+        "201":
+          description: Created contact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contact"
+
+  /contacts/search:
+    get:
+      operationId: searchContacts
+      tags: [contacts]
+      summary: Search contacts
+      parameters:
+        - name: q
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Matching contacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contact"
+
+  /contacts/type/{type}:
+    get:
+      operationId: listContactsByType
+      tags: [contacts]
+      summary: List contacts by type
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Contacts of a type
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contact"
+
+  /contacts/country/{countryCode}:
+    get:
+      operationId: listContactsByCountry
+      tags: [contacts]
+      summary: List contacts by country
+      parameters:
+        - name: countryCode
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Contacts for a country
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Contact"
+
+  /contacts/{id}:
+    get:
+      operationId: getContact
+      tags: [contacts]
+      summary: Get contact with notes, links and documents
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Contact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contact"
+    put:
+      operationId: updateContact
+      tags: [contacts]
+      summary: Update contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactInput"
+      responses:
+        "200":
+          description: Updated contact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Contact"
+    delete:
+      operationId: deleteContact
+      tags: [contacts]
+      summary: Delete contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /contacts/{id}/notes:
+    post:
+      operationId: addContactNote
+      tags: [contacts]
+      summary: Add a note to a contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactNoteInput"
+      responses:
+        "201":
+          description: Created note
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactNote"
+
+  /contacts/{id}/link-event:
+    post:
+      operationId: linkContactEvent
+      tags: [contacts]
+      summary: Link a contact to an event
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactEventLinkInput"
+      responses:
+        "201":
+          description: Created link
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactEventLink"
+
+  /contacts/{id}/documents:
+    post:
+      operationId: addContactDocument
+      tags: [contacts]
+      summary: Attach a document to a contact
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactDocumentInput"
+      responses:
+        "201":
+          description: Created document
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ContactDocument"
+
+  /delegations:
+    get:
+      operationId: listDelegations
+      tags: [delegations]
+      summary: List delegations
+      responses:
+        "200":
+          description: List of delegations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Delegation"
+    post:
+      operationId: createDelegation
+      tags: [delegations]
+      summary: Create delegation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DelegationInput"
+      responses:
+        "201":
+          description: Created delegation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Delegation"
+
+  /delegations/{id}:
+    get:
+      operationId: getDelegation
+      tags: [delegations]
+      summary: Get delegation with members
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Delegation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Delegation"
+    put:
+      operationId: updateDelegation
+      tags: [delegations]
+      summary: Update delegation
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DelegationInput"
+      responses:
+        "200":
+          description: Updated delegation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Delegation"
+
+  /delegations/{id}/members:
+    post:
+      operationId: addDelegationMember
+      tags: [delegations]
+      summary: Add a delegation member
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DelegationMemberInput"
+      responses:
+        "201":
+          description: Created member
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DelegationMember"
+
+  /delegations/{id}/members/{memberId}:
+    delete:
+      operationId: removeDelegationMember
+      tags: [delegations]
+      summary: Remove a delegation member
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: memberId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+components:
+  schemas:
+    Contact:
+      type: object
+      required: [id, type, status, nameEn, pinned, confidential, createdAt]
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        status:
+          type: string
+        nameEn:
+          type: string
+        nameAr:
+          type: ["string", "null"]
+        gender:
+          type: ["string", "null"]
+        nationality:
+          type: ["string", "null"]
+        countryCode:
+          type: ["string", "null"]
+        preferredLanguage:
+          type: ["string", "null"]
+        protocolTitle:
+          type: ["string", "null"]
+        protocolTitleAr:
+          type: ["string", "null"]
+        salutation:
+          type: ["string", "null"]
+        passportNumber:
+          type: ["string", "null"]
+        emiratesId:
+          type: ["string", "null"]
+        photoUrl:
+          type: ["string", "null"]
+        organization:
+          type: ["string", "null"]
+        organizationAr:
+          type: ["string", "null"]
+        department:
+          type: ["string", "null"]
+        jobTitle:
+          type: ["string", "null"]
+        jobTitleAr:
+          type: ["string", "null"]
+        roleInProtocol:
+          type: ["string", "null"]
+        classification:
+          type: ["string", "null"]
+        reportingLine:
+          type: ["string", "null"]
+        email:
+          type: ["string", "null"]
+        mobile:
+          type: ["string", "null"]
+        officeNumber:
+          type: ["string", "null"]
+        whatsapp:
+          type: ["string", "null"]
+        assistantContact:
+          type: ["string", "null"]
+        vipLevel:
+          type: ["string", "null"]
+        delegationRole:
+          type: ["string", "null"]
+        securityClearance:
+          type: ["string", "null"]
+        protocolRank:
+          type: ["string", "null"]
+        seatingPreference:
+          type: ["string", "null"]
+        giftPreference:
+          type: ["string", "null"]
+        specialRequirements:
+          type: ["string", "null"]
+        dietaryRequirements:
+          type: ["string", "null"]
+        accessibilityRequirements:
+          type: ["string", "null"]
+        culturalNotes:
+          type: ["string", "null"]
+        departmentKey:
+          type: ["string", "null"]
+        workflowRoles:
+          type: ["string", "null"]
+        permissionLevel:
+          type: ["string", "null"]
+        approvalAuthority:
+          type: ["string", "null"]
+        availability:
+          type: ["string", "null"]
+        taskCapacity:
+          type: ["integer", "null"]
+        activeTasks:
+          type: ["integer", "null"]
+        skills:
+          type: ["string", "null"]
+        extension:
+          type: ["string", "null"]
+        employeeType:
+          type: ["string", "null"]
+        eventResponsibilities:
+          type: ["string", "null"]
+        pinned:
+          type: boolean
+        confidential:
+          type: boolean
+        createdAt:
+          type: string
+        notes:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContactNote"
+        eventLinks:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContactEventLink"
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/ContactDocument"
+
+    ContactInput:
+      type: object
+      required: [type, nameEn]
+      properties:
+        type:
+          type: string
+        status:
+          type: string
+        nameEn:
+          type: string
+        nameAr:
+          type: string
+        gender:
+          type: string
+        nationality:
+          type: string
+        countryCode:
+          type: string
+        preferredLanguage:
+          type: string
+        protocolTitle:
+          type: string
+        protocolTitleAr:
+          type: string
+        salutation:
+          type: string
+        passportNumber:
+          type: string
+        emiratesId:
+          type: string
+        photoUrl:
+          type: string
+        organization:
+          type: string
+        organizationAr:
+          type: string
+        department:
+          type: string
+        jobTitle:
+          type: string
+        jobTitleAr:
+          type: string
+        roleInProtocol:
+          type: string
+        classification:
+          type: string
+        reportingLine:
+          type: string
+        email:
+          type: string
+        mobile:
+          type: string
+        officeNumber:
+          type: string
+        whatsapp:
+          type: string
+        assistantContact:
+          type: string
+        vipLevel:
+          type: string
+        delegationRole:
+          type: string
+        securityClearance:
+          type: string
+        protocolRank:
+          type: string
+        seatingPreference:
+          type: string
+        giftPreference:
+          type: string
+        specialRequirements:
+          type: string
+        dietaryRequirements:
+          type: string
+        accessibilityRequirements:
+          type: string
+        culturalNotes:
+          type: string
+        departmentKey:
+          type: string
+        workflowRoles:
+          type: string
+        permissionLevel:
+          type: string
+        approvalAuthority:
+          type: string
+        availability:
+          type: string
+        taskCapacity:
+          type: integer
+        activeTasks:
+          type: integer
+        skills:
+          type: string
+        extension:
+          type: string
+        employeeType:
+          type: string
+        eventResponsibilities:
+          type: string
+        pinned:
+          type: boolean
+        confidential:
+          type: boolean
+
+    ContactNote:
+      type: object
+      required: [id, contactId, body, createdAt]
+      properties:
+        id:
+          type: integer
+        contactId:
+          type: integer
+        body:
+          type: string
+        author:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    ContactNoteInput:
+      type: object
+      required: [body]
+      properties:
+        body:
+          type: string
+        author:
+          type: string
+
+    ContactEventLink:
+      type: object
+      required: [id, contactId, eventId, createdAt]
+      properties:
+        id:
+          type: integer
+        contactId:
+          type: integer
+        eventId:
+          type: integer
+        role:
+          type: ["string", "null"]
+        rsvpStatus:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    ContactEventLinkInput:
+      type: object
+      required: [eventId]
+      properties:
+        eventId:
+          type: integer
+        role:
+          type: string
+        rsvpStatus:
+          type: string
+
+    ContactDocument:
+      type: object
+      required: [id, contactId, kind, label, createdAt]
+      properties:
+        id:
+          type: integer
+        contactId:
+          type: integer
+        kind:
+          type: string
+        label:
+          type: string
+        url:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    ContactDocumentInput:
+      type: object
+      required: [kind, label]
+      properties:
+        kind:
+          type: string
+        label:
+          type: string
+        url:
+          type: string
+
+    Delegation:
+      type: object
+      required: [id, name, readinessStatus, status, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: ["string", "null"]
+        countryCode:
+          type: ["string", "null"]
+        country:
+          type: ["string", "null"]
+        countryAr:
+          type: ["string", "null"]
+        headContactId:
+          type: ["integer", "null"]
+        headName:
+          type: ["string", "null"]
+        headNameAr:
+          type: ["string", "null"]
+        eventId:
+          type: ["integer", "null"]
+        visitId:
+          type: ["integer", "null"]
+        readinessStatus:
+          type: string
+        status:
+          type: string
+        protocolNotes:
+          type: ["string", "null"]
+        protocolNotesAr:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+        memberCount:
+          type: integer
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/DelegationMember"
+
+    DelegationInput:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        countryCode:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        headContactId:
+          type: integer
+        headName:
+          type: string
+        headNameAr:
+          type: string
+        eventId:
+          type: integer
+        visitId:
+          type: integer
+        readinessStatus:
+          type: string
+        status:
+          type: string
+        protocolNotes:
+          type: string
+        protocolNotesAr:
+          type: string
+
+    DelegationMember:
+      type: object
+      required: [id, delegationId, name, isHead, createdAt]
+      properties:
+        id:
+          type: integer
+        delegationId:
+          type: integer
+        contactId:
+          type: ["integer", "null"]
+        name:
+          type: string
+        nameAr:
+          type: ["string", "null"]
+        role:
+          type: ["string", "null"]
+        roleAr:
+          type: ["string", "null"]
+        isHead:
+          type: boolean
+        createdAt:
+          type: string
+
+    DelegationMemberInput:
+      type: object
+      required: [name]
+      properties:
+        contactId:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: string
+        role:
+          type: string
+        roleAr:
+          type: string
+        isHead:
+          type: boolean
+
+    HealthStatus:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+
+    DashboardSummary:
+      type: object
+      required: [upcomingEvents, officialVisits, pendingRequests, pendingApprovals, logistics, budgetAlerts]
+      properties:
+        upcomingEvents:
+          type: integer
+        upcomingEventsChange:
+          type: integer
+        officialVisits:
+          type: integer
+        officialVisitsChange:
+          type: integer
+        pendingRequests:
+          type: integer
+        pendingRequestsChange:
+          type: integer
+        pendingApprovals:
+          type: integer
+        pendingApprovalsChange:
+          type: integer
+        logistics:
+          $ref: "#/components/schemas/LogisticsTotals"
+        budgetAlerts:
+          type: array
+          items:
+            $ref: "#/components/schemas/BudgetAlert"
+
+    BudgetAlert:
+      type: object
+      required: [eventId, name, estimated, actual, overBy, overByPercent, spentPercent, status, currency]
+      properties:
+        eventId:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: string
+        estimated:
+          type: integer
+        actual:
+          type: integer
+        overBy:
+          type: integer
+        overByPercent:
+          type: integer
+        spentPercent:
+          type: integer
+        status:
+          type: string
+          enum: [warning, over]
+        currency:
+          type: string
+
+    Notification:
+      type: object
+      required: [id, ownerKey, type, read, createdAt]
+      properties:
+        id:
+          type: integer
+        ownerKey:
+          type: string
+        type:
+          type: string
+        eventId:
+          type: integer
+          nullable: true
+        status:
+          type: string
+          enum: [warning, over]
+          nullable: true
+        spentPercent:
+          type: integer
+          nullable: true
+        overByPercent:
+          type: integer
+          nullable: true
+        estimated:
+          type: integer
+          nullable: true
+        actual:
+          type: integer
+          nullable: true
+        currency:
+          type: string
+          nullable: true
+        eventName:
+          type: string
+          nullable: true
+        eventNameAr:
+          type: string
+          nullable: true
+        read:
+          type: boolean
+        createdAt:
+          type: string
+
+    NotificationsResponse:
+      type: object
+      required: [notifications, unreadCount]
+      properties:
+        notifications:
+          type: array
+          items:
+            $ref: "#/components/schemas/Notification"
+        unreadCount:
+          type: integer
+
+    LogisticsTotals:
+      type: object
+      required: [travel, hotel, fleet, gifts, documents, budgetEstimated, budgetActual, currency]
+      properties:
+        travel:
+          type: integer
+        hotel:
+          type: integer
+        fleet:
+          type: integer
+        gifts:
+          type: integer
+        documents:
+          type: integer
+        budgetEstimated:
+          type: integer
+        budgetActual:
+          type: integer
+        currency:
+          type: string
+
+    Event:
+      type: object
+      required: [id, name, date, location, status, readinessPercent]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: string
+        date:
+          type: string
+        location:
+          type: string
+        locationAr:
+          type: string
+        status:
+          type: string
+        readinessPercent:
+          type: integer
+        riskLevel:
+          type: string
+        pendingTasksCount:
+          type: integer
+        budgetEstimated:
+          type: integer
+        budgetActual:
+          type: integer
+        currency:
+          type: ["string", "null"]
+        time:
+          type: ["string", "null"]
+        eventType:
+          type: ["string", "null"]
+        country:
+          type: ["string", "null"]
+        countryAr:
+          type: ["string", "null"]
+        vipLevel:
+          type: ["string", "null"]
+        priority:
+          type: ["string", "null"]
+        notes:
+          type: ["string", "null"]
+        pinned:
+          type: boolean
+        pinOrder:
+          type: integer
+        colorTag:
+          type: ["string", "null"]
+        watched:
+          type: boolean
+        cancellationReason:
+          type: ["string", "null"]
+        cancelledBy:
+          type: ["string", "null"]
+        cancelledAt:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    EventInput:
+      type: object
+      required: [name, date, location, status]
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        date:
+          type: string
+        location:
+          type: string
+        locationAr:
+          type: string
+        status:
+          type: string
+        time:
+          type: string
+        eventType:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        vipLevel:
+          type: string
+        priority:
+          type: string
+        notes:
+          type: string
+        pinned:
+          type: boolean
+        pinOrder:
+          type: integer
+        colorTag:
+          type: ["string", "null"]
+        watched:
+          type: boolean
+
+    EventUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        date:
+          type: string
+        location:
+          type: string
+        locationAr:
+          type: string
+        status:
+          type: string
+        readinessPercent:
+          type: integer
+        time:
+          type: string
+        eventType:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        vipLevel:
+          type: string
+        priority:
+          type: string
+        notes:
+          type: string
+        pinned:
+          type: boolean
+        pinOrder:
+          type: integer
+        colorTag:
+          type: ["string", "null"]
+        watched:
+          type: boolean
+        cancellationReason:
+          type: ["string", "null"]
+        cancelledBy:
+          type: ["string", "null"]
+
+    EventReadiness:
+      type: object
+      required: [eventId, categories]
+      properties:
+        eventId:
+          type: integer
+        overallPercent:
+          type: integer
+        categories:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReadinessCategory"
+
+    ReadinessCategory:
+      type: object
+      required: [name, nameAr, status]
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        status:
+          type: string
+        percent:
+          type: integer
+
+    Visit:
+      type: object
+      required: [id, guestName, country, arrivalDate, status]
+      properties:
+        id:
+          type: integer
+        guestName:
+          type: string
+        guestNameAr:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        arrivalDate:
+          type: string
+        departureDate:
+          type: ["string", "null"]
+        status:
+          type: string
+        purpose:
+          type: ["string", "null"]
+        purposeAr:
+          type: ["string", "null"]
+        protocolLevel:
+          type: string
+        createdAt:
+          type: string
+
+    VisitInput:
+      type: object
+      required: [guestName, country, arrivalDate, status]
+      properties:
+        guestName:
+          type: string
+        guestNameAr:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        arrivalDate:
+          type: string
+        departureDate:
+          type: string
+        status:
+          type: string
+        purpose:
+          type: string
+        purposeAr:
+          type: string
+        protocolLevel:
+          type: string
+
+    Task:
+      type: object
+      required: [id, title, status, priority, category, readinessImpact]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        titleAr:
+          type: string
+        description:
+          type: ["string", "null"]
+        status:
+          type: string
+        priority:
+          type: string
+        category:
+          type: string
+        team:
+          type: ["string", "null"]
+        readinessImpact:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        assignedTo:
+          type: ["string", "null"]
+        dueDate:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    TaskInput:
+      type: object
+      required: [title, status, priority]
+      properties:
+        title:
+          type: string
+        titleAr:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        priority:
+          type: string
+        category:
+          type: string
+        team:
+          type: string
+        readinessImpact:
+          type: integer
+        eventId:
+          type: integer
+        assignedTo:
+          type: string
+        dueDate:
+          type: string
+
+    TaskUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        titleAr:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+        priority:
+          type: string
+        category:
+          type: string
+        team:
+          type: string
+        readinessImpact:
+          type: integer
+        assignedTo:
+          type: string
+        dueDate:
+          type: string
+
+    Approval:
+      type: object
+      required: [id, title, requestedBy, status, createdAt]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        titleAr:
+          type: string
+        requestedBy:
+          type: string
+        status:
+          type: string
+        eventId:
+          type: ["integer", "null"]
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    ApprovalUpdate:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+        notes:
+          type: string
+
+    Vip:
+      type: object
+      required: [id, name, title, country, clearanceLevel]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: string
+        title:
+          type: string
+        titleAr:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        clearanceLevel:
+          type: string
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    VipInput:
+      type: object
+      required: [name, title, country, clearanceLevel]
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        title:
+          type: string
+        titleAr:
+          type: string
+        country:
+          type: string
+        countryAr:
+          type: string
+        clearanceLevel:
+          type: string
+        notes:
+          type: string
+
+    CalendarEntry:
+      type: object
+      required: [id, title, time, date, type]
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        titleAr:
+          type: string
+        time:
+          type: string
+        date:
+          type: string
+        type:
+          type: string
+        eventId:
+          type: ["integer", "null"]
+        location:
+          type: ["string", "null"]
+        locationAr:
+          type: ["string", "null"]
+
+    Invitation:
+      type: object
+      required: [id, guestName, eventId, status, inviteType, channel, publicToken, isDelegation, accompanyingCount, attended, vipVerified, requiresFlight, requiresHotel, requiresTransport, sentAt]
+      properties:
+        id:
+          type: integer
+        guestName:
+          type: string
+        guestNameAr:
+          type: ["string", "null"]
+        email:
+          type: ["string", "null"]
+        eventId:
+          type: integer
+        status:
+          type: string
+        inviteType:
+          type: string
+        channel:
+          type: string
+        publicToken:
+          type: string
+        isDelegation:
+          type: boolean
+        delegationName:
+          type: ["string", "null"]
+        delegationNameAr:
+          type: ["string", "null"]
+        nationality:
+          type: ["string", "null"]
+        passportNumber:
+          type: ["string", "null"]
+        emiratesId:
+          type: ["string", "null"]
+        organization:
+          type: ["string", "null"]
+        jobTitle:
+          type: ["string", "null"]
+        mobile:
+          type: ["string", "null"]
+        requiresFlight:
+          type: boolean
+        requiresHotel:
+          type: boolean
+        requiresTransport:
+          type: boolean
+        accompanyingCount:
+          type: integer
+        vipLevel:
+          type: ["string", "null"]
+        attended:
+          type: boolean
+        vipVerified:
+          type: boolean
+        qrCode:
+          type: ["string", "null"]
+        sentAt:
+          type: string
+        deliveredAt:
+          type: ["string", "null"]
+        openedAt:
+          type: ["string", "null"]
+        respondedAt:
+          type: ["string", "null"]
+
+    InvitationInput:
+      type: object
+      required: [guestName, eventId]
+      properties:
+        guestName:
+          type: string
+        guestNameAr:
+          type: string
+        email:
+          type: string
+        eventId:
+          type: integer
+        inviteType:
+          type: string
+        channel:
+          type: string
+        isDelegation:
+          type: boolean
+        delegationName:
+          type: string
+        delegationNameAr:
+          type: string
+        organization:
+          type: string
+        jobTitle:
+          type: string
+        mobile:
+          type: string
+        vipLevel:
+          type: string
+        accompanyingCount:
+          type: integer
+
+    InvitationUpdate:
+      type: object
+      properties:
+        status:
+          type: string
+        channel:
+          type: string
+        attended:
+          type: boolean
+        vipVerified:
+          type: boolean
+
+    Guest:
+      type: object
+      required: [id, eventId, fullName, requiresFlight, requiresHotel, requiresTransport, attended, vipVerified, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: integer
+        invitationId:
+          type: ["integer", "null"]
+        fullName:
+          type: string
+        fullNameAr:
+          type: ["string", "null"]
+        nationality:
+          type: ["string", "null"]
+        passportNumber:
+          type: ["string", "null"]
+        emiratesId:
+          type: ["string", "null"]
+        organization:
+          type: ["string", "null"]
+        jobTitle:
+          type: ["string", "null"]
+        mobile:
+          type: ["string", "null"]
+        email:
+          type: ["string", "null"]
+        requiresFlight:
+          type: boolean
+        requiresHotel:
+          type: boolean
+        requiresTransport:
+          type: boolean
+        attended:
+          type: boolean
+        vipVerified:
+          type: boolean
+        createdAt:
+          type: string
+
+    GuestUpdate:
+      type: object
+      properties:
+        attended:
+          type: boolean
+        vipVerified:
+          type: boolean
+
+    Participant:
+      type: object
+      required: [id, eventId, name, category, subType, attendanceStatus, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: ["string", "null"]
+        category:
+          type: string
+        subType:
+          type: string
+        role:
+          type: ["string", "null"]
+        roleAr:
+          type: ["string", "null"]
+        organization:
+          type: ["string", "null"]
+        organizationAr:
+          type: ["string", "null"]
+        email:
+          type: ["string", "null"]
+        phone:
+          type: ["string", "null"]
+        attendanceStatus:
+          type: string
+        createdAt:
+          type: string
+
+    ParticipantInput:
+      type: object
+      required: [eventId, name, category, subType]
+      properties:
+        eventId:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: string
+        category:
+          type: string
+        subType:
+          type: string
+        role:
+          type: string
+        roleAr:
+          type: string
+        organization:
+          type: string
+        organizationAr:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        attendanceStatus:
+          type: string
+
+    ParticipantUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        role:
+          type: string
+        roleAr:
+          type: string
+        organization:
+          type: string
+        organizationAr:
+          type: string
+        email:
+          type: string
+        phone:
+          type: string
+        attendanceStatus:
+          type: string
+
+    RsvpMember:
+      type: object
+      required: [fullName]
+      properties:
+        fullName:
+          type: string
+        fullNameAr:
+          type: string
+        nationality:
+          type: string
+        passportNumber:
+          type: string
+        emiratesId:
+          type: string
+        organization:
+          type: string
+        jobTitle:
+          type: string
+        mobile:
+          type: string
+        email:
+          type: string
+        requiresFlight:
+          type: boolean
+        requiresHotel:
+          type: boolean
+        requiresTransport:
+          type: boolean
+
+    RsvpView:
+      type: object
+      required: [invitation, eventName, members]
+      properties:
+        invitation:
+          $ref: "#/components/schemas/Invitation"
+        eventName:
+          type: string
+        eventNameAr:
+          type: ["string", "null"]
+        eventDate:
+          type: ["string", "null"]
+        eventLocation:
+          type: ["string", "null"]
+        eventLocationAr:
+          type: ["string", "null"]
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/Guest"
+
+    RsvpSubmit:
+      type: object
+      required: [response]
+      properties:
+        response:
+          type: string
+          enum: [accepted, declined]
+        nationality:
+          type: string
+        passportNumber:
+          type: string
+        emiratesId:
+          type: string
+        organization:
+          type: string
+        jobTitle:
+          type: string
+        mobile:
+          type: string
+        email:
+          type: string
+        requiresFlight:
+          type: boolean
+        requiresHotel:
+          type: boolean
+        requiresTransport:
+          type: boolean
+        accompanyingCount:
+          type: integer
+        members:
+          type: array
+          items:
+            $ref: "#/components/schemas/RsvpMember"
+
+    Report:
+      type: object
+      required: [id, name, type, format, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        nameAr:
+          type: ["string", "null"]
+        type:
+          type: string
+        format:
+          type: string
+        eventId:
+          type: ["integer", "null"]
+        createdAt:
+          type: string
+
+    ReportInput:
+      type: object
+      required: [name, type, format]
+      properties:
+        name:
+          type: string
+        nameAr:
+          type: string
+        type:
+          type: string
+        format:
+          type: string
+        eventId:
+          type: integer
+
+    DashboardWidgetConfig:
+      type: object
+      required: [id, hidden]
+      properties:
+        id:
+          type: string
+        size:
+          type: string
+          enum: [sm, md, lg, full]
+        hidden:
+          type: boolean
+        x:
+          type: integer
+        y:
+          type: integer
+        w:
+          type: integer
+        h:
+          type: integer
+
+    DashboardProfile:
+      type: object
+      required: [id, ownerKey, name, items, createdAt, updatedAt]
+      properties:
+        id:
+          type: integer
+        ownerKey:
+          type: string
+        name:
+          type: string
+        icon:
+          type: ["string", "null"]
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DashboardWidgetConfig"
+        createdAt:
+          type: string
+        updatedAt:
+          type: string
+
+    DashboardProfileInput:
+      type: object
+      required: [ownerKey, name, items]
+      properties:
+        ownerKey:
+          type: string
+        name:
+          type: string
+        icon:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DashboardWidgetConfig"
+
+    DashboardProfileUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        icon:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/DashboardWidgetConfig"
+
+    UserPreferences:
+      type: object
+      required: [ownerKey, budgetThreshold]
+      properties:
+        ownerKey:
+          type: string
+        budgetThreshold:
+          type: integer
+          description: >-
+            Percentage of an event's estimated budget at which it begins to show
+            a budget warning (50-100). Defaults to 90.
+          minimum: 50
+          maximum: 100
+
+    UserPreferencesInput:
+      type: object
+      required: [ownerKey, budgetThreshold]
+      properties:
+        ownerKey:
+          type: string
+        budgetThreshold:
+          type: integer
+          minimum: 50
+          maximum: 100
+
+    Risk:
+      type: object
+      required: [id, title, category, severity, likelihood, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        title:
+          type: string
+        titleAr:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        descriptionAr:
+          type: ["string", "null"]
+        category:
+          type: string
+        severity:
+          type: string
+        likelihood:
+          type: string
+        impact:
+          type: ["string", "null"]
+        impactAr:
+          type: ["string", "null"]
+        mitigation:
+          type: ["string", "null"]
+        mitigationAr:
+          type: ["string", "null"]
+        owner:
+          type: ["string", "null"]
+        status:
+          type: string
+        createdAt:
+          type: string
+
+    RiskInput:
+      type: object
+      required: [title, severity]
+      properties:
+        eventId:
+          type: integer
+        title:
+          type: string
+        titleAr:
+          type: string
+        description:
+          type: string
+        descriptionAr:
+          type: string
+        category:
+          type: string
+        severity:
+          type: string
+        likelihood:
+          type: string
+        impact:
+          type: string
+        impactAr:
+          type: string
+        mitigation:
+          type: string
+        mitigationAr:
+          type: string
+        owner:
+          type: string
+        status:
+          type: string
+
+    RiskUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        titleAr:
+          type: string
+        description:
+          type: string
+        descriptionAr:
+          type: string
+        category:
+          type: string
+        severity:
+          type: string
+        likelihood:
+          type: string
+        impact:
+          type: string
+        impactAr:
+          type: string
+        mitigation:
+          type: string
+        mitigationAr:
+          type: string
+        owner:
+          type: string
+        status:
+          type: string
+
+    Travel:
+      type: object
+      required: [id, direction, passengerName, seatClass, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        direction:
+          type: string
+        passengerName:
+          type: string
+        passengerNameAr:
+          type: ["string", "null"]
+        flightNumber:
+          type: ["string", "null"]
+        airline:
+          type: ["string", "null"]
+        aircraft:
+          type: ["string", "null"]
+        origin:
+          type: ["string", "null"]
+        destination:
+          type: ["string", "null"]
+        originCity:
+          type: ["string", "null"]
+        destinationCity:
+          type: ["string", "null"]
+        departureTime:
+          type: ["string", "null"]
+        arrivalTime:
+          type: ["string", "null"]
+        seatClass:
+          type: string
+        seatNumber:
+          type: ["string", "null"]
+        status:
+          type: string
+        pnr:
+          type: ["string", "null"]
+        bookingReference:
+          type: ["string", "null"]
+        eTicketNumber:
+          type: ["string", "null"]
+        tripType:
+          type: string
+        legType:
+          type: string
+        terminal:
+          type: ["string", "null"]
+        baggageAllowance:
+          type: ["string", "null"]
+        fareCategory:
+          type: ["string", "null"]
+        fareAmount:
+          type: ["integer", "null"]
+        currency:
+          type: string
+        duration:
+          type: ["string", "null"]
+        guestId:
+          type: ["integer", "null"]
+        bookingProvider:
+          type: string
+        passengerCount:
+          type: integer
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    TravelInput:
+      type: object
+      required: [passengerName]
+      properties:
+        eventId:
+          type: integer
+        direction:
+          type: string
+        passengerName:
+          type: string
+        passengerNameAr:
+          type: string
+        flightNumber:
+          type: string
+        airline:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        departureTime:
+          type: string
+        arrivalTime:
+          type: string
+        seatClass:
+          type: string
+        status:
+          type: string
+        pnr:
+          type: string
+        terminal:
+          type: string
+        baggageAllowance:
+          type: string
+        fareCategory:
+          type: string
+        duration:
+          type: string
+        guestId:
+          type: integer
+        bookingProvider:
+          type: string
+        passengerCount:
+          type: integer
+        notes:
+          type: string
+
+    TravelUpdate:
+      type: object
+      properties:
+        direction:
+          type: string
+        passengerName:
+          type: string
+        passengerNameAr:
+          type: string
+        flightNumber:
+          type: string
+        airline:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        departureTime:
+          type: string
+        arrivalTime:
+          type: string
+        seatClass:
+          type: string
+        status:
+          type: string
+        pnr:
+          type: string
+        terminal:
+          type: string
+        baggageAllowance:
+          type: string
+        fareCategory:
+          type: string
+        duration:
+          type: string
+        guestId:
+          type: integer
+        passengerCount:
+          type: integer
+        notes:
+          type: string
+
+    FlightSearchRequest:
+      type: object
+      required: [origin, destination, date]
+      properties:
+        provider:
+          type: string
+        tripType:
+          type: string
+          enum: [oneway, roundtrip]
+          default: oneway
+        origin:
+          type: string
+        destination:
+          type: string
+        date:
+          type: string
+        returnDate:
+          type: string
+        passengers:
+          type: integer
+          default: 1
+        cabinClass:
+          type: string
+          enum: [first, business, economy]
+          default: business
+
+    FlightOffer:
+      type: object
+      required:
+        [id, airline, airlineAr, flightNumber, aircraft, origin, destination, departureTime, arrivalTime, duration, terminal, baggageAllowance, fareCategory, cabinClass, price, currency, seatsAvailable]
+      properties:
+        id:
+          type: string
+        airline:
+          type: string
+        airlineAr:
+          type: string
+        flightNumber:
+          type: string
+        aircraft:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        departureTime:
+          type: string
+        arrivalTime:
+          type: string
+        duration:
+          type: string
+        terminal:
+          type: string
+        baggageAllowance:
+          type: string
+        fareCategory:
+          type: string
+        cabinClass:
+          type: string
+        price:
+          type: integer
+        currency:
+          type: string
+        seatsAvailable:
+          type: integer
+
+    FlightSearchResult:
+      type: object
+      required: [provider, offers]
+      properties:
+        provider:
+          type: string
+        tripType:
+          type: string
+        offers:
+          type: array
+          items:
+            $ref: "#/components/schemas/FlightOffer"
+        returnOffers:
+          type: array
+          items:
+            $ref: "#/components/schemas/FlightOffer"
+
+    FlightLeg:
+      type: object
+      required: [airline, flightNumber, origin, destination]
+      properties:
+        airline:
+          type: string
+        airlineAr:
+          type: string
+        flightNumber:
+          type: string
+        aircraft:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        originCity:
+          type: string
+        destinationCity:
+          type: string
+        departureTime:
+          type: string
+        arrivalTime:
+          type: string
+        duration:
+          type: string
+        terminal:
+          type: string
+        baggageAllowance:
+          type: string
+        fareCategory:
+          type: string
+        fareAmount:
+          type: integer
+
+    FlightBookingRequest:
+      type: object
+      required: [eventId, direction, passengerName, airline, flightNumber, cabinClass]
+      properties:
+        eventId:
+          type: integer
+        provider:
+          type: string
+        tripType:
+          type: string
+          enum: [oneway, roundtrip]
+          default: oneway
+        direction:
+          type: string
+          enum: [arrival, departure]
+        passengerName:
+          type: string
+        passengerNameAr:
+          type: string
+        guestId:
+          type: integer
+        airline:
+          type: string
+        airlineAr:
+          type: string
+        flightNumber:
+          type: string
+        aircraft:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        originCity:
+          type: string
+        destinationCity:
+          type: string
+        departureTime:
+          type: string
+        arrivalTime:
+          type: string
+        duration:
+          type: string
+        terminal:
+          type: string
+        baggageAllowance:
+          type: string
+        fareCategory:
+          type: string
+        fareAmount:
+          type: integer
+        currency:
+          type: string
+        cabinClass:
+          type: string
+          enum: [first, business, economy]
+        passengerCount:
+          type: integer
+        returnLeg:
+          $ref: "#/components/schemas/FlightLeg"
+
+    FlightBookingResult:
+      type: object
+      required: [bookingReference, eTicketNumber, pnr, tripType, bookingProvider, status, legs]
+      properties:
+        bookingReference:
+          type: string
+        eTicketNumber:
+          type: string
+        pnr:
+          type: string
+        tripType:
+          type: string
+        bookingProvider:
+          type: string
+        status:
+          type: string
+        legs:
+          type: array
+          items:
+            $ref: "#/components/schemas/Travel"
+
+    TravelDashboard:
+      type: object
+      required: [total, arrivingToday, departingToday, confirmed, pending, delayed, cancelled]
+      properties:
+        total:
+          type: integer
+        arrivingToday:
+          type: integer
+        departingToday:
+          type: integer
+        confirmed:
+          type: integer
+        pending:
+          type: integer
+        delayed:
+          type: integer
+        cancelled:
+          type: integer
+
+    TravelProvider:
+      type: object
+      required: [id, name, nameAr, status]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        nameAr:
+          type: string
+        status:
+          type: string
+
+
+    HotelBooking:
+      type: object
+      required: [id, guestName, roomType, rooms, currency, bookingProvider, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        guestId:
+          type: ["integer", "null"]
+        guestName:
+          type: string
+        guestNameAr:
+          type: ["string", "null"]
+        hotelName:
+          type: ["string", "null"]
+        hotelNameAr:
+          type: ["string", "null"]
+        hotelCategory:
+          type: ["string", "null"]
+        rating:
+          type: ["integer", "null"]
+        location:
+          type: ["string", "null"]
+        locationAr:
+          type: ["string", "null"]
+        distanceFromVenue:
+          type: ["string", "null"]
+        roomType:
+          type: string
+        rooms:
+          type: integer
+        nights:
+          type: ["integer", "null"]
+        checkIn:
+          type: ["string", "null"]
+        checkOut:
+          type: ["string", "null"]
+        vipLevel:
+          type: ["string", "null"]
+        amenities:
+          type: ["string", "null"]
+        vipServices:
+          type: ["string", "null"]
+        estimatedCost:
+          type: ["integer", "null"]
+        currency:
+          type: string
+        securityNotes:
+          type: ["string", "null"]
+        dietaryNotes:
+          type: ["string", "null"]
+        protocolNotes:
+          type: ["string", "null"]
+        specialRequests:
+          type: ["string", "null"]
+        confirmationNumber:
+          type: ["string", "null"]
+        bookingProvider:
+          type: string
+        status:
+          type: string
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    HotelBookingInput:
+      type: object
+      required: [guestName]
+      properties:
+        eventId:
+          type: integer
+        guestId:
+          type: integer
+        guestName:
+          type: string
+        guestNameAr:
+          type: string
+        hotelName:
+          type: string
+        hotelNameAr:
+          type: string
+        hotelCategory:
+          type: string
+        rating:
+          type: integer
+        location:
+          type: string
+        locationAr:
+          type: string
+        distanceFromVenue:
+          type: string
+        roomType:
+          type: string
+        rooms:
+          type: integer
+        nights:
+          type: integer
+        checkIn:
+          type: string
+        checkOut:
+          type: string
+        vipLevel:
+          type: string
+        amenities:
+          type: string
+        vipServices:
+          type: string
+        estimatedCost:
+          type: integer
+        currency:
+          type: string
+        securityNotes:
+          type: string
+        dietaryNotes:
+          type: string
+        protocolNotes:
+          type: string
+        specialRequests:
+          type: string
+        confirmationNumber:
+          type: string
+        bookingProvider:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    HotelBookingUpdate:
+      type: object
+      properties:
+        guestId:
+          type: integer
+        guestName:
+          type: string
+        guestNameAr:
+          type: string
+        hotelName:
+          type: string
+        hotelNameAr:
+          type: string
+        hotelCategory:
+          type: string
+        rating:
+          type: integer
+        location:
+          type: string
+        locationAr:
+          type: string
+        distanceFromVenue:
+          type: string
+        roomType:
+          type: string
+        rooms:
+          type: integer
+        nights:
+          type: integer
+        checkIn:
+          type: string
+        checkOut:
+          type: string
+        vipLevel:
+          type: string
+        amenities:
+          type: string
+        vipServices:
+          type: string
+        estimatedCost:
+          type: integer
+        currency:
+          type: string
+        securityNotes:
+          type: string
+        dietaryNotes:
+          type: string
+        protocolNotes:
+          type: string
+        specialRequests:
+          type: string
+        confirmationNumber:
+          type: string
+        bookingProvider:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    HotelProvider:
+      type: object
+      required: [id, name, nameAr, status]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        nameAr:
+          type: string
+        status:
+          type: string
+
+    HotelSearchRequest:
+      type: object
+      required: [city, checkIn, checkOut]
+      properties:
+        provider:
+          type: string
+        city:
+          type: string
+        checkIn:
+          type: string
+        checkOut:
+          type: string
+        guests:
+          type: integer
+          default: 1
+        rooms:
+          type: integer
+          default: 1
+        vipLevel:
+          type: string
+          enum: [standard, vip, vvip, headOfState]
+          default: standard
+        category:
+          type: string
+          enum: [any, luxury5, fiveStar, fourStar, boutique, resort, presidential]
+          default: any
+
+    RoomOption:
+      type: object
+      required: [type, capacity, pricePerNight, available]
+      properties:
+        type:
+          type: string
+        capacity:
+          type: integer
+        pricePerNight:
+          type: integer
+        available:
+          type: integer
+
+    HotelOffer:
+      type: object
+      required:
+        [id, name, nameAr, category, rating, location, locationAr, distanceFromVenue, image, amenities, vipServices, cancellationPolicy, cancellationPolicyAr, rooms, currency, availability]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        nameAr:
+          type: string
+        category:
+          type: string
+        rating:
+          type: integer
+        location:
+          type: string
+        locationAr:
+          type: string
+        distanceFromVenue:
+          type: string
+        image:
+          type: string
+        amenities:
+          type: array
+          items:
+            type: string
+        vipServices:
+          type: array
+          items:
+            type: string
+        cancellationPolicy:
+          type: string
+        cancellationPolicyAr:
+          type: string
+        rooms:
+          type: array
+          items:
+            $ref: "#/components/schemas/RoomOption"
+        currency:
+          type: string
+        availability:
+          type: string
+
+    HotelSearchResult:
+      type: object
+      required: [provider, offers]
+      properties:
+        provider:
+          type: string
+        offers:
+          type: array
+          items:
+            $ref: "#/components/schemas/HotelOffer"
+
+    HotelBookingRequest:
+      type: object
+      required: [eventId, guestName, hotelName, roomType]
+      properties:
+        eventId:
+          type: integer
+        provider:
+          type: string
+        guestId:
+          type: integer
+        guestName:
+          type: string
+        guestNameAr:
+          type: string
+        hotelName:
+          type: string
+        hotelNameAr:
+          type: string
+        hotelCategory:
+          type: string
+        rating:
+          type: integer
+        location:
+          type: string
+        locationAr:
+          type: string
+        distanceFromVenue:
+          type: string
+        roomType:
+          type: string
+        rooms:
+          type: integer
+          default: 1
+        checkIn:
+          type: string
+        checkOut:
+          type: string
+        vipLevel:
+          type: string
+          enum: [standard, vip, vvip, headOfState]
+        amenities:
+          type: string
+        vipServices:
+          type: string
+        pricePerNight:
+          type: integer
+        securityNotes:
+          type: string
+        dietaryNotes:
+          type: string
+        protocolNotes:
+          type: string
+        specialRequests:
+          type: string
+
+    HotelDashboard:
+      type: object
+      required:
+        [total, checkedIn, checkedOut, pending, confirmed, vipGuests, presidentialSuites, arrivingToday, departingToday]
+      properties:
+        total:
+          type: integer
+        checkedIn:
+          type: integer
+        checkedOut:
+          type: integer
+        pending:
+          type: integer
+        confirmed:
+          type: integer
+        vipGuests:
+          type: integer
+        presidentialSuites:
+          type: integer
+        arrivingToday:
+          type: integer
+        departingToday:
+          type: integer
+
+
+    FleetAssignment:
+      type: object
+      required: [id, vehicleType, capacity, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        vehicleType:
+          type: string
+        plateNumber:
+          type: ["string", "null"]
+        driverName:
+          type: ["string", "null"]
+        driverNameAr:
+          type: ["string", "null"]
+        assignedTo:
+          type: ["string", "null"]
+        assignedToAr:
+          type: ["string", "null"]
+        capacity:
+          type: integer
+        pickupLocation:
+          type: ["string", "null"]
+        dropoffLocation:
+          type: ["string", "null"]
+        pickupTime:
+          type: ["string", "null"]
+        status:
+          type: string
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    FleetAssignmentInput:
+      type: object
+      required: [vehicleType]
+      properties:
+        eventId:
+          type: integer
+        vehicleType:
+          type: string
+        plateNumber:
+          type: string
+        driverName:
+          type: string
+        driverNameAr:
+          type: string
+        assignedTo:
+          type: string
+        assignedToAr:
+          type: string
+        capacity:
+          type: integer
+        pickupLocation:
+          type: string
+        dropoffLocation:
+          type: string
+        pickupTime:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    FleetAssignmentUpdate:
+      type: object
+      properties:
+        vehicleType:
+          type: string
+        plateNumber:
+          type: string
+        driverName:
+          type: string
+        driverNameAr:
+          type: string
+        assignedTo:
+          type: string
+        assignedToAr:
+          type: string
+        capacity:
+          type: integer
+        pickupLocation:
+          type: string
+        dropoffLocation:
+          type: string
+        pickupTime:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+
+    Gift:
+      type: object
+      required: [id, recipient, quantity, currency, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        recipient:
+          type: string
+        recipientAr:
+          type: ["string", "null"]
+        item:
+          type: ["string", "null"]
+        itemAr:
+          type: ["string", "null"]
+        description:
+          type: ["string", "null"]
+        quantity:
+          type: integer
+        value:
+          type: ["integer", "null"]
+        currency:
+          type: string
+        status:
+          type: string
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    GiftInput:
+      type: object
+      required: [recipient]
+      properties:
+        eventId:
+          type: integer
+        recipient:
+          type: string
+        recipientAr:
+          type: string
+        item:
+          type: string
+        itemAr:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: integer
+        value:
+          type: integer
+        currency:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    GiftUpdate:
+      type: object
+      properties:
+        recipient:
+          type: string
+        recipientAr:
+          type: string
+        item:
+          type: string
+        itemAr:
+          type: string
+        description:
+          type: string
+        quantity:
+          type: integer
+        value:
+          type: integer
+        currency:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+
+    BudgetItem:
+      type: object
+      required: [id, category, item, estimatedCost, currency, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        category:
+          type: string
+        item:
+          type: string
+        itemAr:
+          type: ["string", "null"]
+        estimatedCost:
+          type: integer
+        actualCost:
+          type: ["integer", "null"]
+        currency:
+          type: string
+        vendor:
+          type: ["string", "null"]
+        status:
+          type: string
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    BudgetItemInput:
+      type: object
+      required: [item]
+      properties:
+        eventId:
+          type: integer
+        category:
+          type: string
+        item:
+          type: string
+        itemAr:
+          type: string
+        estimatedCost:
+          type: integer
+        actualCost:
+          type: integer
+        currency:
+          type: string
+        vendor:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    BudgetItemUpdate:
+      type: object
+      properties:
+        category:
+          type: string
+        item:
+          type: string
+        itemAr:
+          type: string
+        estimatedCost:
+          type: integer
+        actualCost:
+          type: integer
+        currency:
+          type: string
+        vendor:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+
+    Document:
+      type: object
+      required: [id, title, docType, status, createdAt]
+      properties:
+        id:
+          type: integer
+        eventId:
+          type: ["integer", "null"]
+        title:
+          type: string
+        titleAr:
+          type: ["string", "null"]
+        docType:
+          type: string
+        referenceNumber:
+          type: ["string", "null"]
+        owner:
+          type: ["string", "null"]
+        url:
+          type: ["string", "null"]
+        filePath:
+          type: ["string", "null"]
+        fileName:
+          type: ["string", "null"]
+        status:
+          type: string
+        notes:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+
+    DocumentInput:
+      type: object
+      required: [title]
+      properties:
+        eventId:
+          type: integer
+        title:
+          type: string
+        titleAr:
+          type: string
+        docType:
+          type: string
+        referenceNumber:
+          type: string
+        owner:
+          type: string
+        url:
+          type: string
+        filePath:
+          type: string
+        fileName:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    DocumentUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+        titleAr:
+          type: string
+        docType:
+          type: string
+        referenceNumber:
+          type: string
+        owner:
+          type: string
+        url:
+          type: string
+        filePath:
+          type: string
+        fileName:
+          type: string
+        status:
+          type: string
+        notes:
+          type: string
+
+    UploadUrlRequest:
+      type: object
+      required: [name, size, contentType]
+      properties:
+        name:
+          type: string
+          minLength: 1
+          description: Original file name.
+        size:
+          type: integer
+          minimum: 1
+          description: File size in bytes.
+        contentType:
+          type: string
+          minLength: 1
+          description: MIME type of the file (e.g. `image/jpeg`).
+    UploadUrlResponse:
+      type: object
+      required: [uploadURL, objectPath]
+      properties:
+        uploadURL:
+          type: string
+          format: uri
+          description: Presigned GCS URL for PUT upload.
+        objectPath:
+          type: string
+          description: Normalized object path (e.g. `/objects/uploads/uuid`). Store this in your database.
+        metadata:
+          $ref: '#/components/schemas/UploadUrlRequest'
+    ErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: string
+
+
+    OpsRoomCount:
+      type: object
+      required: [label, value]
+      properties:
+        label:
+          type: string
+        value:
+          type: integer
+
+    OpsRoomAlert:
+      type: object
+      required: [severity, message, messageAr]
+      properties:
+        severity:
+          type: string
+        message:
+          type: string
+        messageAr:
+          type: string
+
+    OpsRoom:
+      type: object
+      required: [eventId, readinessPercent, tasks, approvals, risks, arrivals, logistics, participants, guests, alerts]
+      properties:
+        eventId:
+          type: integer
+        readinessPercent:
+          type: integer
+        readinessCategories:
+          type: array
+          items:
+            $ref: "#/components/schemas/ReadinessCategory"
+        tasks:
+          type: object
+          required: [total, done, pending, overdue]
+          properties:
+            total:
+              type: integer
+            done:
+              type: integer
+            pending:
+              type: integer
+            overdue:
+              type: integer
+        approvals:
+          type: object
+          required: [total, pending]
+          properties:
+            total:
+              type: integer
+            pending:
+              type: integer
+        risks:
+          type: object
+          required: [total, open, critical, high, medium, low]
+          properties:
+            total:
+              type: integer
+            open:
+              type: integer
+            critical:
+              type: integer
+            high:
+              type: integer
+            medium:
+              type: integer
+            low:
+              type: integer
+        arrivals:
+          type: object
+          required: [total, accepted, declined, pending, attended]
+          properties:
+            total:
+              type: integer
+            accepted:
+              type: integer
+            declined:
+              type: integer
+            pending:
+              type: integer
+            attended:
+              type: integer
+        logistics:
+          type: object
+          required: [flight, hotel, transport, gifts, documents, budgetEstimated, budgetActual]
+          properties:
+            flight:
+              type: integer
+            hotel:
+              type: integer
+            transport:
+              type: integer
+            gifts:
+              type: integer
+            documents:
+              type: integer
+            budgetEstimated:
+              type: integer
+            budgetActual:
+              type: integer
+            currency:
+              type: string
+        participants:
+          type: object
+          required: [total, internal, external]
+          properties:
+            total:
+              type: integer
+            internal:
+              type: integer
+            external:
+              type: integer
+        guests:
+          type: object
+          required: [total, checkedIn, verified]
+          properties:
+            total:
+              type: integer
+            checkedIn:
+              type: integer
+            verified:
+              type: integer
+        alerts:
+          type: array
+          items:
+            $ref: "#/components/schemas/OpsRoomAlert"

@@ -1,0 +1,193 @@
+The dashboard customization is NOT working correctly.
+
+Current issues:
+
+- Widgets cannot actually be dragged.
+- Widget positions are not saved.
+- Layout is visually unbalanced.
+- Large empty spaces still exist.
+- Cards are using inconsistent heights.
+- Some widgets are floating alone at the bottom.
+- Dashboard does not feel like a modern customizable workspace.
+
+━━━━━━━━━━━━━━━━━━━━
+REBUILD DASHBOARD LAYOUT ENGINE
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT simply rearrange widgets.
+
+Implement a true dashboard layout system.
+
+Use:
+
+- CSS Grid
+- GridStack.js
+OR
+- React Grid Layout
+
+Requirements:
+
+━━━━━━━━━━━━━━━━━━━━
+REAL DRAG & DROP
+━━━━━━━━━━━━━━━━━━━━
+
+Every widget must be draggable.
+
+When hovering:
+
+Show drag handle.
+
+Users should be able to:
+
+- Move widgets anywhere.
+- Reorder widgets.
+- Rearrange columns.
+- Drop widgets into any available position.
+
+━━━━━━━━━━━━━━━━━━━━
+REAL RESIZING
+━━━━━━━━━━━━━━━━━━━━
+
+Every widget should support:
+
+- Small
+- Medium
+- Large
+- Full Width
+
+Resizable by dragging corners.
+
+━━━━━━━━━━━━━━━━━━━━
+AUTO FILL EMPTY SPACE
+━━━━━━━━━━━━━━━━━━━━
+
+Widgets should automatically reposition.
+
+No empty holes should exist.
+
+The grid should automatically compact itself.
+
+Use:
+
+compactType="vertical"
+
+or masonry packing.
+
+━━━━━━━━━━━━━━━━━━━━
+CONSISTENT WIDGET SIZES
+━━━━━━━━━━━━━━━━━━━━
+
+Define standard widget sizes.
+
+Example:
+
+Small:
+1x1
+
+Medium:
+2x1
+
+Large:
+2x2
+
+Wide:
+4x1
+
+Do not allow random heights.
+
+━━━━━━━━━━━━━━━━━━━━
+CUSTOMIZE MODE
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+
+⚙️ Customize Dashboard
+
+When enabled:
+
+- Drag handles appear
+- Resize controls appear
+- Widgets become editable
+
+When disabled:
+
+- Dashboard becomes locked
+
+━━━━━━━━━━━━━━━━━━━━
+SAVE LAYOUT
+━━━━━━━━━━━━━━━━━━━━
+
+Store:
+
+- Position
+- Size
+- Visibility
+
+per user.
+
+Layout must survive:
+
+- Refresh
+- Logout/Login
+- Language change
+
+━━━━━━━━━━━━━━━━━━━━
+LOCK LAYOUT
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+
+🔒 Lock Layout
+
+When locked:
+
+- Disable drag
+- Disable resize
+
+━━━━━━━━━━━━━━━━━━━━
+DEFAULT EXECUTIVE LAYOUT
+━━━━━━━━━━━━━━━━━━━━
+
+Create a balanced default layout:
+
+Row 1:
+- Event Readiness
+- Upcoming Tasks
+
+Row 2:
+- Executive Brief
+- Upcoming Events
+
+Row 3:
+- Official Visits
+- Pending Approvals
+
+Row 4:
+- Favorite Events
+- Smart Monitoring
+
+Row 5:
+- Recent Reports
+- Quick Export
+
+All rows should be balanced.
+
+━━━━━━━━━━━━━━━━━━━━
+VISUAL GOAL
+━━━━━━━━━━━━━━━━━━━━
+
+The dashboard should feel similar to:
+
+- Notion
+- Monday.com
+- ClickUp
+- Microsoft Viva
+
+NOT:
+- Static admin page
+- Fixed columns
+- Uneven widget stacking
+
+Most importantly:
+
+Users must actually be able to drag widgets and create their own layout.

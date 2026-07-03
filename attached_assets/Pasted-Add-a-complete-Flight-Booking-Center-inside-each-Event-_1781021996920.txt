@@ -1,0 +1,155 @@
+Add a complete Flight Booking Center inside each Event Command Center.
+
+Goal:
+Provide a realistic airline booking experience directly from the event system.
+
+IMPORTANT:
+
+At this stage, build the full booking workflow using realistic demo/sandbox data.
+
+Do NOT block development waiting for a live provider integration.
+
+Create the system so that real providers can be connected later.
+
+━━━━━━━━━━━━━━━━━━━━
+FLIGHT BOOKING CENTER
+━━━━━━━━━━━━━━━━━━━━
+
+Users should be able to:
+
+* Search flights
+* View available flights
+* Select a flight
+* Assign a flight to a guest
+* Confirm booking
+* Generate booking reference (PNR)
+* Track flight status
+
+━━━━━━━━━━━━━━━━━━━━
+SEARCH CRITERIA
+━━━━━━━━━━━━━━━━━━━━
+
+Allow searching by:
+
+* Origin Airport
+* Destination Airport
+* Travel Date
+* Passenger Count
+* Cabin Class
+
+Classes:
+
+* Economy
+* Business
+* First
+
+━━━━━━━━━━━━━━━━━━━━
+FLIGHT RESULTS
+━━━━━━━━━━━━━━━━━━━━
+
+Display:
+
+* Airline
+* Flight Number
+* Departure Airport
+* Arrival Airport
+* Departure Time
+* Arrival Time
+* Duration
+* Terminal
+* Baggage Allowance
+* Fare Category
+* Booking Status
+
+Use realistic demo airline data.
+
+━━━━━━━━━━━━━━━━━━━━
+BOOKING FLOW
+━━━━━━━━━━━━━━━━━━━━
+
+Event Details
+→ Travel Center
+→ Search Flights
+→ Select Flight
+→ Assign to Guest
+→ Confirm Booking
+
+After confirmation:
+
+Generate:
+
+* PNR Reference
+* Booking Status
+* Travel Record
+
+Automatically save everything under the event.
+
+━━━━━━━━━━━━━━━━━━━━
+GUEST TRAVEL PROFILE
+━━━━━━━━━━━━━━━━━━━━
+
+Each guest should have:
+
+* Flight Information
+* Arrival Details
+* Departure Details
+* Booking Reference
+* Travel Status
+* Assigned Vehicle
+* Assigned Hotel
+
+━━━━━━━━━━━━━━━━━━━━
+TRAVEL DASHBOARD
+━━━━━━━━━━━━━━━━━━━━
+
+Show:
+
+* Arriving Today
+* Departing Today
+* Delayed Flights
+* Cancelled Flights
+* Pending Bookings
+* Confirmed Bookings
+
+━━━━━━━━━━━━━━━━━━━━
+PROVIDER ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+
+TravelProviderService
+
+Support:
+
+1. Demo Provider (Default)
+2. Duffel Sandbox (Future)
+3. AYAT Integration (Future)
+4. Amadeus Integration (Future)
+5. Manual Entry
+
+Keep architecture provider-agnostic.
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+Do NOT require payment.
+
+Do NOT issue real airline tickets.
+
+Do NOT require API keys.
+
+Build a complete executive flight booking experience using realistic demo data.
+
+The system should look and behave exactly like a real flight reservation platform.
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+* Arabic RTL
+* English LTR
+* Luxury UAE Government Design
+* Executive Operations Center Style
+* Same Beige Design System
+* Same Platform Navigation

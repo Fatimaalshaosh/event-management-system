@@ -1,0 +1,164 @@
+The language switcher is NOT actually translating the platform.
+
+Currently:
+- Clicking “English” only changes the toggle state.
+- The UI remains in Arabic.
+- Hero text stays Arabic.
+- Cards remain Arabic.
+- Calendar remains Arabic.
+- Sidebar remains Arabic.
+
+This is incorrect.
+
+━━━━━━━━━━━━━━━━━━━━
+REQUIRED FIX
+━━━━━━━━━━━━━━━━━━━━
+
+Implement REAL dynamic multilingual translation across the entire platform.
+
+The language switcher must:
+- instantly translate ALL UI text
+- switch layout direction
+- switch typography
+- update dynamic labels
+- persist selected language
+
+━━━━━━━━━━━━━━━━━━━━
+IMPLEMENT REAL i18n
+━━━━━━━━━━━━━━━━━━━━
+
+Use a proper internationalization system:
+- react-i18next
+OR
+- next-intl
+OR existing i18n framework
+
+Create translation files:
+
+/locales/ar/common.json
+/locales/en/common.json
+
+━━━━━━━━━━━━━━━━━━━━
+TRANSLATE ALL UI CONTENT
+━━━━━━━━━━━━━━━━━━━━
+
+Translate ALL text including:
+
+Dashboard:
+- مرحباً فاطمة
+- منصة البروتوكول الرئاسي
+- منظومة البروتوكول والعمليات الرئاسية الاتحادية
+
+Cards:
+- الزيارات الرسمية
+- الموافقات العاجلة
+- الجاهزية العامة
+- وفد دولي يصل
+
+Calendar:
+- اليوم
+- لا توجد فعاليات
+- الأيام السبعة القادمة
+
+Sidebar:
+- الرئيسية
+- الفعاليات
+- الزيارات
+- الطلبات
+- الأسطول
+- التقارير
+- الإعدادات
+
+AI:
+- suggestions
+- notifications
+- buttons
+- prompts
+
+Everything must dynamically switch languages.
+
+━━━━━━━━━━━━━━━━━━━━
+ENGLISH TRANSLATIONS
+━━━━━━━━━━━━━━━━━━━━
+
+Use professional executive English.
+
+Examples:
+
+"منصة البروتوكول الرئاسي"
+→ "Presidential Protocol Platform"
+
+"منظومة البروتوكول والعمليات الرئاسية الاتحادية"
+→ "Federal Protocol & Executive Operations System"
+
+"الجاهزية العامة"
+→ "Overall Readiness"
+
+"وفد دولي يصل"
+→ "International Delegation Arrival"
+
+Do NOT use robotic translations.
+
+━━━━━━━━━━━━━━━━━━━━
+RTL / LTR SWITCHING
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic mode:
+- RTL
+- sidebar RIGHT
+- right aligned text
+
+English mode:
+- LTR
+- sidebar LEFT
+- left aligned text
+
+The ENTIRE layout should mirror correctly.
+
+━━━━━━━━━━━━━━━━━━━━
+TYPOGRAPHY
+━━━━━━━━━━━━━━━━━━━━
+
+Arabic:
+- elegant Arabic font
+
+English:
+- Playfair or elegant serif headings
+- clean enterprise body font
+
+━━━━━━━━━━━━━━━━━━━━
+DYNAMIC CONTENT
+━━━━━━━━━━━━━━━━━━━━
+
+Dynamic labels must also translate:
+- dates
+- statuses
+- buttons
+- alerts
+- AI responses
+- calendar labels
+- event labels
+
+━━━━━━━━━━━━━━━━━━━━
+PERSISTENCE
+━━━━━━━━━━━━━━━━━━━━
+
+Remember selected language using:
+- localStorage
+OR
+- cookies
+
+When user refreshes:
+Keep the selected language.
+
+━━━━━━━━━━━━━━━━━━━━
+IMPORTANT
+━━━━━━━━━━━━━━━━━━━━
+
+This must become a REAL bilingual system.
+
+NOT:
+- fake toggle
+- visual-only switcher
+- partially translated UI
+- static Arabic text

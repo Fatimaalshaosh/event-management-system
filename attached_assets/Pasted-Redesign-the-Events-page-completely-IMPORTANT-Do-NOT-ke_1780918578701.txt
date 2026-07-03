@@ -1,0 +1,247 @@
+Redesign the Events page completely.
+
+IMPORTANT:
+Do NOT keep the Events page as a simple list only.
+
+The Events page should become a complete event management workspace.
+
+━━━━━━━━━━━━━━━━━━━━
+TOP VIEW SWITCHER
+━━━━━━━━━━━━━━━━━━━━
+
+Add view options at the top:
+
+- السنة
+- الشهر
+- الأسبوع
+- اليوم
+- القائمة
+
+English:
+- Year
+- Month
+- Week
+- Day
+- List
+
+Allow users to switch between views instantly.
+
+━━━━━━━━━━━━━━━━━━━━
+YEAR VIEW
+━━━━━━━━━━━━━━━━━━━━
+
+Show all 12 months.
+
+Requirements:
+- Display months in a grid.
+- Show event indicators.
+- Show event count per month.
+
+When user clicks a month:
+Open Month View.
+
+━━━━━━━━━━━━━━━━━━━━
+MONTH VIEW
+━━━━━━━━━━━━━━━━━━━━
+
+Display a full monthly calendar.
+
+Show:
+- events
+- visits
+- protocol activities
+- approvals
+
+Events should appear inside days.
+
+When user clicks a day:
+Open Day View.
+
+━━━━━━━━━━━━━━━━━━━━
+WEEK VIEW
+━━━━━━━━━━━━━━━━━━━━
+
+Display:
+- 7 days
+- event cards
+- protocol visits
+- delegation activities
+
+Show:
+- title
+- time
+- readiness
+- location
+
+━━━━━━━━━━━━━━━━━━━━
+DAY VIEW
+━━━━━━━━━━━━━━━━━━━━
+
+Show timeline by hour.
+
+Example:
+
+08:00 استقبال وفد
+10:00 اجتماع رسمي
+12:00 مأدبة غداء
+15:00 جلسة تصوير
+
+━━━━━━━━━━━━━━━━━━━━
+LIST VIEW
+━━━━━━━━━━━━━━━━━━━━
+
+For users who prefer lists.
+
+Show:
+
+- Event title
+- Date
+- Location
+- Readiness
+- Status
+- Delegation
+- Priority
+
+━━━━━━━━━━━━━━━━━━━━
+ADVANCED FILTERS
+━━━━━━━━━━━━━━━━━━━━
+
+Add filters:
+
+Event Type:
+- زيارة رسمية
+- استقبال وفد
+- فعالية وطنية
+- فعالية داخلية
+- اجتماع بروتوكول
+- اجتماع تنسيقي
+
+Status:
+- مسودة
+- مؤكد
+- قيد المراجعة
+- عاجل
+- مكتمل
+
+Readiness:
+- جاهز
+- يحتاج متابعة
+- متأخر
+
+Country:
+- France
+- USA
+- Saudi Arabia
+- Japan
+- China
+- UAE
+
+Location:
+- قصر الوطن
+- قصر الرئاسة
+- قاعة الاتحاد
+- المطار
+
+━━━━━━━━━━━━━━━━━━━━
+SMART SEARCH
+━━━━━━━━━━━━━━━━━━━━
+
+Allow search by:
+
+- event name
+- delegation
+- country
+- location
+- VIP name
+- event ID
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT CARDS
+━━━━━━━━━━━━━━━━━━━━
+
+Every event card should display:
+
+- Event Name
+- Date
+- Time
+- Location
+- Delegation Country
+- VIP Level
+- Readiness %
+- Status
+
+Use:
+- elegant status chips
+- readiness indicator
+- luxury cards
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT DETAILS
+━━━━━━━━━━━━━━━━━━━━
+
+When user clicks any event:
+
+Open Event Details Page.
+
+Display:
+
+- Event Overview
+- Timeline
+- Readiness Tracker
+- Guest List
+- Fleet Assignment
+- Hospitality
+- Protocol Notes
+- Security Coordination
+- Documents
+- AI Recommendations
+
+━━━━━━━━━━━━━━━━━━━━
+AI INTEGRATION
+━━━━━━━━━━━━━━━━━━━━
+
+Inside the Events page:
+
+Add AI-powered suggestions.
+
+Examples:
+
+- اكتشف المخاطر
+- رفع الجاهزية
+- إنشاء جدول زمني
+- تجهيز إحاطة بروتوكولية
+- اقتراح هدايا للوفد
+
+Suggestions should appear dynamically based on the selected event.
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN STYLE
+━━━━━━━━━━━━━━━━━━━━
+
+Keep:
+
+- Arabic RTL
+- English LTR
+- Luxury UAE government style
+- Executive spacing
+- Beige color palette
+
+Colors:
+
+#FCF7EE
+#AD8965
+#95837A
+#67835C
+#97B2B1
+#EBCCAD
+
+The Events page should feel like:
+
+- Apple Calendar
+- Microsoft Outlook Calendar
+- Executive Protocol Operations Center
+
+NOT:
+- simple list page
+- static table
+- basic admin panel

@@ -1,0 +1,316 @@
+Redesign and refactor the ENTIRE current system UI into a luxury Arabic RTL UAE Presidential Protocol & Events Management Platform.
+
+IMPORTANT:
+This is NOT a simple dashboard redesign.
+Transform the whole experience into:
+- Modern government-grade software
+- Luxury executive platform
+- Presidential operations center
+- Behance/Dribbble quality UI
+- Calm elegant enterprise system
+
+━━━━━━━━━━━━━━━━━━━━
+GLOBAL REQUIREMENTS
+━━━━━━━━━━━━━━━━━━━━
+
+The entire system MUST be:
+- Arabic-first
+- RTL-first
+- Executive-level
+- Minimal
+- Elegant
+- Human-centered
+- Spacious
+- Easy to use
+- Production-grade
+
+IMPORTANT RTL RULE:
+ALL Arabic content MUST start from the RIGHT side.
+- Sidebar on RIGHT
+- Text aligned RIGHT
+- Proper RTL spacing
+- Proper Arabic layout hierarchy
+- Never use LTR structure for Arabic pages
+
+Use:
+dir="rtl"
+
+globally across the whole app.
+
+━━━━━━━━━━━━━━━━━━━━
+DESIGN SYSTEM
+━━━━━━━━━━━━━━━━━━━━
+
+Use ONLY these colors:
+
+- Medium Wood #AD8965
+- Castle Hill #95837A
+- Mangrove #67835C
+- Calm Teal #97B2B1
+- Floral White #FCF7EE
+- Sunset #EBCCAD
+
+Visual direction:
+- Soft beige luxury UI
+- Warm executive tones
+- Elegant hierarchy
+- Thin borders
+- Rounded corners
+- Very soft shadows
+- Minimal composition
+- Large whitespace
+- Calm interface
+
+━━━━━━━━━━━━━━━━━━━━
+TYPOGRAPHY
+━━━━━━━━━━━━━━━━━━━━
+
+Titles:
+- Elegant serif style like Playfair Display
+
+Body:
+- Modern soft Arabic typography
+- Light weight
+- Executive tone
+- Elegant spacing
+
+Subtitles:
+- Light italic style
+
+━━━━━━━━━━━━━━━━━━━━
+PATTERNS & ICONS
+━━━━━━━━━━━━━━━━━━━━
+
+Patterns:
+- Subtle Emirati geometric motifs
+- Diamond/chess textile-inspired patterns
+- Very soft and minimal
+
+Icons:
+- Thin line icons ONLY
+- Minimal style
+- Elegant spacing
+
+Charts:
+- Minimal muted charts
+- No heavy borders
+- Soft executive visualization
+
+━━━━━━━━━━━━━━━━━━━━
+REMOVE OLD DESIGN
+━━━━━━━━━━━━━━━━━━━━
+
+IMPORTANT:
+Remove all:
+- Generic admin styles
+- ERP-style layouts
+- Crowded widgets
+- Harsh colors
+- Heavy shadows
+- Default template feeling
+- Sharp edges
+- Overloaded analytics
+
+The new experience must feel:
+- Premium
+- Calm
+- Spacious
+- Luxury government software
+
+━━━━━━━━━━━━━━━━━━━━
+SIDEBAR
+━━━━━━━━━━━━━━━━━━━━
+
+Move sidebar to the RIGHT.
+
+Create elegant navigation with:
+- الرئيسية
+- الفعاليات
+- الزيارات الرسمية
+- الموافقات
+- البروتوكول
+- الضيافة والمراسم
+- كبار الشخصيات
+- الدعوات والتسجيل
+- التقارير
+- التقويم
+- المستندات
+- الإعدادات
+
+Sidebar style:
+- Minimal
+- Elegant hover states
+- Thin line icons
+- Active item in Mangrove
+- No heavy backgrounds
+
+━━━━━━━━━━━━━━━━━━━━
+TOP BAR
+━━━━━━━━━━━━━━━━━━━━
+
+Create modern executive topbar:
+- Smart search
+- Notifications
+- User profile
+- Date
+- Minimal quick actions
+
+User profile:
+"فاطمة درويش"
+"مديرة البروتوكول"
+
+━━━━━━━━━━━━━━━━━━━━
+HERO SECTION
+━━━━━━━━━━━━━━━━━━━━
+
+Replace current hero/banner completely.
+
+Use:
+- Beige Qasr Al Watan inspired palace image
+- Warm ceremonial atmosphere
+- Elegant architecture
+- Soft golden lighting
+- Calm luxury aesthetic
+
+NO:
+- Dark tech banners
+- Generic abstract backgrounds
+- Heavy gradients
+
+Hero content:
+"مرحباً فاطمة"
+"نظرة عامة على فعالياتك اليوم"
+
+Add elegant mini info cards:
+- Date
+- Abu Dhabi weather
+- Prayer time
+
+Prayer card:
+- Thin mosque icon
+- Text:
+  "الصلاة القادمة"
+  "المغرب 05:02 م"
+
+━━━━━━━━━━━━━━━━━━━━
+SMART DASHBOARD
+━━━━━━━━━━━━━━━━━━━━
+
+Create elegant smart dashboard sections:
+
+1. Executive summary cards
+- الفعاليات القادمة
+- الزيارات الرسمية
+- الطلبات قيد المعالجة
+- الموافقات المعلقة
+
+2. Smart actions
+- إنشاء فعالية
+- طلب زيارة رسمية
+- مراجعة الموافقات
+- تصدير تقرير
+- إدارة كبار الشخصيات
+- QR Check-in
+
+3. Upcoming visits
+4. Calendar & schedule
+5. Tasks & approvals
+6. AI assistant
+7. Event readiness tracker
+8. Quick export center
+
+━━━━━━━━━━━━━━━━━━━━
+AI ASSISTANT
+━━━━━━━━━━━━━━━━━━━━
+
+IMPORTANT:
+DO NOT create:
+- chatbot popup
+- floating assistant
+- separate AI page
+
+Integrate AI naturally as elegant dashboard card.
+
+Card title:
+"المساعد الذكي"
+
+Show:
+- Smart recommendations
+- Delayed tasks
+- Readiness alerts
+- Report suggestions
+
+Example:
+- يوجد تأخير في تجهيز الدعوات
+- تم تجهيز تقرير الفعالية الأخيرة
+- زيارة رسمية غداً تحتاج تأكيد البروتوكول
+
+━━━━━━━━━━━━━━━━━━━━
+EVENT READINESS TRACKER
+━━━━━━━━━━━━━━━━━━━━
+
+Create:
+"جاهزية الفعالية"
+
+Style:
+- Premium executive monitoring UI
+- Elegant readiness rings
+- Minimal progress bars
+- Calm visualization
+
+Track:
+- البروتوكول
+- الضيافة
+- النقل
+- الأمن
+- الدعوات
+- الإعلام
+- كبار الشخصيات
+
+Statuses:
+- مكتمل
+- جاهز
+- بحاجة متابعة
+- متأخر
+- عالي الخطورة
+
+Add AI insights:
+- النقل بحاجة اعتماد
+- جميع متطلبات البروتوكول مكتملة
+
+━━━━━━━━━━━━━━━━━━━━
+QUICK EXPORT
+━━━━━━━━━━━━━━━━━━━━
+
+Add:
+"تصدير سريع"
+
+Include:
+- PDF
+- Excel
+- CSV
+- Event reports
+- Attendance reports
+- Visit reports
+
+Style:
+- Minimal elegant export cards
+- Thin icons
+- Soft beige buttons
+
+━━━━━━━━━━━━━━━━━━━━
+FINAL EXPERIENCE
+━━━━━━━━━━━━━━━━━━━━
+
+The ENTIRE system should feel like:
+- UAE presidential digital platform
+- Luxury enterprise ecosystem
+- Calm executive workspace
+- Modern protocol management center
+- Production-grade government software
+
+Quality target:
+Apple enterprise spacing + UAE presidential luxury aesthetic.
+
+IMPORTANT:
+Apply these redesign principles across ALL pages and ALL components in the system — not only the homepage.
