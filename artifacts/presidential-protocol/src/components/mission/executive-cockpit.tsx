@@ -4,12 +4,13 @@ import { Gauge, AlertTriangle, CircleCheck, Sparkles, ArrowRightCircle, ShieldAl
 import { DEPARTMENT_BY_KEY } from "@/components/contacts/org-structure";
 import type { Mission } from "@/lib/mission";
 import { ExecutiveAvatar } from "@/components/identity";
-import { departmentHead } from "@/lib/identity";
+import { departmentHead, personName, usePeopleVersion } from "@/lib/identity";
 import { C, Pill, LEVEL_COLOR } from "./panel";
 
 export function ExecutiveCockpit({ mission }: { mission: Mission }) {
   const { t } = useTranslation();
   const { lang } = useLanguage();
+  usePeopleVersion(); // refresh owner names when Contacts (canonical people) load
   const k = mission.cockpit;
   const L = <T extends { en: string; ar: string }>(x: T) => (lang === "en" ? x.en : x.ar);
   const ring = 2 * Math.PI * 34;
@@ -89,7 +90,7 @@ export function ExecutiveCockpit({ mission }: { mission: Mission }) {
                   <ExecutiveAvatar identity={departmentHead(p.deptKey) ?? { name: L(p.owner), department: p.deptKey }} size="sm" />
                   <div className="min-w-0 flex-1">
                     <p className="text-xs font-medium text-foreground truncate">{t(`contacts.departments.${p.deptKey}`)}</p>
-                    <p className="text-[10px] text-muted-foreground truncate">{L(p.owner)}{p.waitingOn ? ` · ${L(p.waitingOn)}` : ""}</p>
+                    <p className="text-[10px] text-muted-foreground truncate">{personName({ name: p.owner.en, nameAr: p.owner.ar }, lang)}{p.waitingOn ? ` · ${L(p.waitingOn)}` : ""}</p>
                   </div>
                   <span className="flex items-center gap-1 text-[10px] shrink-0" style={{ color: p.availability === "available" ? C.mangrove : C.sunset }}>
                     <span className="w-2 h-2 rounded-full" style={{ background: p.availability === "available" ? C.mangrove : C.sunset }} /> {L(p.eta)}

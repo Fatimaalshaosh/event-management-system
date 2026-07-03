@@ -19,16 +19,30 @@ export function initPortraitProvider(): void {
 /* Static demo portraits — for the backend-less Vercel build. Resolves each
  * person's avatar directly to a bundled image (from the employeeId→image map)
  * with no /api call. Overrides any provider set above, so the deployed demo
- * shows the real portraits without a backend. People with no bundled image
- * (e.g. directory employees keyed `EMP-###`, which have no contact photo asset)
- * fall back to the same deterministic offline vector portrait the app uses when
- * a photo fails to load — never an empty `src`, so no broken-image placeholders
- * anywhere (mission engine, event detail, ops room, logistics, tasks, …). */
-export function initStaticDemoPortraits(map: Record<string, string>): void {
+ * shows the real portraits without a backend.
+ *
+ * Resolution order for each person:
+ *   1. `idMap` by contactId / employeeId — the primary key Contacts uses.
+ *   2. `nameMap` by normalized name — bridges identities that share a person
+ *      but use a different id-space (e.g. the Mission Engine's directory
+ *      employees keyed `EMP-###`, whose name matches a Contacts `nameEn`), so
+ *      they resolve to the SAME deployed portrait Contacts already shows.
+ *   3. Deterministic offline vector portrait — last resort for a person who has
+ *      no contact photo at all, so `src` is never empty (no broken images). */
+const normalizeName = (s: string | undefined): string =>
+  (s ?? "").toLowerCase().trim().replace(/\s+/g, " ");
+
+export function initStaticDemoPortraits(
+  idMap: Record<string, string>,
+  nameMap: Record<string, string> = {},
+): void {
   const provider: PortraitProvider = {
     id: "static-demo",
     kind: "sync",
-    generate: (r) => map[String(r.employeeId ?? r.key ?? "")] || buildPlaceholderDataUri(r),
+    generate: (r) =>
+      idMap[String(r.employeeId ?? r.key ?? "")] ||
+      nameMap[normalizeName(r.name)] ||
+      buildPlaceholderDataUri(r),
   };
   portraitService.setProvider(provider);
 }

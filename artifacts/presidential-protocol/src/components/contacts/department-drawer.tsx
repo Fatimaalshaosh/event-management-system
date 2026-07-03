@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/i18n/language-context";
 import type { Contact } from "@workspace/api-client-react";
 import { X, Users, Workflow, CircleDot, UserCog, ShieldCheck, ListChecks } from "lucide-react";
+import { personName, usePeopleVersion } from "@/lib/identity";
 import { C, ContactAvatar, nameOf } from "./contact-shared";
 import { type Department, templatesForDept, availabilityColor, parseRoles } from "./org-structure";
 
@@ -32,10 +33,11 @@ export function DepartmentDrawer({ dept, members, onClose, onOpenUser }: {
 }) {
   const { t } = useTranslation();
   const { lang, dir } = useLanguage();
+  usePeopleVersion();
   if (!dept) return null;
 
   const Icon = dept.icon;
-  const head = lang === "en" ? dept.headEn : dept.headAr;
+  const head = personName({ name: dept.headEn, nameAr: dept.headAr }, lang);
 
   return createPortal(
     <div className="fixed inset-0 z-[100]">

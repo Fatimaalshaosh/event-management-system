@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/i18n/language-context";
 import { Users, Workflow, CircleDot, UserCog } from "lucide-react";
+import { personName, usePeopleVersion } from "@/lib/identity";
 import { C } from "./contact-shared";
 import type { Department } from "./org-structure";
 
@@ -11,8 +12,9 @@ export function DepartmentCard({ dept, userCount, onOpen }: {
 }) {
   const { t } = useTranslation();
   const { lang } = useLanguage();
+  usePeopleVersion();
   const Icon = dept.icon;
-  const head = lang === "en" ? dept.headEn : dept.headAr;
+  const head = personName({ name: dept.headEn, nameAr: dept.headAr }, lang);
 
   return (
     <button

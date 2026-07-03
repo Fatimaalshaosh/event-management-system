@@ -7,6 +7,7 @@ import { initPortraitProvider, initStaticDemoPortraits } from "./lib/identity";
 import { setDemoFallback } from "@workspace/api-client-react";
 import { demoFallback } from "./demo/demo-fallback";
 import portraitMap from "./demo/portrait-map.json";
+import portraitNameMap from "./demo/portrait-name-map.json";
 
 // Off by default; activates the external portrait provider only when VITE_PORTRAITS is set.
 initPortraitProvider();
@@ -16,7 +17,7 @@ initPortraitProvider();
 // Production-only, so local dev always uses the real API + backend portraits.
 if (import.meta.env.PROD) {
   setDemoFallback(demoFallback);
-  initStaticDemoPortraits(portraitMap);
+  initStaticDemoPortraits(portraitMap, portraitNameMap);
 
   // Demo UX: each new browser session should start at the login page, so the
   // access flow is always shown on Vercel. We clear any persisted auth once per

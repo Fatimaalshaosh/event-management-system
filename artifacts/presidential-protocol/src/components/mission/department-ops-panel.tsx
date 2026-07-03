@@ -6,7 +6,7 @@ import { X, Users, Workflow, AlertTriangle, CheckSquare, FileText, Library, List
 import { DEPARTMENT_BY_KEY, type DeptKey } from "@/components/contacts/org-structure";
 import { buildDepartmentDetail, type Bi, type Mission } from "@/lib/mission";
 import { ExecutiveAvatar } from "@/components/identity";
-import { departmentHead, type Presence } from "@/lib/identity";
+import { departmentHead, personName, personRole, usePeopleVersion, type Presence } from "@/lib/identity";
 import { C, Pill, STATUS_COLOR } from "./panel";
 
 const toPresence = (a: string): Presence => (a === "available" ? "available" : a === "busy" ? "busy" : "leave");
@@ -27,6 +27,7 @@ export function DepartmentOpsPanel({ mission, deptKey, onClose }: {
 }) {
   const { t } = useTranslation();
   const { lang, dir } = useLanguage();
+  usePeopleVersion(); // refresh names/titles when Contacts (canonical people) load
   const L = (x: Bi) => (lang === "en" ? x.en : x.ar);
   if (!deptKey) return null;
   const d = buildDepartmentDetail(mission, deptKey as DeptKey);
@@ -56,7 +57,7 @@ export function DepartmentOpsPanel({ mission, deptKey, onClose }: {
             <div>
               <h2 className="text-lg font-bold text-foreground" style={{ fontFamily: "Georgia, serif" }}>{t(`contacts.departments.${d.deptKey}`)}</h2>
               <p className="flex items-center gap-2 text-[11px] text-muted-foreground mt-0.5">
-                {t("missionEngine.head")}: {L(d.head)} · <Pill label={t(`missionEngine.status.${d.status}`)} color={STATUS_COLOR[d.status] ?? C.warmGray} soft /> · {d.readiness}%
+                {t("missionEngine.head")}: {personName({ name: d.head.en, nameAr: d.head.ar }, lang)} · <Pill label={t(`missionEngine.status.${d.status}`)} color={STATUS_COLOR[d.status] ?? C.warmGray} soft /> · {d.readiness}%
               </p>
             </div>
           </div>
@@ -68,7 +69,7 @@ export function DepartmentOpsPanel({ mission, deptKey, onClose }: {
               {d.employees.map((e, i) => (
                 <div key={i} className="flex items-center gap-2.5 rounded-lg border px-2.5 py-1.5" style={{ borderColor: C.border }}>
                   <ExecutiveAvatar identity={{ name: e.name.en, nameAr: e.name.ar, department: d.deptKey, presence: toPresence(e.availability) }} size="sm" />
-                  <div className="flex-1 min-w-0"><p className="text-xs font-medium text-foreground truncate">{L(e.name)}</p><p className="text-[10px] text-muted-foreground truncate">{L(e.role)}</p></div>
+                  <div className="flex-1 min-w-0"><p className="text-xs font-medium text-foreground truncate">{personName({ name: e.name.en, nameAr: e.name.ar }, lang)}</p><p className="text-[10px] text-muted-foreground truncate">{personRole({ name: e.name.en, role: e.role.en, roleAr: e.role.ar }, lang)}</p></div>
                   <span className="flex items-center gap-1 text-[10px] shrink-0" style={{ color: e.availability === "available" ? C.mangrove : C.sunset }}>
                     <span className="w-2 h-2 rounded-full" style={{ background: e.availability === "available" ? C.mangrove : C.sunset }} />
                     {t(`missionEngine.deptPanel.${e.availability}`)}

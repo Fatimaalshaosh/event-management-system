@@ -4,6 +4,7 @@ import { badgeFor } from "./badges";
 import { buildCoverDataUri } from "./cover";
 import { buildPortraitIdentity } from "./portrait-identity";
 import { portraitService } from "./service";
+import { resolvePerson } from "./people-source";
 import type { Gender, IdentityInput, Presence, ResolvedIdentity } from "./types";
 
 function hash(s: string): number {
@@ -18,8 +19,26 @@ function initialsOf(name: string): string {
   return ((p[0]?.[0] ?? "") + (p[1]?.[0] ?? "")).toUpperCase();
 }
 
-/** Resolve any person into one deterministic, reusable executive identity. */
-export function resolveIdentity(input: IdentityInput): ResolvedIdentity {
+/** Resolve any person into one deterministic, reusable executive identity.
+ *
+ * Contacts is the single source of truth: if the person exists in Contacts
+ * (by contactId, else by normalized name) their canonical id / name / Arabic
+ * name / title / department override the caller-supplied values, so the same
+ * person shows the same identity (and portrait) everywhere. People absent from
+ * Contacts keep their provided (synthetic/demo) values. */
+export function resolveIdentity(raw: IdentityInput): ResolvedIdentity {
+  const canonical = resolvePerson({ id: raw.id, name: raw.name });
+  const input: IdentityInput = canonical
+    ? {
+        ...raw,
+        id: canonical.id ?? raw.id,
+        name: canonical.name || raw.name,
+        nameAr: canonical.nameAr ?? raw.nameAr,
+        role: canonical.title ?? raw.role,
+        roleAr: canonical.titleAr ?? raw.roleAr,
+        department: canonical.department ?? raw.department,
+      }
+    : raw;
   const nationality = (input.nationality || "AE").toUpperCase();
   const gender: Gender = input.gender ?? "male"; // explicit safe default — never name-inferred
   const employeeId = input.id != null ? String(input.id) : undefined;

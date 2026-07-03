@@ -2,6 +2,7 @@ import { palette } from "@/theme";
 import { Layout } from "@/components/layout";
 import { useListVips, useCreateVip } from "@workspace/api-client-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import { ExecutiveAvatar } from "@/components/identity";
 import { Crown, Search, Plus, Flag, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -192,7 +193,6 @@ export default function Vips() {
               const displayName = (lang === "en" ? (vip.name || vip.nameAr) : (vip.nameAr || vip.name)) ?? "";
               const displayTitle = lang === "en" ? (vip.title || vip.titleAr) : (vip.titleAr || vip.title);
               const displayCountry = lang === "en" ? (vip.country || vip.countryAr) : (vip.countryAr || vip.country);
-              const initials = displayName.slice(0, 2);
               return (
                 <motion.div
                   key={vip.id}
@@ -203,12 +203,14 @@ export default function Vips() {
                   transition={{ delay: idx * 0.04 }}
                 >
                   <div className="flex items-start gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shrink-0"
-                      style={{ background: T.mangrove + "18", color: T.mangrove }}
-                    >
-                      {initials}
-                    </div>
+                    {/* Shared identity provider: a VIP who exists in Contacts resolves to
+                        the same real portrait; otherwise a deterministic placeholder. */}
+                    <ExecutiveAvatar
+                      identity={{ name: vip.name || vip.nameAr || "", nameAr: vip.nameAr ?? undefined }}
+                      size={48}
+                      hover={false}
+                      showPresence={false}
+                    />
                     <div className="flex-1 min-w-0 text-end">
                       <p className="font-semibold text-foreground truncate">{displayName}</p>
                       <p className="text-xs mt-0.5 font-medium" style={{ color: T.mangrove }}>

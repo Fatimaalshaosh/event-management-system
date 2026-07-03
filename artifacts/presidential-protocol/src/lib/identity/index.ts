@@ -3,6 +3,7 @@ export * from "./portrait";
 export * from "./cover";
 export * from "./badges";
 export * from "./service";
+export * from "./people-source";
 export * from "./resolver";
 export * from "./hooks";
 export * from "./current-user";
