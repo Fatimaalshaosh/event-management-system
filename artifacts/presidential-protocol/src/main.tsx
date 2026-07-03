@@ -17,6 +17,21 @@ initPortraitProvider();
 if (import.meta.env.PROD) {
   setDemoFallback(demoFallback);
   initStaticDemoPortraits(portraitMap);
+
+  // Demo UX: each new browser session should start at the login page, so the
+  // access flow is always shown on Vercel. We clear any persisted auth once per
+  // browser session (sessionStorage is per-tab and cleared when the tab closes),
+  // so signing in still keeps the user logged in across refreshes within that
+  // session, while a fresh visit / new tab returns to login.
+  try {
+    if (!sessionStorage.getItem("pp_demo_session")) {
+      localStorage.removeItem("pp_auth");
+      localStorage.removeItem("pp_remember");
+      sessionStorage.setItem("pp_demo_session", "1");
+    }
+  } catch {
+    /* storage unavailable — ignore */
+  }
 }
 
 createRoot(document.getElementById("root")!).render(
