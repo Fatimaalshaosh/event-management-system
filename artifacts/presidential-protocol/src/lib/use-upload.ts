@@ -27,6 +27,10 @@ export function useUpload(options: UseUploadOptions = {}) {
       setIsUploading(true);
       setError(null);
       try {
+        if (import.meta.env.PROD) {
+          setError(new Error("File uploads are unavailable in the static demo."));
+          return null;
+        }
         const urlRes = await fetch(`${basePath}/uploads/request-url`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },

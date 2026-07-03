@@ -44,6 +44,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useRegisterPageContext } from "@/ai/page-context";
 import { ContextualCopilot } from "@/ai/contextual-copilot";
 import { ExecutiveReportModal, type ExecutiveReportData } from "@/components/executive-report";
+import { IS_DEMO, demoAssistantReply } from "@/demo/demo-ai";
 import { EventFavoriteButton } from "@/components/events/event-card";
 import { OverviewTab } from "@/components/event-command/overview-tab";
 import { InvitationsTab } from "@/components/event-command/invitations-tab";
@@ -136,6 +137,7 @@ export default function EventDetail() {
       })),
     };
     try {
+      if (IS_DEMO) { setReportData(demoAssistantReply(lang)); return; }
       const res = await fetch("/api/ai-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import { T, type Lang, evName, evCountry, eventId } from "./event-utils";
 import { useToast } from "@/hooks/use-toast";
+import { IS_DEMO, demoAssistantReply } from "@/demo/demo-ai";
 import {
   ExecutiveReportModal,
   type ExecutiveReportData,
@@ -296,6 +297,7 @@ export function ReportCenter({ events, lang }: { events: Event[]; lang: Lang }) 
         : `Prepare an executive report titled "${typeLabel}" for the period ${periodText}. Events count: ${inRange.length}.\nEvents:\n${names}`;
     const title = buildTitle();
     try {
+      if (IS_DEMO) { setReportTitle(title); setReportData(demoAssistantReply(lang)); setReportOpen(true); return; }
       const res = await fetch("/api/ai-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

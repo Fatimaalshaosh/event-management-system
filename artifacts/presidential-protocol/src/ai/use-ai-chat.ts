@@ -2,6 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLanguage } from "@/i18n/language-context";
 import type { AssistantReply, ChatMessage, PageContext } from "./types";
+import { IS_DEMO, demoAssistantReply } from "@/demo/demo-ai";
 
 type Options = {
   pageContext?: PageContext | null;
@@ -25,6 +26,7 @@ export function useAiChat({ pageContext, autoBrief = false }: Options = {}) {
     setBriefLoading(true);
     (async () => {
       try {
+        if (IS_DEMO) { if (!cancelled) setDailyBrief(demoAssistantReply(lang)); return; }
         const res = await fetch(`/api/ai-assistant/daily-brief?lang=${lang}`);
         if (!res.ok) throw new Error("brief failed");
         const data = (await res.json()) as AssistantReply;
@@ -49,6 +51,11 @@ export function useAiChat({ pageContext, autoBrief = false }: Options = {}) {
       setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
       setLoading(true);
       try {
+        if (IS_DEMO) {
+          const data = demoAssistantReply(lang, trimmed);
+          setMessages((prev) => [...prev, { role: "assistant", reply: data, reportTitle: rTitle }]);
+          return data;
+        }
         const ctx = ctxRef.current;
         const body: Record<string, unknown> = { message: trimmed, lang };
         if (ctx) {

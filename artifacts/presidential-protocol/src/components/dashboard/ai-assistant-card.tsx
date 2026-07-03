@@ -1,5 +1,6 @@
 
 import type { AssistantReply, ChatMessage } from "@/ai/types";
+import { IS_DEMO, demoAssistantReply } from "@/demo/demo-ai";
 
 import { useGetDashboardSummary } from "@workspace/api-client-react";
 
@@ -290,6 +291,7 @@ export function AiAssistantCard() {
     let cancelled = false;
     (async () => {
       try {
+        if (IS_DEMO) { if (!cancelled) setDailyBrief(demoAssistantReply(lang)); return; }
         const res = await fetch(`/api/ai-assistant/daily-brief?lang=${lang}`);
         if (!res.ok) throw new Error("brief failed");
         const data = (await res.json()) as AssistantReply;
@@ -312,6 +314,12 @@ export function AiAssistantCard() {
     setMessages((prev) => [...prev, { role: "user", text: trimmed }]);
     setLoading(true);
     try {
+      if (IS_DEMO) {
+        const data = demoAssistantReply(lang, trimmed);
+        setMessages((prev) => [...prev, { role: "assistant", reply: data, reportTitle: rTitle }]);
+        if (opts?.autoOpenReport && (data.sections.length > 0 || data.risks.length > 0)) openReport(rTitle, data);
+        return;
+      }
       const res = await fetch("/api/ai-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },

@@ -1,4 +1,5 @@
 import { portraitService, createRemotePortraitProvider } from "./service";
+import type { PortraitProvider } from "./types";
 
 /* Opt-in activation of an external portrait provider.
  *
@@ -12,4 +13,17 @@ export function initPortraitProvider(): void {
   if (mode === "openai" || mode === "remote") {
     portraitService.setProvider(createRemotePortraitProvider("/api/portraits/generate"));
   }
+}
+
+/* Static demo portraits — for the backend-less Vercel build. Resolves each
+ * person's avatar directly to a bundled image (from the employeeId→image map)
+ * with no /api call. Overrides any provider set above, so the deployed demo
+ * shows the real portraits without a backend. */
+export function initStaticDemoPortraits(map: Record<string, string>): void {
+  const provider: PortraitProvider = {
+    id: "static-demo",
+    kind: "sync",
+    generate: (r) => map[String(r.employeeId ?? r.key ?? "")] ?? "",
+  };
+  portraitService.setProvider(provider);
 }
