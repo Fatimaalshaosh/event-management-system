@@ -322,6 +322,15 @@ async function parseSuccessBody(
   }
 }
 
+/** A fallback that supplies data when the network/API is unavailable — used by
+ * the static demo deployment (no backend). Return `undefined` to skip the
+ * fallback and let the original error propagate. */
+export type DemoFallback = (method: string, url: string, body?: unknown) => unknown;
+let _demoFallback: DemoFallback | undefined;
+export function setDemoFallback(fn: DemoFallback | undefined): void {
+  _demoFallback = fn;
+}
+
 export async function customFetch<T = unknown>(
   input: RequestInfo | URL,
   options: CustomFetchOptions = {},
@@ -360,9 +369,23 @@ export async function customFetch<T = unknown>(
 
   const requestInfo = { method, url: resolveUrl(input) };
 
-  const response = await fetch(input, { ...init, method, headers });
+  let response: Response;
+  try {
+    response = await fetch(input, { ...init, method, headers });
+  } catch (networkError) {
+    // No backend reachable (e.g. static demo deploy): serve demo data if any.
+    if (_demoFallback) {
+      const demo = _demoFallback(method, requestInfo.url, init.body);
+      if (demo !== undefined) return demo as T;
+    }
+    throw networkError;
+  }
 
   if (!response.ok) {
+    if (_demoFallback) {
+      const demo = _demoFallback(method, requestInfo.url, init.body);
+      if (demo !== undefined) return demo as T;
+    }
     const errorData = await parseErrorBody(response, method);
     throw new ApiError(response, errorData, requestInfo);
   }
