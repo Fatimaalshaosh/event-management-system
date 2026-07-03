@@ -1,4 +1,5 @@
 import { portraitService, createRemotePortraitProvider } from "./service";
+import { buildPlaceholderDataUri } from "./placeholder";
 import type { PortraitProvider } from "./types";
 
 /* Opt-in activation of an external portrait provider.
@@ -18,12 +19,16 @@ export function initPortraitProvider(): void {
 /* Static demo portraits — for the backend-less Vercel build. Resolves each
  * person's avatar directly to a bundled image (from the employeeId→image map)
  * with no /api call. Overrides any provider set above, so the deployed demo
- * shows the real portraits without a backend. */
+ * shows the real portraits without a backend. People with no bundled image
+ * (e.g. directory employees keyed `EMP-###`, which have no contact photo asset)
+ * fall back to the same deterministic offline vector portrait the app uses when
+ * a photo fails to load — never an empty `src`, so no broken-image placeholders
+ * anywhere (mission engine, event detail, ops room, logistics, tasks, …). */
 export function initStaticDemoPortraits(map: Record<string, string>): void {
   const provider: PortraitProvider = {
     id: "static-demo",
     kind: "sync",
-    generate: (r) => map[String(r.employeeId ?? r.key ?? "")] ?? "",
+    generate: (r) => map[String(r.employeeId ?? r.key ?? "")] || buildPlaceholderDataUri(r),
   };
   portraitService.setProvider(provider);
 }
